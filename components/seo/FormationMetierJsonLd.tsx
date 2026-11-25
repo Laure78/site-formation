@@ -96,63 +96,6 @@ function stripHtml(text: string): string {
     .trim();
 }
 
-function buildPersonLaureNode() {
-  return {
-    '@type': 'Person',
-    '@id': PERSON_LAURE_ID,
-    name: 'Laure Olivié',
-    jobTitle: 'Formatrice IA pour les pros du BTP',
-    url: `${SITE_BASE}/a-propos`,
-    worksFor: { '@id': ORGANIZATION_ID },
-    sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
-  };
-}
-
-function buildOrganizationNode() {
-  return {
-    '@type': ['Organization', 'EducationalOrganization'],
-    '@id': ORGANIZATION_ID,
-    name: SCHEMA_ORGANIZATION_OFC.name,
-    legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
-    url: SITE_BASE,
-    logo: {
-      '@type': 'ImageObject',
-      url: schemaLogoUrl(),
-    },
-    email: SCHEMA_CONTACT.email,
-    vatID: SCHEMA_CONTACT.vatId,
-    taxID: SCHEMA_CONTACT.siretDigits,
-    founder: { '@id': PERSON_LAURE_ID },
-    identifier: [
-      (() => {
-        const id = siteProviderIdentifierSchema();
-        return {
-          '@type': 'PropertyValue',
-          propertyID: id.name,
-          value: id.value,
-        };
-      })(),
-      {
-        '@type': 'PropertyValue',
-        propertyID: 'NDA',
-        value: SCHEMA_CONTACT.nda,
-        description:
-          "Numéro de Déclaration d'Activité enregistré auprès de la DREETS Île-de-France",
-      },
-    ],
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: SCHEMA_GEO.streetAddress,
-      postalCode: SCHEMA_GEO.postalCode,
-      addressLocality: SCHEMA_GEO.addressLocality,
-      addressRegion: SCHEMA_GEO.addressRegion,
-      addressCountry: SCHEMA_GEO.addressCountry,
-    },
-    hasCredential: buildQualiopiCredentialSchema(),
-    sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
-  };
-}
-
 function buildServiceNode(params: {
   pageUrl: string;
   metierLabel: string;
@@ -293,8 +236,6 @@ export function FormationMetierJsonLd({
     catalogue?.niveau === 1 ? 'Beginner' : catalogue ? 'Advanced' : level;
 
   const graph: object[] = [
-    buildOrganizationNode(),
-    buildPersonLaureNode(),
     buildServiceNode({
       pageUrl,
       metierLabel,

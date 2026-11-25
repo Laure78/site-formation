@@ -21,9 +21,7 @@ export const BLOG_CLAUDE_MOE_ARTICLE_JSON_LD = {
     sameAs: [SITE_LINKEDIN_PROFILE_URL || SCHEMA_LINKEDIN_PROFILE_URL],
   },
   publisher: {
-    '@type': 'EducationalOrganization',
-    name: SITE.raisonSociale,
-    url: SCHEMA_PUBLIC_SITE_URL,
+    '@id': `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}/#organization`,
   },
   mainEntityOfPage: CANONICAL,
 } as const;

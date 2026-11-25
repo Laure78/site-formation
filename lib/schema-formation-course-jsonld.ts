@@ -3,12 +3,7 @@
  * Présentiel uniquement (Onsite), zone Île-de-France, durée 4 h, intra-entreprise.
  */
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
-import {
-  SITE,
-  SITE_AREA_SERVED_LABEL,
-  siteProviderIdentifierSchema,
-  siteSchemaOrganizationId,
-} from '@/lib/site-config';
+import { SITE, SITE_AREA_SERVED_LABEL, siteSchemaOrganizationId } from '@/lib/site-config';
 
 export const FORMATION_COURSE_DURATION_ISO = 'PT4H';
 /** Schema.org / Google — présentiel (jamais « online »). */

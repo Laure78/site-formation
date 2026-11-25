@@ -67,7 +67,7 @@ type Props = {
 };
 
 /**
- * Template de référence des fiches formation catalogue (UX type GERESO).
+ * Template de référence des fiches formation catalogue (UX type fiche programme pro).
  * Contenu = `CatalogueFormationPageContent` + `data/formations`.
  */
 export async function TrainingPageTemplate({

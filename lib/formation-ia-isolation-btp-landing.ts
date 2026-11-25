@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-isolation-btp` — entreprise d’isolation (ITI, ITE, combles…).
  * Intention distincte de carrelage (relevés / devis pose) et plâtrerie (cloisons / interfaces).
@@ -193,13 +194,7 @@ export function buildIsolationBtpCourseJsonLd(): Record<string, unknown> {
       organizationId: `${base}/#organization`,
       instructorName: SCHEMA_PERSON_LAURE.name,
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,

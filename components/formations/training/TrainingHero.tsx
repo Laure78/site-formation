@@ -53,7 +53,7 @@ type Props = {
   /** Note sous les CTA (financement, délai réponse). */
   ctaNote?: ReactNode;
   showQualiopiInfoLink?: boolean;
-  /** Encadré Inter/Intra sticky (desktop) — type fiche catalogue GERESO-like. */
+  /** Encadré Inter/Intra sticky (desktop) — type fiche catalogue programme. */
   commercialAside?: ReactNode;
   /** Masquer les CTA hero sur lg quand l’encadré latéral les reprend. */
   hideHeroCtasFromLg?: boolean;

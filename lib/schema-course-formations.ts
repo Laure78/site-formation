@@ -206,20 +206,6 @@ export function getFormationsCatalogJsonLd(): Record<string, unknown> {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': 'EducationalOrganization',
-        '@id': siteSchemaOrganizationId(SITE_CONFIG.url.replace(/\/$/, '')),
-        name: SITE.raisonSociale,
-        alternateName: SITE.marque,
-        url: SITE_CONFIG.url.replace(/\/$/, ''),
-        email: SITE.contact.email,
-        telephone: SITE.contact.telIntl,
-        identifier: (() => {
-          const id = siteProviderIdentifierSchema();
-          return { '@type': 'PropertyValue', name: id.name, value: id.value };
-        })(),
-        hasCredential: buildQualiopiCredentialSchema(),
-      },
-      {
         '@type': 'ItemList',
         '@id': `${SITE_CONFIG.url}/formations#course-list`,
         name: 'Catalogue des formations IA pour le BTP',

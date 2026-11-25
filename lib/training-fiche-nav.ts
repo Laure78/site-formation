@@ -40,7 +40,7 @@ export type TrainingFicheNavInput = {
   extraItems?: readonly CatalogueNavItem[];
 };
 
-/** Navigation principale — ordre maquette GERESO / fiche programme. */
+/** Navigation principale — ordre maquette fiche programme catalogue. */
 export function buildTrainingFicheNavItems(input: TrainingFicheNavInput): CatalogueNavItem[] {
   const items: CatalogueNavItem[] = [];
   const push = (href: string, label: string) => items.push({ href: `#${href}`, label });

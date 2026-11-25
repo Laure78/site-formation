@@ -30,24 +30,6 @@ export function buildTutoSkillPicJsonLd(): Record<string, unknown> {
     '@context': 'https://schema.org',
     '@graph': [
       {
-        '@type': ['Organization', 'EducationalOrganization'],
-        '@id': orgId,
-        name: SCHEMA_ORGANIZATION_OFC.name,
-        legalName: SCHEMA_ORGANIZATION_OFC.legalNameSasu,
-        url: base,
-        logo: { '@type': 'ImageObject', url: schemaLogoUrl() },
-        email: SCHEMA_CONTACT.email,
-      },
-      {
-        '@type': 'Person',
-        '@id': personId,
-        name: 'Laure Olivié',
-        jobTitle: 'Formatrice IA spécialisée BTP',
-        url: `${base}${LINKS.aPropos}`,
-        worksFor: { '@id': orgId },
-        sameAs: [SCHEMA_LINKEDIN_PROFILE_URL],
-      },
-      {
         '@type': 'Article',
         '@id': `${pageUrl}#article`,
         headline: TUTO_SKILL_PIC_META.h1,

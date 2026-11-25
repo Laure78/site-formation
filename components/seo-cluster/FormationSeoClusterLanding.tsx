@@ -20,10 +20,10 @@ import {
 } from '@/lib/schema-formation-course-jsonld';
 import {
   SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_ORGANIZATION_OFC,
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
@@ -40,12 +40,7 @@ function buildCourseJsonLd(config: SeoClusterPageConfig): Record<string, unknown
       instructorName: SCHEMA_PERSON_LAURE.name,
       teaches: [...config.courseTeaches],
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,

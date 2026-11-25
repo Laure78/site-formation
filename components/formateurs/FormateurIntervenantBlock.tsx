@@ -5,6 +5,7 @@ import {
   getFormateursForFormationCode,
   type FormateurProfile,
 } from '@/lib/formateurs';
+import { LINKS } from '@/lib/internal-links';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
 import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';

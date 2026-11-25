@@ -5,7 +5,7 @@
 
 export const RDV_FONCTIONS = [
   { value: 'direction', label: 'Direction' },
-  { value: 'conducteur', label: 'Conducteur / conductrice de travaux' },
+  { value: 'conducteur', label: 'Conducteur de travaux' },
   { value: 'charge-affaires', label: "Chargé(e) d'affaires" },
   { value: 'bureau-etudes', label: "Bureau d'études" },
   { value: 'appels-offres', label: "Appels d'offres" },

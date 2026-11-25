@@ -1,4 +1,5 @@
-import { SITE_CONFIG, getCourseSchema, getLocalBusinessSchema, getOrganizationSchema } from '@/lib/seo';
+import { SITE_CONFIG, getCourseSchema, getLocalBusinessSchema } from '@/lib/seo';
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import {
   IDF_COURSE_AREA_SERVED_NAMES,
@@ -83,9 +84,9 @@ export function getFormationIleDeFrancePageWebPageJsonLd(): Record<string, unkno
   };
 }
 
-/** Organisation certifiée Qualiopi (schéma déjà porté par getOrganizationSchema) */
+/** @deprecated Organisation complète = layout `#organization` — référence `@id` uniquement. */
 export function buildEducationalOrgSnippetJsonLd() {
-  return getOrganizationSchema();
+  return buildSchemaOrganizationReference(SITE_CONFIG.url);
 }
 
 /**
@@ -104,11 +105,7 @@ export function buildFormationIaServiceJsonLd(opts: {
     description: opts.description,
     serviceType: 'Formation professionnelle',
     category: 'Formation IA appliquée au bâtiment',
-    provider: {
-      '@type': 'Organization',
-      '@id': `${SITE_CONFIG.url}/#organization`,
-      name: SITE_CONFIG.name,
-    },
+    provider: buildSchemaOrganizationReference(SITE_CONFIG.url),
     areaServed: opts.areaServed.map((name) => ({ '@type': 'AdministrativeArea', name })),
     url: `${SITE_CONFIG.url}${opts.path}`,
   };

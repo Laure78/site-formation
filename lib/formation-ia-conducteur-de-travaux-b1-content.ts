@@ -9,8 +9,7 @@ import {
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV03_HT,
 } from '@/lib/tarifs-catalogue-participant';
-import { SITE, SITE_TARIFS } from '@/lib/site-config';
-import { siteAdresseComplete, SITE_SIEGE_LIEU_COURT } from '@/lib/site-config';
+import { SITE, SITE_SIEGE_LIEU_COURT, SITE_TARIFS, siteAdresseLigne } from '@/lib/site-config';
 import { IDF_ZONE_INTERVENTION } from '@/lib/constants';
 
 export const CONDUCTEUR_LANDING_PAIN_POINTS = [
@@ -161,5 +160,5 @@ export const CONDUCTEUR_LANDING_FAQ: readonly { q: string; a: string }[] = [
 ];
 
 export function conducteurLieuFormationParagraph(): string {
-  return `Sessions inter-entreprises au ${siteAdresseComplete()} (Paris 12e), ou intra dans vos locaux en Île-de-France : départements ${IDF_ZONE_INTERVENTION}. Présentiel uniquement — pas de formation à distance dans le catalogue IA BTP.`;
+  return `Sessions inter-entreprises au ${siteAdresseLigne()} (Paris 12e), ou intra dans vos locaux en Île-de-France : départements ${IDF_ZONE_INTERVENTION}. Présentiel uniquement — pas de formation à distance dans le catalogue IA BTP.`;
 }

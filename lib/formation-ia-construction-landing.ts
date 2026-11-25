@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-construction` — métadonnées, FAQ, prompts, JSON-LD.
  */
@@ -236,13 +237,7 @@ export function buildFormationIaConstructionCourseJsonLd(): Record<string, unkno
         'Prompts adaptés aux entreprises générales et BET',
       ],
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,

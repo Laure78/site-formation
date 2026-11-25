@@ -18,13 +18,13 @@ import { OFC_IDENTITE } from '@/lib/ofc-identite';
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-11-12';
+export const LLMS_TXT_LAST_UPDATED = '2026-11-25';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
   return `# laureolivie.fr — Laure Olivié, formation IA pour le BTP (OFC Création d'Entreprise)
 
-> OFC Création d'Entreprise (marque Laure Olivié) est un organisme de formation certifié Qualiopi, spécialisé en IA appliquée au bâtiment et aux travaux publics. Les sessions en présentiel en Île-de-France forment dirigeants, conducteurs de travaux et fonctions support à ChatGPT, Claude et Gemini sur leurs documents réels (devis, DCE, CCTP, comptes rendus).
+> OFC Création d'Entreprise (marque Laure Olivié) est un organisme de formation certifié Qualiopi, spécialisé en IA appliquée au bâtiment et aux travaux publics. Les sessions en présentiel en Île-de-France forment dirigeants, conducteurs de travaux et fonctions support à ChatGPT et Claude sur leurs documents réels (devis, DCE, CCTP, comptes rendus).
 
 ## À propos
 - ${SITE.marque} : ${siteExperienceBtpLong()}, ancienne dirigeante d'ALIA BTP (travaux publics, Île-de-France). Instructrice LinkedIn Learning (IA appliquée au BTP).

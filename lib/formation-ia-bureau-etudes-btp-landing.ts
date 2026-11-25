@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-bureau-etudes-btp` — bureaux d’études (analyse DCE / exigences).
  * Distincte du métreur (métrés/DPGF/BPU), du programme études de prix, et de la MOE.
@@ -197,13 +198,7 @@ export function buildBureauEtudesBtpCourseJsonLd(): Record<string, unknown> {
       organizationId: `${base}/#organization`,
       instructorName: SCHEMA_PERSON_LAURE.name,
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,

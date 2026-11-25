@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-metallerie-serrurerie-btp` — métallerie & serrurerie bâtiment.
  * Une seule page pour « formation IA métallerie » et « formation IA entreprise de serrurerie ».
@@ -219,13 +220,7 @@ export function buildMetallerieSerrurerieBtpCourseJsonLd(): Record<string, unkno
       organizationId: `${base}/#organization`,
       instructorName: SCHEMA_PERSON_LAURE.name,
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,

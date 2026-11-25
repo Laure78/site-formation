@@ -44,13 +44,8 @@ export const LAURE_OLIVIE_CLIENT_REFERENCES = [
   'Le Moniteur Formations',
 ] as const;
 
-export const LAURE_OLIVIE_IA_TOOLS = [
-  'ChatGPT',
-  'Claude',
-  'Copilot 365',
-  'Mistral AI',
-  'Perplexity',
-] as const;
+/** Outils enseignés au catalogue OFC (Qualiopi) — ChatGPT et Claude uniquement. */
+export const LAURE_OLIVIE_IA_TOOLS = ['ChatGPT', 'Claude'] as const;
 
 export const LAURE_OLIVIE_FORMATION_THEMES = [
   "L'IA au service du Bâtiment (intra-entreprise)",
@@ -149,7 +144,7 @@ export const LAURE_OLIVIE_PARCOURS_CONDENSE = LAURE_OLIVIE_PARCOURS_TIMELINE.map
 
 /** Bio courte — encart formations (E-E-A-T, angle pédagogie & terrain). */
 export function getLaureOlivieFormationPortraitParagraph(contextLine?: string): string {
-  const base = `${LAURE_OLIVIE_BIO_REFERENCE} Elle s’appuie aussi sur une expérience de chargée de formation au CNFPT (2009-2019) et le rôle d’instructrice LinkedIn Learning. ${formatNoteSatisfactionAffichageComplet()} sur les sessions OFC (${getStatsFreshnessLabel()}). Outils : ${LAURE_OLIVIE_IA_TOOLS.slice(0, 3).join(', ')} et ${LAURE_OLIVIE_IA_TOOLS[3]} — devis, DCE, CCTP, CR chantier et mémoires techniques. OFC Création d'Entreprise est certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}), finançable Constructys selon éligibilité.`;
+  const base = `${LAURE_OLIVIE_BIO_REFERENCE} Elle s’appuie aussi sur une expérience de chargée de formation au CNFPT (2009-2019) et le rôle d’instructrice LinkedIn Learning. ${formatNoteSatisfactionAffichageComplet()} sur les sessions OFC (${getStatsFreshnessLabel()}). Outils enseignés : ${LAURE_OLIVIE_IA_TOOLS.join(' et ')} — devis, DCE, CCTP, CR chantier et mémoires techniques. OFC Création d'Entreprise est certifié Qualiopi (NDA ${SCHEMA_CONTACT.nda}), financement OPCO/Constructys selon éligibilité.`;
   return contextLine ? `${contextLine} ${base}` : base;
 }
 

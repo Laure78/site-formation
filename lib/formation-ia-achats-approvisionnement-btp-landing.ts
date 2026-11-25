@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-achats-approvisionnement-btp` — achats & approvisionnement chantier.
  * Intention distincte du chiffrage / études de prix (prix de vente) et des devis client.
@@ -213,13 +214,7 @@ export function buildAchatsApprovisionnementBtpCourseJsonLd(): Record<string, un
       organizationId: `${base}/#organization`,
       instructorName: SCHEMA_PERSON_LAURE.name,
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,

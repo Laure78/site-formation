@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-conducteur-travaux` — métadonnées, FAQ, prompts, JSON-LD.
  */
@@ -164,11 +165,7 @@ export function buildConducteurTravauxLandingJsonLd(): Record<string, unknown> {
           organizationId: `${base}/#organization`,
           instructorId: `${base}/#laure-olivie`,
         }),
-        provider: {
-          '@type': 'Organization',
-          '@id': `${base}/#organization`,
-          name: SCHEMA_ORGANIZATION_OFC.name,
-        },
+        provider: buildSchemaOrganizationReference(base),
         offers: {
           '@type': 'Offer',
           price: String(TARIF_FORFAIT_DEBUTANT_HT),

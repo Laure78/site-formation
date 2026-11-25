@@ -32,8 +32,7 @@ import {
   buildFormationCourseInstances,
   buildFormationFicheCourseJsonLd,
 } from '@/lib/schema-formation-course-jsonld';
-import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
-import { SITE, siteProviderIdentifierSchema } from '@/lib/site-config';
+import { SITE } from '@/lib/site-config';
 
 /** URLs legacy NIV-06/07/08 (301 → NIV-10) — distinctes des constantes `LINKS` canoniques. */
 const LEGACY_APPLICATION_METIER_PATH = {

@@ -302,7 +302,7 @@ export const BLOG_ARTICLES: BlogArticle[] = [
         title: 'Cinq usages déjà observés sur le terrain (2026)',
         content: [
           'Comptes rendus de réunion ou de chantier par dictée vocale : gain typique de l\'ordre de 45 minutes à 5 minutes (environ −89 % du temps) — outils : ChatGPT, Claude.',
-          'Analyse de DCE et rédaction de mémoire technique : passage de quelques jours à une vingtaine de minutes sur les premiers jets — Claude, Copilot.',
+          'Analyse de DCE et rédaction de mémoire technique : passage de quelques jours à une vingtaine de minutes sur les premiers jets — Claude ou ChatGPT.',
           'Génération de devis assistée (commande vocale ou texte) : exemples documentés autour de 45 secondes pour un premier jet — solutions IA métiers BTP.',
           'Emails, courriers et relances clients : −20 à 30 % du temps administratif — ChatGPT, Claude.',
           'Comparaison de pièces contractuelles (jusqu\'à plusieurs centaines de pages) : quelques heures au lieu de plusieurs jours grâce aux modèles à contexte étendu (ex. Claude, fenêtres 1M tokens).',

@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-genie-climatique-btp` — génie climatique, CVC, chauffagiste entreprise.
  * Une seule page pour les intentions proches (pas de pages séparées clim / CVC / chauffagiste).
@@ -206,13 +207,7 @@ export function buildGenieClimatiqueBtpCourseJsonLd(): Record<string, unknown> {
       organizationId: `${base}/#organization`,
       instructorName: SCHEMA_PERSON_LAURE.name,
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,

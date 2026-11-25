@@ -71,8 +71,18 @@ function assertLayoutRootOrganization(node, label) {
     throw new Error(`${label}: hasCredential Qualiopi ${SITE.qualiopi.numero} attendu`);
   }
   const area = node.areaServed;
-  if (!area || area.name !== 'Île-de-France') {
+  const areaNames = Array.isArray(area)
+    ? area.map((a) => (typeof a === 'string' ? a : a && typeof a === 'object' && 'name' in a ? a.name : null))
+    : typeof area === 'string'
+      ? [area]
+      : area && typeof area === 'object' && 'name' in area
+        ? [area.name]
+        : [];
+  if (!areaNames.includes('Île-de-France')) {
     throw new Error(`${label}: areaServed « Île-de-France » attendu`);
+  }
+  if (Array.isArray(area) && area.length < 9) {
+    throw new Error(`${label}: areaServed IDF incomplet (attendu Île-de-France + 8 départements)`);
   }
   if (!node.founder?.['@id']?.endsWith('#laure-olivie')) {
     throw new Error(`${label}: founder → Person #laure-olivie attendu`);

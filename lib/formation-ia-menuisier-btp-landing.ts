@@ -1,3 +1,4 @@
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-menuisier-btp` — entreprises de menuiserie (int. / ext.) et d’agencement.
  * Une page pour les intentions proches ; distincte de la charpente / ossature (`/formation-ia-charpentier-btp`).
@@ -369,13 +370,7 @@ export function buildMenuisierBtpCourseJsonLd(): Record<string, unknown> {
       organizationId: `${base}/#organization`,
       instructorName: SCHEMA_PERSON_LAURE.name,
     }),
-    provider: {
-      '@type': 'Organization',
-      '@id': `${base}/#organization`,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-      url: base,
-      hasCredential: buildQualiopiCredentialSchema(),
-    },
+    provider: buildSchemaOrganizationReference(base),
     instructor: {
       '@type': 'Person',
       name: SCHEMA_PERSON_LAURE.name,
