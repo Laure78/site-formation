@@ -230,7 +230,7 @@ export const SITE_AREA_SERVED_LABEL = 'Île-de-France' as const;
  */
 export const SITE_TARIFS = {
   /** Niveau 1 — Les bases de l’IA (4 h). */
-  participant4hNiveau1: 120,
+  participant4hNiveau1: 150,
   /** Niveau 2 — sessions avancées 7 h (MOE NIV-05, AMO NIV-11, etc.). */
   participant4hNiveau2: 310,
   /** Journée au sein d’un parcours 14 h (référence interne — pas d’offre catalogue autonome 7 h agents). */

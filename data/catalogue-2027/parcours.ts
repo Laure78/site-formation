@@ -129,10 +129,10 @@ export function assertCatalogueParcoursIntegrity(): {
     'dirigeant-pme-btp': { h: 42, prix: 1860, modules: 6 },
     'charge-affaires-btp': { h: 42, prix: 1860, modules: 6 },
     'conducteur-de-travaux': { h: 42, prix: 1860, modules: 6 },
-    'assistant-de-gestion-btp': { h: 39, prix: 1670, modules: 6 },
+    'assistant-de-gestion-btp': { h: 39, prix: 1700, modules: 6 },
     'referent-ia-btp': { h: 35, prix: 1550, modules: 4 },
-    'maitre-oeuvre': { h: 25, prix: 1050, modules: 4 },
-    'amo-btp': { h: 18, prix: 740, modules: 3 },
+    'maitre-oeuvre': { h: 25, prix: 1080, modules: 4 },
+    'amo-btp': { h: 18, prix: 770, modules: 3 },
   };
   for (const p of getAllParcoursComputed()) {
     const exp = expected[p.id];
@@ -163,8 +163,8 @@ export function assertCatalogueParcoursIntegrity(): {
     }
     if (p.id === 'referent-ia-btp' && p.initiationComplementaire) {
       const i = p.initiationComplementaire;
-      if (i.dureeHeures !== 39 || i.prixInterHt !== 1670) {
-        errors.push(`Référent initiation: ${i.dureeHeures}h / ${i.prixInterHt}€ (attendu 39h / 1670€)`);
+      if (i.dureeHeures !== 39 || i.prixInterHt !== 1700) {
+        errors.push(`Référent initiation: ${i.dureeHeures}h / ${i.prixInterHt}€ (attendu 39h / 1700€)`);
       }
     }
     for (const e of p.etapes) {

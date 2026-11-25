@@ -43,9 +43,9 @@ const PREREQUIS: Record<ParcoursId, string> = {
   'referent-ia-btp':
     'Public : référents IA, dirigeants, profils en charge du déploiement. Prérequis catalogue : NUM-01 ou niveau équivalent pour aborder Claude et les usages avancés.',
   'maitre-oeuvre':
-    'Public : MOE, MOEX, OPC. Prérequis : expérience dossier chantier ; NUM-01 en entrée. Quatre modules de 4 h — parcours complet 630 € HT / participant (inter).',
+    'Public : MOE, MOEX, OPC. Prérequis : expérience dossier chantier ; NUM-01 en entrée. Quatre modules (4 h + 7 h + 7 h + 7 h) — parcours complet 1 080 € HT / participant (inter).',
   'amo-btp':
-    'Public : AMO, MOA, pilotage opération. Prérequis : exposition aux dossiers MOA. Trois modules de 4 h — parcours complet 460 € HT / participant (inter).',
+    'Public : AMO, MOA, pilotage opération. Prérequis : exposition aux dossiers MOA. Trois modules (4 h + 7 h + 7 h) — parcours complet 770 € HT / participant (inter).',
 };
 
 const FINANCEMENT: Record<ParcoursId, string> = {

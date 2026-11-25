@@ -1,6 +1,11 @@
 /**
  * Programmes harmonisés — modules des 5 parcours métiers (240 min ou 840 min).
  */
+import {
+  TARIF_PARTICIPANT_NIV01_HT,
+  TARIF_PARTICIPANT_NIV02_HT,
+  TARIF_PARTICIPANT_NIV10_14H_HT,
+} from '@/lib/tarifs-catalogue-participant';
 import type { ModuleCode, ModuleProgrammePedagogique } from '../types';
 import { buildProgramme14h, buildProgramme4h } from './builders';
 
@@ -35,7 +40,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'DIR-01',
     intitule: 'Calculer ses prix de revient et fixer ses prix de vente',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Dirigeants, associés, futurs repreneurs et assistants de gestion impliqués dans le chiffrage.',
     prerequis: 'Connaissance de base de l’activité et des postes de coûts de l’entreprise.',
     objectifsMesurables: [
@@ -72,7 +77,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'DIR-02',
     intitule: 'Piloter ses marges chantier par chantier',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Dirigeants, chargés d’affaires et conducteurs de travaux.',
     prerequis: 'Notions de prix de revient ou expérience de suivi d’affaires.',
     objectifsMesurables: [
@@ -105,7 +110,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'DIR-03',
     intitule: 'Organiser sa trésorerie et anticiper ses besoins',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Dirigeants et assistants de gestion.',
     prerequis: 'Accès aux éléments de facturation et de planning des encaissements (pédagogiques).',
     objectifsMesurables: [
@@ -138,7 +143,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'DIR-05',
     intitule: 'Piloter l’IA dans son entreprise : règles d’usage et plan de déploiement',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Dirigeants, associés et référents IA.',
     prerequis: 'Sensibilisation aux usages IA ou équivalent (NUM-01 recommandé).',
     objectifsMesurables: [
@@ -171,7 +176,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'COM-01',
     intitule: 'Construire des devis clairs et rentables',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Chargés d’affaires, économistes et commerciaux BTP.',
     prerequis: 'Pratique du chiffrage ou accompagnement d’un devis type.',
     objectifsMesurables: [
@@ -204,7 +209,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'COM-02',
     intitule: 'Préparer ses négociations et organiser ses relances de devis',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Chargés d’affaires, dirigeants et commerciaux.',
     prerequis: 'Expérience de remise de devis.',
     objectifsMesurables: [
@@ -237,7 +242,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'COM-03',
     intitule: 'Répondre aux marchés publics : du DCE à la candidature',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Chargés d’affaires, responsables AO et économistes.',
     prerequis: 'Entreprise déjà amenée à répondre à des consultations (ou projet).',
     objectifsMesurables: [
@@ -270,7 +275,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'COM-04',
     intitule: 'Rédiger un mémoire technique adapté aux critères du marché',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Chargés d’affaires et rédacteurs d’offres.',
     prerequis: 'Connaissance des pièces d’un DCE.',
     objectifsMesurables: [
@@ -303,7 +308,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'COM-05',
     intitule: 'Organiser le suivi des avenants, travaux supplémentaires et réclamations',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Chargés d’affaires et conducteurs de travaux.',
     prerequis: 'Expérience de suivi d’une affaire en cours.',
     objectifsMesurables: [
@@ -336,7 +341,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'TRA-01',
     intitule: 'Préparer un chantier : de la passation à l’ouverture',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Conducteurs, aides-conducteurs et chefs de chantier en évolution.',
     prerequis: 'Expérience chantier ou accompagnement d’un conducteur.',
     objectifsMesurables: [
@@ -369,7 +374,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'TRA-02',
     intitule: 'Planifier les travaux et actualiser les délais',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Conducteurs de travaux et chefs de chantier.',
     prerequis: 'Connaissance du déroulé d’un chantier.',
     objectifsMesurables: [
@@ -402,7 +407,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'TRA-03',
     intitule: 'Suivre les coûts et analyser les écarts',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Conducteurs de travaux et chargés d’affaires.',
     prerequis: 'Accès aux éléments de suivi (heures, matériaux, situations) — jeu pédagogique.',
     objectifsMesurables: [
@@ -435,7 +440,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'TRA-05',
     intitule: 'Préparer la réception : réserves, DOE et suivi des garanties',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Conducteurs de travaux et chefs de chantier.',
     prerequis: 'Expérience de fin de chantier ou accompagnement.',
     objectifsMesurables: [
@@ -468,7 +473,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'MAN-02',
     intitule: 'Manager une équipe de chantier',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Chefs de chantier, conducteurs et dirigeants encadrant des équipes.',
     prerequis: 'Responsabilité d’encadrement ou évolution prochaine.',
     objectifsMesurables: [
@@ -501,7 +506,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'ADM-01',
     intitule: 'Gérer l’administratif chantier : situations, pièces et relances',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Assistants, secrétaires techniques et gestionnaires.',
     prerequis: 'Pratique de l’administratif BTP ou accompagnement.',
     objectifsMesurables: [
@@ -534,7 +539,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'ADM-02',
     intitule: 'Préparer son organisation à la facturation électronique',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Assistants de gestion et dirigeants.',
     prerequis: 'Responsabilité ou participation à la facturation.',
     objectifsMesurables: [
@@ -567,7 +572,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'ADM-03',
     intitule: 'Organiser le recrutement et l’intégration dans le BTP',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Assistants de gestion et dirigeants.',
     prerequis: 'Implication dans le recrutement ou l’accueil.',
     objectifsMesurables: [
@@ -600,7 +605,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'NUM-01',
     intitule: 'Les bases de l’IA pour les professionnels du BTP',
     niveau: 1,
-    prixInterHt: 120,
+    prixInterHt: TARIF_PARTICIPANT_NIV01_HT,
     publicCible: 'Dirigeants, chargés d’affaires, conducteurs, assistantes et fonctions support des PME du BTP.',
     prerequis: 'Aucun prérequis technique — pratique courante des outils bureautiques.',
     objectifsMesurables: [
@@ -633,7 +638,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'NUM-02',
     intitule: 'IA et appels d’offres',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Chargés d’affaires, responsables AO et économistes.',
     prerequis: 'NUM-01 ou niveau équivalent recommandé.',
     objectifsMesurables: [
@@ -666,7 +671,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'NUM-03',
     intitule: 'Maîtriser Claude AI pour le BTP',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Référents IA, dirigeants et profils métier avancés.',
     prerequis: 'NUM-01 ou pratique régulière d’un outil d’IA générative.',
     objectifsMesurables: [
@@ -699,7 +704,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'NUM-05',
     intitule: 'Excel pour le suivi de chantier et la gestion',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Assistants, gestionnaires, conducteurs et chargés d’affaires.',
     prerequis: 'Pratique basique d’Excel.',
     objectifsMesurables: [
@@ -732,7 +737,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
     code: 'NUM-07',
     intitule: 'IA et conduite de travaux',
     niveau: 2,
-    prixInterHt: 170,
+    prixInterHt: TARIF_PARTICIPANT_NIV02_HT,
     publicCible: 'Conducteurs de travaux, chefs de chantier et assistants travaux.',
     prerequis: 'NUM-01 ou niveau équivalent recommandé.',
     objectifsMesurables: [
@@ -764,7 +769,7 @@ const PROGRAMMES_LIST: ModuleProgrammePedagogique[] = [
   buildProgramme14h({
     code: 'NUM-04',
     intitule: 'Créer des applications métier BTP avec l’IA',
-    prixInterHt: 620,
+    prixInterHt: TARIF_PARTICIPANT_NIV10_14H_HT,
     publicCible: 'Dirigeants, référents IA et profils métier porteurs d’un projet d’outil interne.',
     prerequis: 'NUM-01 ou niveau équivalent.',
     objectifsMesurables: [

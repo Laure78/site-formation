@@ -29,7 +29,7 @@ export const MAPPING_LEGACY_VERS_2027: readonly LegacyOfferMapping[] = [
     nouveauCode: 'NUM-01',
     urlRetenue: '/formations/ia-batiment-travaux-publics',
     action: 'renommer-et-mettre-a-jour',
-    notes: '4 h — 120 € HT conservés. Titre commercial aligné « Les bases de l’IA ».',
+    notes: '4 h — 150 € HT (grille niveau 1). Titre commercial aligné « Les bases de l’IA ».',
   },
   {
     legacyCode: 'NIV-02',

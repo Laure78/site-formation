@@ -395,7 +395,7 @@ export const PARCOURS_METIER_TEMPLATE_BY_ID: Record<ParcoursId, ParcoursMetierTe
       {
         icon: Coins,
         titre: 'Tarifs transparents',
-        texte: 'Trois modules de 4 h — parcours complet 460 € HT / participant (inter).',
+        texte: 'Trois modules (4 h + 7 h + 7 h) — parcours complet 770 € HT / participant (inter).',
       },
     ],
     pedagogyCards: [

@@ -6,7 +6,7 @@ Grille officielle retenue côté site (fiches web) :
 
 | Niveau | Durée | Tarif HT / participant |
 |--------|-------|-------------------------|
-| 1 · Débutant | 4 h | 120 € |
+| 1 · Débutant | 4 h | 150 € |
 | 2 · Avancé | 7 h (1 journée) | 310 € |
 | 3 · Approfondi | 14 h | 620 € |
 
@@ -35,10 +35,10 @@ Les déroulés détaillés sur le site (accordéons programme) ont été étendu
 
 Exemples de sommes (grille 2026) :
 
-- N1 + N2 : 11 h — 430 € HT  
+- N1 + N2 : 11 h — 460 € HT  
 - 2 × N2 : 14 h — 620 € HT  
-- N1 + 2 × N2 : 18 h — 740 € HT  
-- N1 + N2 + N3 : 25 h — 1 050 € HT  
+- N1 + 2 × N2 : 18 h — 770 € HT  
+- N1 + N2 + N3 : 25 h — 1 080 € HT  
 
 ## Action Laure
 

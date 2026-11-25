@@ -11,6 +11,7 @@ export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
   '/': '2026-10-25',
   '/formation-ia-btp': '2026-04-05',
   '/formations': '2026-11-25',
+  '/formations/ia-batiment-travaux-publics': '2026-11-25',
   '/formation-ia-btp-ile-de-france': '2026-10-29',
   '/formation-ia-construction': '2026-10-29',
   '/claude-ai-btp': '2026-04-18',

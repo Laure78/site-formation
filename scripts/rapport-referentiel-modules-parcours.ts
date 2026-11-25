@@ -25,8 +25,8 @@ console.log('# Référentiel modules parcours métiers — audit harmonisation\n
 console.log('## Grille après harmonisation\n');
 console.log('| Niveau | Durée | Prix HT / participant |');
 console.log('| --- | --- | --- |');
-console.log('| 1 · Débutant | 4 h | 120 € |');
-console.log('| 2 · Avancé | 4 h | 170 € |');
+console.log('| 1 · Débutant | 4 h | 150 € |');
+console.log('| 2 · Avancé | 7 h | 310 € |');
 console.log('| 3 · Approfondi | 14 h | 620 € |');
 console.log('\n## Parcours — totaux calculés (somme modules)\n');
 console.log('| Parcours | Modules | Durée | Prix HT (contrôle interne) |');

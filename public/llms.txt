@@ -20,7 +20,7 @@
 ## Réponses directes
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.
 - Combien de temps ? Débutant : 4 h. Avancé : 7 h (1 journée). Approfondi : 14 h sur 2 jours (applications métier et agents IA Make).
-- Combien ça coûte ? Inter : 120 € HT (débutant 4 h), 310 € HT (avancé 7 h), 620 € HT (approfondi 14 h : applications métier et agents IA Make). Maîtrise d’œuvre et AMO (7 h) : 310 € HT / participant en inter comme en intra. TVA exonérée (art. 261-4-4°-a du CGI).
+- Combien ça coûte ? Inter : 150 € HT (débutant 4 h), 310 € HT (avancé 7 h), 620 € HT (approfondi 14 h : applications métier et agents IA Make). Maîtrise d’œuvre et AMO (7 h) : 310 € HT / participant en inter comme en intra. TVA exonérée (art. 261-4-4°-a du CGI).
 - Peut-on la faire financer ? Prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique) : https://www.laureolivie.fr/financement-constructys-formation-ia-btp
 - Faut-il être à l'aise en informatique ? Non : les exercices se font en français courant, sur des documents BTP (devis, DCE, CCTP, CR de chantier).
 - L'IA remplace-t-elle les métiers du bâtiment ? Non : elle prend en charge une partie de l'administratif ; la relecture et la responsabilité restent humaines.
