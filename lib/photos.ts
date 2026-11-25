@@ -359,14 +359,16 @@ export const PHOTOS = {
     alt: 'Christophe Delgery, formateur IA appliquée au BTP',
     width: 767,
     height: 1024,
-    objectPosition: '50% 18%',
+    /** Hub 7:9 + object-contain — visage aligné sur la rangée équipe. */
+    objectPosition: '50% 10%',
   },
   formateurManuelGomez: {
     src: '/images/formateurs/manuel-gomez.png',
     alt: 'Manuel Gomez – Formateur BTP',
     width: 286,
     height: 272,
-    objectPosition: '50% 35%',
+    /** PNG circulaire — remonte le sujet dans le cadre gris. */
+    objectPosition: '50% 22%',
   },
   /** Visuels formations 2026 */
   formationIATP2026: {

@@ -47,6 +47,11 @@ export function FormateurShowcaseCard({ formateur, portraitPriority = false }: P
             width={formateur.portrait.width}
             height={formateur.portrait.height}
             className={FORMATEUR_SHOWCASE_PORTRAIT_IMAGE}
+            style={
+              formateur.portrait.objectPosition
+                ? { objectPosition: formateur.portrait.objectPosition }
+                : undefined
+            }
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
             priority={portraitPriority}
           />
