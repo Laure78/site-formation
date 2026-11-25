@@ -22,9 +22,9 @@ export const FORMATEUR_LAURE_OLIVIE: FormateurProfile = {
   slug: 'laure-olivie',
   prenom: 'Laure',
   nom: 'Olivié',
-  intitule: 'Formatrice IA BTP — Fondatrice d’OFC Création d’Entreprise',
+  intitule: 'Formatrice en intelligence artificielle appliquée au BTP',
   parcours:
-    'Ancienne dirigeante d’une entreprise de travaux publics, Laure Olivié accompagne les dirigeants et les équipes du BTP dans l’utilisation concrète de l’intelligence artificielle. Ses formations s’appuient sur les documents et les besoins de l’entreprise : devis, appels d’offres, comptes rendus de chantier et outils de gestion.',
+    'Fondatrice d’OFC Création d’Entreprise, Laure Olivié accompagne les PME du BTP dans l’utilisation opérationnelle de l’IA. Elle anime l’ensemble du catalogue IA, coordonne l’équipe de formateurs et intervient comme instructrice LinkedIn Learning.',
   specialites: [
     'Intelligence artificielle appliquée au bâtiment et aux travaux publics',
     'Analyse des DCE, CCTP et CCAP',
@@ -51,7 +51,6 @@ export const FORMATEUR_LAURE_OLIVIE: FormateurProfile = {
   publie: true,
   /** TODO(Laure) : `a-confirmer` pour masquer en production si besoin. */
   affichageHub: 'actif',
-  profileHref: LINKS.aPropos,
 };
 
 /** Intervenante IA — fiches NIV et hub formateurs. */

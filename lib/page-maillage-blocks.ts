@@ -8,7 +8,10 @@ import { getModuleByCode, type ParcoursComputed } from '@/data/catalogue-2027';
 import type { ParcoursId } from '@/data/catalogue-2027/types';
 import { buildCatalogueModulesHref } from '@/lib/catalogue-filter-url';
 import { getParcoursMetiersProfilsAvecFormations } from '@/lib/parcours-metiers-orientation';
-import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import {
+  filterLinksWhenParcoursMetiersHidden,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
 import { LINKS } from '@/lib/internal-links';
 
 export type PageMaillageBlock = {
@@ -212,7 +215,7 @@ export function getParcoursLinksForFormation(
 export function getFormationPracticeResourceLinks(
   ref: FormationCatalogueCode,
 ): ContextualLinkCard[] {
-  const links = [...(FORMATION_PRACTICE_RESOURCES[ref] ?? [])];
+  const links = filterLinksWhenParcoursMetiersHidden([...(FORMATION_PRACTICE_RESOURCES[ref] ?? [])]);
   const max = ref === 'NIV-05' ? 5 : 3;
   return links.slice(0, max);
 }

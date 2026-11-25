@@ -4,6 +4,7 @@
 import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
 import type { SeoClusterPageConfig } from '@/lib/seo-cluster-landing-types';
 
 export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_PATH = '/formation-ia-conducteur-de-travaux' as const;
@@ -123,7 +124,7 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
   programmeRef: 'NIV-03',
   catalogueHref: LINKS.formationConduiteTravauxSuiviChantier,
   catalogueLabel: 'Voir le programme',
-  relatedLinks: [
+  relatedLinks: filterLinksWhenParcoursMetiersHidden([
     { href: LINKS.aPropos, label: 'Organisme de formation IA pour le BTP' },
     { href: LINKS.guideConducteurTravauxIaBtp, label: 'Guide IA conducteur de travaux (ressource)' },
     {
@@ -139,5 +140,5 @@ export const FORMATION_IA_CONDUCTEUR_DE_TRAVAUX_CONFIG: SeoClusterPageConfig = {
       href: LINKS.formationDeveloppementWebIaSansCoder,
       label: 'Créer des applications métier BTP avec l’IA',
     },
-  ],
+  ]),
 };

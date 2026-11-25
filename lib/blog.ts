@@ -8,6 +8,7 @@ import { join } from 'path';
 import { getRepoRoot } from '@/lib/repo-root';
 import { INTERNAL_LINKS, getAnchor } from '@/lib/seo-links';
 import { LINKS } from '@/lib/internal-links';
+import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
 import {
   estimateWordCountFromPlainText,
   extractFaqPairsFromArticleSections,
@@ -2142,11 +2143,13 @@ export function getCommercialLinksForArticle(slug: string): { href: string; labe
       );
   }
   const seen = new Set<string>();
-  return links.filter((link) => {
-    if (seen.has(link.href)) return false;
-    seen.add(link.href);
-    return true;
-  });
+  return filterLinksWhenParcoursMetiersHidden(
+    links.filter((link) => {
+      if (seen.has(link.href)) return false;
+      seen.add(link.href);
+      return true;
+    }),
+  );
 }
 
 /** Détermine la catégorie d'un article à partir du slug */

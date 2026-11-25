@@ -1,7 +1,6 @@
 import { LINKS } from '@/lib/internal-links';
 import type { FormateurId, FormateurProfile } from '@/lib/formateurs/types';
 
-/** Laure Olivié — page dédiée `/a-propos` (pas de fiche sous `/formateurs/`). */
 export const FORMATEUR_LAURE_SLUG = 'laure-olivie' as const;
 
 export function isLaureFormateurSlug(slug: string): boolean {
@@ -9,10 +8,7 @@ export function isLaureFormateurSlug(slug: string): boolean {
 }
 
 /** Chemin public du profil formateur (sans domaine). */
-export function formateurPublicProfilePath(slug: string, id?: FormateurId): string {
-  if (isLaureFormateurSlug(slug) || id === FORMATEUR_LAURE_SLUG) {
-    return LINKS.aPropos;
-  }
+export function formateurPublicProfilePath(slug: string, _id?: FormateurId): string {
   return `${LINKS.formateurs}/${slug}`;
 }
 

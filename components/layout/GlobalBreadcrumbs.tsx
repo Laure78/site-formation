@@ -26,6 +26,7 @@ export function GlobalBreadcrumbs() {
   if (pathNorm === '/formateurs/marc-delcourt') return null;
   if (pathNorm === '/formateurs/thomas-garnier') return null;
   if (pathNorm === '/formateurs/manuel-gomez') return null;
+  if (pathNorm === '/formateurs/laure-olivie') return null;
   /** Fil explicite — évite un écart d’hydratation sur le hub formateurs. */
   const items =
     pathNorm === '/formateurs'

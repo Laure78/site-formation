@@ -19,6 +19,7 @@ import {
   siteSirenDisplay,
 } from '@/lib/site-config';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import {
   PHOTOS,
   SITE_BRAND_LOGO_FOOTER_IMAGE_CLASS,
@@ -191,6 +192,7 @@ export function Footer() {
 
   const year = new Date().getFullYear();
   const siren = siteSirenDisplay();
+  const parcoursVisible = isParcoursMetiers2027Visible();
 
   return (
     <footer className="border-t border-white/10 text-white" style={{ backgroundColor: FOOTER_BG }}>
@@ -235,11 +237,13 @@ export function Footer() {
             heading="Formations IA BTP"
             items={FOOTER_FORMATIONS_IA_BTP}
           />
-          <FooterNavColumn
-            ariaLabel="Parcours métiers 2027"
-            heading="Parcours métiers · 2027"
-            items={FOOTER_PARCOURS_METIERS_2027}
-          />
+          {parcoursVisible ? (
+            <FooterNavColumn
+              ariaLabel="Parcours métiers 2027"
+              heading="Parcours métiers · 2027"
+              items={FOOTER_PARCOURS_METIERS_2027}
+            />
+          ) : null}
           <FooterNavColumn
             ariaLabel="Explorer le site"
             heading="Explorer"

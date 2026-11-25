@@ -5,6 +5,10 @@ import { dureeCatalogueParCode } from '@/lib/catalogue-duree-copy';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import {
+  filterLinksWhenParcoursMetiersHidden,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
+import {
   libelleTarifParticipantCatalogue,
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV03_HT,
@@ -93,7 +97,7 @@ export const CONDUCTEUR_IA_PHASE_ROWS: readonly ConducteurIaPhaseRow[] = [
   },
 ];
 
-export const CONDUCTEUR_FORMATION_CHOIX = [
+const CONDUCTEUR_FORMATION_CHOIX_ALL = [
   {
     title: 'Niveau 1 — bases IA',
     duree: dureeCatalogueParCode('NIV-01'),
@@ -120,6 +124,10 @@ export const CONDUCTEUR_FORMATION_CHOIX = [
   },
 ] as const;
 
+export function getConducteurFormationChoix() {
+  return filterLinksWhenParcoursMetiersHidden(CONDUCTEUR_FORMATION_CHOIX_ALL);
+}
+
 export const CONDUCTEUR_LANDING_MAILLAGE = [
   { href: LINKS.iaCompteRenduChantier, label: 'IA et compte rendu de chantier — méthode terrain' },
   { href: LINKS.guideConducteurTravauxIaBtp, label: 'Guide IA conducteur de travaux (PDF gratuit)' },
@@ -129,7 +137,8 @@ export const CONDUCTEUR_LANDING_MAILLAGE = [
 export function conducteurLandingEnBref(): string {
   const niv1 = libelleTarifParticipantCatalogue(SITE_TARIFS.participant4hNiveau1);
   const niv2 = libelleTarifParticipantCatalogue(SITE_TARIFS.participant4hNiveau2);
-  return `Formation en présentiel en Île-de-France par ${SITE.marque} (${SITE.raisonSociale}, certifié Qualiopi) : comptes rendus, planning, suivi d’avancement, réception et DOE avec ChatGPT et Claude, sur dossiers anonymisés. Catalogues dès ${niv1} (niveau 1 · ${dureeCatalogueParCode('NIV-01')}) et ${niv2} (session chantier · ${dureeCatalogueParCode('NIV-03')}) ; parcours métier 2027 en modules.`;
+  const suffix = isParcoursMetiers2027Visible() ? ' ; parcours métier 2027 en modules.' : '.';
+  return `Formation en présentiel en Île-de-France par ${SITE.marque} (${SITE.raisonSociale}, certifié Qualiopi) : comptes rendus, planning, suivi d’avancement, réception et DOE avec ChatGPT et Claude, sur dossiers anonymisés. Catalogues dès ${niv1} (niveau 1 · ${dureeCatalogueParCode('NIV-01')}) et ${niv2} (session chantier · ${dureeCatalogueParCode('NIV-03')})${suffix}`;
 }
 
 export const CONDUCTEUR_LANDING_FAQ: readonly { q: string; a: string }[] = [

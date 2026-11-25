@@ -11,6 +11,7 @@ import { RevealGroupShell } from '@/components/motion/RevealShell';
 import { ACCUEIL_MOTION_REVEAL } from '@/components/landing/accueil/accueil-maquette-icons';
 import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 const MAQUETTE_BTN_PRIMARY =
   'inline-flex min-h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#0755E8] px-4 py-2.5 text-sm font-semibold text-white motion-safe:transition-[transform,background-color] motion-safe:duration-200 motion-safe:hover:-translate-y-px motion-safe:hover:bg-[#0648c7] motion-reduce:transition-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0755E8]';
@@ -37,6 +38,7 @@ function OffreCarteMedia({ photo }: { photo: OffrePhoto }) {
 
 /** Deux cartes commerciales — Formations IA vs Parcours métiers (maquette). */
 export function AccueilDeuxOffresSection() {
+  const parcoursVisible = isParcoursMetiers2027Visible();
   const photoFormations = PHOTOS.accueilCarteFormationsIa;
   const photoParcours = PHOTOS.accueilCarteParcoursMetiers;
 
@@ -52,7 +54,7 @@ export function AccueilDeuxOffresSection() {
       />
 
       <RevealGroupShell
-        className="accueil-maquette__grid grid gap-4 lg:grid-cols-2 lg:gap-5"
+        className={`accueil-maquette__grid grid gap-4 lg:gap-5 ${parcoursVisible ? 'lg:grid-cols-2' : 'lg:grid-cols-1'}`}
         staggerMs={ACCUEIL_MOTION_REVEAL.staggerMs}
         distance={ACCUEIL_MOTION_REVEAL.distance}
       >
@@ -92,46 +94,48 @@ export function AccueilDeuxOffresSection() {
           </div>
         </article>
 
-        <article className="accueil-maquette-card--interactive flex h-full flex-col overflow-hidden rounded-xl border border-[#DAE3F0] bg-white shadow-sm">
-          <div className="flex flex-1 flex-col p-5 pb-4">
-            <div className="flex flex-wrap items-center gap-2.5">
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FF] text-[#0755E8]">
-                <HardHat className="h-5 w-5" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
-              </span>
-              <h3 className="font-display text-lg font-bold text-[#081A3D]">
-                Parcours métiers BTP avec l&apos;IA
-              </h3>
-              <AccueilMaquettePill variant="violet" className="text-[10px]">
-                Ouverture 2027
-              </AccueilMaquettePill>
-            </div>
-            <div className="mt-3 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
-              <div className="min-w-0">
-                <p className="text-sm leading-relaxed text-ofc-ink-muted">
-                  Des formations complètes pour développer les compétences de vos équipes, avec l&apos;IA en
-                  appui des pratiques métier.
-                </p>
-                <ul className="mt-3 space-y-2 text-sm text-[#081A3D]">
-                  {[
-                    'Conducteur de travaux, chargé d’affaires et autres métiers BTP.',
-                    'Une approche métier et opérationnelle.',
-                    'Des mises en situation sur vos documents.',
-                  ].map((line) => (
-                    <li key={line} className="flex gap-2">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0755E8]" strokeWidth={2.5} aria-hidden />
-                      <span>{line}</span>
-                    </li>
-                  ))}
-                </ul>
+        {parcoursVisible ? (
+          <article className="accueil-maquette-card--interactive flex h-full flex-col overflow-hidden rounded-xl border border-[#DAE3F0] bg-white shadow-sm">
+            <div className="flex flex-1 flex-col p-5 pb-4">
+              <div className="flex flex-wrap items-center gap-2.5">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FF] text-[#0755E8]">
+                  <HardHat className="h-5 w-5" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
+                </span>
+                <h3 className="font-display text-lg font-bold text-[#081A3D]">
+                  Parcours métiers BTP avec l&apos;IA
+                </h3>
+                <AccueilMaquettePill variant="violet" className="text-[10px]">
+                  Ouverture 2027
+                </AccueilMaquettePill>
               </div>
-              <OffreCarteMedia photo={photoParcours} />
+              <div className="mt-3 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-start">
+                <div className="min-w-0">
+                  <p className="text-sm leading-relaxed text-ofc-ink-muted">
+                    Des formations complètes pour développer les compétences de vos équipes, avec l&apos;IA en
+                    appui des pratiques métier.
+                  </p>
+                  <ul className="mt-3 space-y-2 text-sm text-[#081A3D]">
+                    {[
+                      'Conducteur de travaux, chargé d’affaires et autres métiers BTP.',
+                      'Une approche métier et opérationnelle.',
+                      'Des mises en situation sur vos documents.',
+                    ].map((line) => (
+                      <li key={line} className="flex gap-2">
+                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0755E8]" strokeWidth={2.5} aria-hidden />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <OffreCarteMedia photo={photoParcours} />
+              </div>
+              <Link href={LINKS.parcoursMetiers} className={`${MAQUETTE_BTN_SECONDARY} mt-4`}>
+                Découvrir les parcours métiers
+                <ArrowRight className="h-4 w-4" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
+              </Link>
             </div>
-            <Link href={LINKS.parcoursMetiers} className={`${MAQUETTE_BTN_SECONDARY} mt-4`}>
-              Découvrir les parcours métiers
-              <ArrowRight className="h-4 w-4" strokeWidth={ACCUEIL_MAQUETTE_ICON_STROKE} aria-hidden />
-            </Link>
-          </div>
-        </article>
+          </article>
+        ) : null}
       </RevealGroupShell>
     </AccueilMaquetteSection>
   );

@@ -7,6 +7,7 @@ import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { formationNiveauOfficielLabel } from '@/lib/formation-niveaux-officiels';
 import { FORMATIONS_NIVEAUX_IA } from '@/lib/formations-niveaux-ia';
 import { LINKS } from '@/lib/internal-links';
+import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
 import {
   TARIF_PARTICIPANT_NIV01_HT,
   TARIF_PARTICIPANT_NIV02_HT,
@@ -91,7 +92,7 @@ export const MANUEL_PUBLIC_CIBLE = [
   'Référents IA',
 ] as const;
 
-export const MANUEL_MAILLAGE = [
+const MANUEL_MAILLAGE_ALL = [
   { href: LINKS.formateurs, label: 'Nos formateurs' },
   { href: LINKS.formations, label: 'Catalogue des formations IA BTP' },
   { href: LINKS.parcoursDirigeantPmeBtp, label: 'Parcours dirigeant' },
@@ -101,6 +102,8 @@ export const MANUEL_MAILLAGE = [
   { href: LINKS.formationIaAppelsOffresBtp, label: 'Ressources appels d’offres' },
   { href: LINKS.financement, label: 'Financement Constructys' },
 ] as const;
+
+export const MANUEL_MAILLAGE = filterLinksWhenParcoursMetiersHidden(MANUEL_MAILLAGE_ALL);
 
 const TARIF_PAR_NIVEAU: Record<FormationNiveau, number> = {
   1: TARIF_PARTICIPANT_NIV01_HT,

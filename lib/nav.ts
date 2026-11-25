@@ -93,8 +93,7 @@ export const NAV_FOOTER_MAQUETTE_ORGANISME: readonly NavItem[] = [
   },
 ];
 
-/** Colonne footer — Formations (accès synthèse, sans liste catalogue). */
-export const NAV_FOOTER_FORMATIONS: readonly NavItem[] = [
+const NAV_FOOTER_FORMATIONS_ALL: readonly NavItem[] = [
   {
     href: LINKS.formations,
     label: 'Catalogue de formations',
@@ -116,6 +115,15 @@ export const NAV_FOOTER_FORMATIONS: readonly NavItem[] = [
     title: 'Financement OPCO Constructys — formation IA BTP',
   },
 ];
+
+/** Colonne footer — Formations (accès synthèse, sans liste catalogue). */
+export function getNavFooterFormations(): readonly NavItem[] {
+  if (isParcoursMetiers2027Visible()) return NAV_FOOTER_FORMATIONS_ALL;
+  return NAV_FOOTER_FORMATIONS_ALL.filter((item) => item.href !== LINKS.parcoursMetiers);
+}
+
+/** @deprecated Préférer `getNavFooterFormations()`. */
+export const NAV_FOOTER_FORMATIONS: readonly NavItem[] = getNavFooterFormations();
 
 /**
  * @deprecated Liste longue (catalogue) — exports / outils uniquement, pas le footer principal.

@@ -32,6 +32,9 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  if (!isParcoursMetiers2027Visible()) {
+    return { robots: { index: false, follow: true } };
+  }
   const { slug } = await params;
   if (PARCOURS_SLUGS_RETIRES.has(slug)) return {};
   const parcours = getParcoursBySlug(slug);
@@ -64,7 +67,7 @@ export default async function ParcoursPage({ params }: Props) {
 
   const { slug } = await params;
   if (PARCOURS_SLUGS_RETIRES.has(slug)) {
-    redirect(LINKS.parcoursMetiers);
+    redirect(isParcoursMetiers2027Visible() ? LINKS.parcoursMetiers : LINKS.formations);
   }
   const parcours = getParcoursBySlug(slug);
   if (!parcours) notFound();

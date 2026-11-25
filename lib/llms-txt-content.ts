@@ -14,6 +14,7 @@ import {
   SITE,
 } from '@/lib/site-config';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
@@ -22,6 +23,13 @@ export const LLMS_TXT_LAST_UPDATED = '2026-11-25';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
+  const parcoursVisible = isParcoursMetiers2027Visible();
+  const parcoursGeoLine = parcoursVisible
+    ? `- Parcours métiers BTP modulaires ? Formation IA BTP à la carte ou parcours complet : cinq parcours par métier (dirigeant de PME BTP, chargé d'affaires, conducteur de travaux, assistant de gestion, référent IA) — modules de formation IA pour les professionnels du BTP suivis ensemble ou séparément selon les besoins et les prérequis pédagogiques. Page : ${BASE}/parcours-metiers\n`
+    : '';
+  const parcoursPagesLines = parcoursVisible
+    ? `- Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : ${BASE}/parcours-metiers\n- [Parcours IA maître d'œuvre · MOEX](${BASE}/formations/parcours/maitre-oeuvre) : 16 h, quatre modules — initiation, MOE, Claude, assistants (présentiel Île-de-France).\n- [Parcours IA AMO BTP](${BASE}/formations/parcours/amo-btp) : 12 h — initiation, mission AMO et appels d'offres (présentiel Île-de-France).\n`
+    : '';
   return `# laureolivie.fr — Laure Olivié, formation IA pour le BTP (OFC Création d'Entreprise)
 
 > OFC Création d'Entreprise (marque Laure Olivié) est un organisme de formation certifié Qualiopi, spécialisé en IA appliquée au bâtiment et aux travaux publics. Les sessions en présentiel en Île-de-France forment dirigeants, conducteurs de travaux et fonctions support à ChatGPT et Claude sur leurs documents réels (devis, DCE, CCTP, comptes rendus).
@@ -43,8 +51,7 @@ export function buildLlmsTxtContent(): string {
 
 ## Réponses directes
 - Où ont lieu les formations ? En présentiel, en Île-de-France uniquement (75, 77, 78, 91, 92, 93, 94, 95), en inter (sessions publiées sur le site) ou en intra dans l'entreprise.
-- Parcours métiers BTP modulaires ? Formation IA BTP à la carte ou parcours complet : cinq parcours par métier (dirigeant de PME BTP, chargé d'affaires, conducteur de travaux, assistant de gestion, référent IA) — modules de formation IA pour les professionnels du BTP suivis ensemble ou séparément selon les besoins et les prérequis pédagogiques. Page : ${BASE}/parcours-metiers
-- Combien de temps ? Débutant : 4 h. Avancé : 4 h. Approfondi : 14 h sur 2 jours (applications métier et agents IA Make).
+${parcoursGeoLine}- Combien de temps ? Débutant : 4 h. Avancé : 4 h. Approfondi : 14 h sur 2 jours (applications métier et agents IA Make).
 - Combien ça coûte ? ${siteTarifsLlmsGrilleLigne()}
 - Peut-on la faire financer ? Prise en charge OPCO/Constructys possible selon éligibilité (jamais automatique) : ${BASE}/financement-constructys-formation-ia-btp
 - Faut-il être à l'aise en informatique ? Non : les exercices se font en français courant, sur des documents BTP (devis, DCE, CCTP, CR de chantier).
@@ -63,8 +70,7 @@ export function buildLlmsTxtContent(): string {
 - Automatiser ses tâches avec l’IA dans le BTP — scénario Make, grille de tests (14 h, Niveau 3 · Approfondi, 620 € HT) : ${BASE}/formations/automatiser-ses-taches-ia-btp
 
 ## Pages clés
-- Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : ${BASE}/parcours-metiers
-- Formation IA pour le BTP (pilier) : ${BASE}/formation-ia-btp
+${parcoursPagesLines}- Formation IA pour le BTP (pilier) : ${BASE}/formation-ia-btp
 - Formation IA BTP en Île-de-France : ${BASE}/formation-ia-btp-ile-de-france
 - Formation IA BTP à Paris : ${BASE}/formation-ia-paris
 - Formation intra-entreprise : ${BASE}/formation-ia-intra-entreprise-btp
@@ -84,8 +90,6 @@ export function buildLlmsTxtContent(): string {
 - Références et partenaires : ${BASE}/partenaires
 - [Formation IA maîtrise d'œuvre (MOE, MOEX, OPC, BET)](${BASE}/formations/ia-maitrise-oeuvre) : intra, présentiel en Île-de-France, un seul parcours, Claude AI ou ChatGPT.
 - [Formation IA assistant maîtrise d'ouvrage (AMO)](${BASE}/formations/ia-assistance-maitrise-ouvrage) : programme, consultation MOE, revue d'études, reporting MOA.
-- [Parcours IA maître d'œuvre · MOEX](${BASE}/formations/parcours/maitre-oeuvre) : 16 h, quatre modules — initiation, MOE, Claude, assistants (présentiel Île-de-France).
-- [Parcours IA AMO BTP](${BASE}/formations/parcours/amo-btp) : 12 h — initiation, mission AMO et appels d'offres (présentiel Île-de-France).
 - [IA et maîtrise d'œuvre : 12 usages de PRO-DCE à AOR](${BASE}/blog/ia-maitrise-oeuvre-usages)
 - [IA et AMO : 8 usages](${BASE}/blog/ia-amo-assistant-maitrise-ouvrage)
 - [Tuto IA — contrôle de situation des travaux](${BASE}/blog/tuto-controle-situation-travaux-ia)

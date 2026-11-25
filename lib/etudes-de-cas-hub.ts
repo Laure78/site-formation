@@ -1,4 +1,8 @@
 import { LINKS } from '@/lib/internal-links';
+import {
+  filterLinksWhenParcoursMetiersHidden,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
 import { CSFE_NOM_LIBRE } from '@/lib/csfe';
 import { PHOTOS } from '@/lib/photos';
 import type { SitePhotoAsset } from '@/lib/photo-seo';
@@ -105,7 +109,11 @@ export const ETUDES_DE_CAS_FAQ: readonly FAQItem[] = [
   },
   {
     q: 'Où trouver une formation liée à un cas (CR chantier, appels d’offres) ?',
-    a: `Compte rendu vocal : <a href="${LINKS.iaCompteRenduChantier}">IA compte rendu chantier</a>. Marchés : <a href="${LINKS.formationIaAppelsOffresBtp}">formation appels d’offres BTP</a> ou <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
+    a: `Compte rendu vocal : <a href="${LINKS.iaCompteRenduChantier}">IA compte rendu chantier</a>. Marchés : <a href="${LINKS.formationIaAppelsOffresBtp}">formation appels d’offres BTP</a>${
+      isParcoursMetiers2027Visible()
+        ? ` ou <a href="${LINKS.parcoursMetiers}">parcours métiers</a>`
+        : ` ou le <a href="${LINKS.formations}">catalogue des formations</a>`
+    }.`,
   },
   {
     q: 'Quelle différence entre études de cas et références professionnelles ?',
@@ -119,10 +127,14 @@ export const ETUDES_DE_CAS_SEO = {
     'Études de cas intelligence artificielle bâtiment : FFB, CSFE, compte rendu de chantier avec l\'IA. Méthodes observées, présentiel Île-de-France, Qualiopi.',
 } as const;
 
-export const ETUDES_DE_CAS_INTERNAL_LINKS = [
+const ETUDES_DE_CAS_INTERNAL_LINKS_ALL = [
   { href: LINKS.formationIaBtp, label: 'Formations IA BTP' },
   { href: LINKS.formationIaConducteurDeTravaux, label: 'IA et conduite de travaux' },
   { href: LINKS.formationIaAppelsOffresBtp, label: 'IA et appels d\'offres' },
   { href: LINKS.parcoursMetiers, label: 'Parcours métiers' },
   { href: LINKS.avisClients, label: 'Avis clients' },
 ] as const;
+
+export const ETUDES_DE_CAS_INTERNAL_LINKS = filterLinksWhenParcoursMetiersHidden(
+  ETUDES_DE_CAS_INTERNAL_LINKS_ALL,
+);

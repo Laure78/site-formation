@@ -15,9 +15,12 @@ import {
   accueilParcoursMetiersCarteHref,
   getAccueilParcoursMetiersMaquette,
 } from '@/lib/accueil-offre-catalogue';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 /** Grille des cinq parcours métiers — ouverture 2027 (maquette). */
 export function AccueilParcoursMetiersMaquetteSection() {
+  if (!isParcoursMetiers2027Visible()) return null;
+
   const parcours = getAccueilParcoursMetiersMaquette();
 
   return (

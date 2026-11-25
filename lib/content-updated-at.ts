@@ -25,6 +25,7 @@ export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
   '/formateurs/marc-delcourt': '2026-11-25',
   '/formateurs/thomas-garnier': '2026-11-25',
   '/formateurs/manuel-gomez': '2026-11-25',
+  '/formateurs/laure-olivie': '2026-11-25',
 } as const satisfies Record<string, ContentUpdatedDate>;
 
 /** Fiches `/formateurs/[slug]` — alignées sur la source profils. */

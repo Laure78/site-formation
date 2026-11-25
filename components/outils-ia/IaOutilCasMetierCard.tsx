@@ -1,12 +1,16 @@
 import Link from 'next/link';
 import type { IaOutilCasMetier } from '@/lib/ia-outils-btp-selection';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { isParcoursMetiersPublicHref } from '@/lib/parcours-metiers-2027-visibility';
 
 type Props = {
   cas: IaOutilCasMetier;
 };
 
 export function IaOutilCasMetierCard({ cas }: Props) {
+  const formationHref =
+    cas.formationHref && !isParcoursMetiersPublicHref(cas.formationHref) ? cas.formationHref : null;
+
   return (
     <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
       <h3 className="font-display text-lg font-bold text-slate-900">{cas.question}</h3>
@@ -38,11 +42,11 @@ export function IaOutilCasMetierCard({ cas }: Props) {
         <Link href={cas.resourceHref} className={OFC_LINK}>
           {cas.resourceLabel}
         </Link>
-        {cas.formationHref && cas.formationLabel ? (
+        {formationHref && cas.formationLabel ? (
           <>
             {' '}
             ·{' '}
-            <Link href={cas.formationHref} className={OFC_LINK}>
+            <Link href={formationHref} className={OFC_LINK}>
               {cas.formationLabel}
             </Link>
           </>

@@ -4,10 +4,13 @@ import { Section } from '@/components/ui/Section';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { getAccueilParcoursOffre } from '@/lib/accueil-offre-catalogue';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 export function AccueilParcoursMetiersSection() {
+  if (!isParcoursMetiers2027Visible()) return null;
   const parcours = getAccueilParcoursOffre({ featuredOnly: true });
+  if (parcours.length === 0) return null;
 
   return (
     <Section

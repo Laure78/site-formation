@@ -33,6 +33,7 @@ import {
   FORMATEUR_SHOWCASE_PORTRAIT_IMAGE,
 } from '@/lib/formateurs/formateur-showcase-portrait';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK, OFC_TYPE_BODY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { OFC_SECTION_INNER, ofcSectionClasses } from '@/lib/ofc-section-classes';
 import { PHOTOS } from '@/lib/photos';
@@ -78,6 +79,7 @@ type Props = {
 
 export function FormateurMarcDelcourtPage({ formateur }: Props) {
   const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const parcoursVisible = isParcoursMetiers2027Visible();
   const moduleLinks = getFormateurModuleLinks(formateur);
   const portrait = formateur.portrait;
   const portraitAlt =
@@ -159,10 +161,16 @@ export function FormateurMarcDelcourtPage({ formateur }: Props) {
               </p>
               <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <Link
-                  href={`#${MARC_FORMATIONS_SECTION_ID}`}
+                  href={
+                    parcoursVisible && moduleLinks.length > 0
+                      ? `#${MARC_FORMATIONS_SECTION_ID}`
+                      : LINKS.formations
+                  }
                   className={`${OFC_CTA_PRIMARY} inline-flex min-h-11 items-center justify-center gap-2 rounded-lg px-6 py-2.5 text-base font-semibold`}
                 >
-                  Découvrir ses formations
+                  {parcoursVisible && moduleLinks.length > 0
+                    ? 'Découvrir ses formations'
+                    : 'Voir le catalogue des formations'}
                   <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
                 </Link>
                 <CtaVisio
@@ -184,9 +192,15 @@ export function FormateurMarcDelcourtPage({ formateur }: Props) {
             <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
               15 ans à la direction d&apos;une entreprise de TP
             </li>
-            <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
-              2 formations prévues en 2027
-            </li>
+            {parcoursVisible ? (
+              <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
+                2 formations prévues en 2027
+              </li>
+            ) : (
+              <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
+                Expertise gestion et pilotage PME BTP
+              </li>
+            )}
             <li className="flex items-center justify-center gap-2 text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
               <MapPin className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
               Présentiel en Île-de-France
@@ -227,7 +241,7 @@ export function FormateurMarcDelcourtPage({ formateur }: Props) {
         </div>
       </section>
 
-      {/* Formations */}
+      {parcoursVisible && moduleLinks.length > 0 ? (
       <section
         id={MARC_FORMATIONS_SECTION_ID}
         className={ofcSectionClasses({ tone: 'muted', size: 'compact', divide: true })}
@@ -293,6 +307,7 @@ export function FormateurMarcDelcourtPage({ formateur }: Props) {
           </ul>
         </div>
       </section>
+      ) : null}
 
       {/* Parcours */}
       <section
@@ -396,12 +411,21 @@ export function FormateurMarcDelcourtPage({ formateur }: Props) {
               className="inline-flex min-h-11 items-center justify-center rounded-lg bg-white px-6 py-2.5 text-base font-semibold text-[#377CF3] hover:bg-slate-50"
               title="Échanger sur votre projet"
             />
-            <Link
-              href={LINKS.parcoursDirigeantPmeBtp}
-              className="inline-flex min-h-11 items-center justify-center rounded-lg border-2 border-white px-6 py-2.5 text-base font-semibold text-white hover:bg-white/10"
-            >
-              Découvrir le parcours dirigeant de PME BTP
-            </Link>
+            {parcoursVisible ? (
+              <Link
+                href={LINKS.parcoursDirigeantPmeBtp}
+                className="inline-flex min-h-11 items-center justify-center rounded-lg border-2 border-white px-6 py-2.5 text-base font-semibold text-white hover:bg-white/10"
+              >
+                Découvrir le parcours dirigeant de PME BTP
+              </Link>
+            ) : (
+              <Link
+                href={LINKS.formations}
+                className="inline-flex min-h-11 items-center justify-center rounded-lg border-2 border-white px-6 py-2.5 text-base font-semibold text-white hover:bg-white/10"
+              >
+                Voir le catalogue des formations
+              </Link>
+            )}
           </div>
         </div>
       </section>

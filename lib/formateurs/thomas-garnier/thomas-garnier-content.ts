@@ -4,6 +4,7 @@
 import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
 
 export const THOMAS_GARNIER_SLUG = 'thomas-garnier' as const;
 
@@ -69,7 +70,7 @@ export const THOMAS_PUBLIC_CIBLE = [
 ] as const;
 
 /** Formations IA OFC — distinctes des modules Thomas (parcours 2027). */
-export const THOMAS_FORMATIONS_OFC_LINKS = [
+const THOMAS_FORMATIONS_OFC_LINKS_ALL = [
   {
     href: LINKS.iaDevis,
     label: 'Formation IA devis et chiffrage BTP',
@@ -96,6 +97,10 @@ export const THOMAS_FORMATIONS_OFC_LINKS = [
     hint: 'Guides et tutoriels gratuits OFC.',
   },
 ] as const;
+
+export const THOMAS_FORMATIONS_OFC_LINKS = filterLinksWhenParcoursMetiersHidden(
+  THOMAS_FORMATIONS_OFC_LINKS_ALL,
+);
 
 export const THOMAS_GUIDES_LINKS = [
   { href: LINKS.blogAnalyseDceNotebooklm, label: 'Analyser un DCE avec l’IA' },

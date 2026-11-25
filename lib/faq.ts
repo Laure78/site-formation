@@ -25,6 +25,7 @@ import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibil
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION, CONTACT } from '@/lib/constants';
 import { getLaureOlivieSchemaPersonDescription } from '@/lib/laure-olivie-profile';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { formatOrganismeQualiopiCourt, MARQUE_COMMERCIALE } from '@/lib/marque-identite';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
 import {
@@ -98,10 +99,15 @@ export const FAQ_IA_BTP_METIERS_CHANTIER_SEO: readonly FAQItem[] = [
  * FAQ page d'accueil — 6 questions visibles (public, AI Act, prérequis, déroulé, OPCO, intra, lieu).
  * Source unique accordion + JSON-LD FAQPage (`buildHomeFAQPageJsonLd`).
  */
+
+const FAQ_HOME_PARCOURS_MAILLAGE = isParcoursMetiers2027Visible()
+  ? ` et les <a href="${LINKS.parcoursMetiers}">parcours métiers</a>`
+  : '';
+
 export const FAQ_ITEMS_HOME: readonly FAQItem[] = [
   {
     q: 'À qui s’adressent les formations IA pour le BTP ?',
-    a: `Dirigeants de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, assistants travaux et fonctions support — sans prérequis technique pour le niveau 1. Voir la page <a href="${LINKS.formationIaDirigeantPmeBtp}">formation IA pour les PME du BTP</a>, le <a href="${LINKS.formations}">catalogue</a> et les <a href="${LINKS.parcoursMetiers}">parcours métiers</a>.`,
+    a: `Dirigeants de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, assistants travaux et fonctions support — sans prérequis technique pour le niveau 1. Voir la page <a href="${LINKS.formationIaDirigeantPmeBtp}">formation IA pour les PME du BTP</a>, le <a href="${LINKS.formations}">catalogue</a>${FAQ_HOME_PARCOURS_MAILLAGE}.`,
   },
   {
     q: 'IA et AI Act : quelles obligations pour une PME du BTP ?',
@@ -743,7 +749,11 @@ export const FAQ_MAITRISER_CLAUDE_NIV04: FAQItem[] = [
 export const FAQ_CONDUITE_TRAVAUX_NIV03: FAQItem[] = [
   {
     q: 'Je suis conducteur de travaux : quels documents puis-je vraiment accélérer avec l\'IA ?',
-    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. Cette session (${dureeCatalogueParCode('NIV-03')}) travaille ces livrables sur vos documents anonymisés. Complément : <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a> et <a href="${LINKS.parcoursConducteurDeTravaux}">parcours Conducteur de travaux</a>.`,
+    a: `Les CR de réunion, synthèses CCTP/DPGF, brouillons PPSPS, courriers sous-traitants (DC4), PV de réserves et trames DOE — avec relecture humaine avant diffusion. Cette session (${dureeCatalogueParCode('NIV-03')}) travaille ces livrables sur vos documents anonymisés. Complément : <a href="${LINKS.formationConducteurTravaux}">formation IA conducteur de travaux</a>${
+      isParcoursMetiers2027Visible()
+        ? ` et <a href="${LINKS.parcoursConducteurDeTravaux}">parcours Conducteur de travaux</a>`
+        : ''
+    }.`,
   },
   {
     q: 'Les skills Claude remplacent-ils mon logiciel de gestion de chantier ?',

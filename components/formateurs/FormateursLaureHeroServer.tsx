@@ -5,6 +5,8 @@ import {
   getFormateurHubProgrammeLinks,
   type FormateurProfile,
 } from '@/lib/formateurs';
+import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
+import { LINKS } from '@/lib/internal-links';
 import { formatAnneesExperienceBTP } from '@/lib/data/indicateurs-resultats';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -54,17 +56,17 @@ export function FormateursLaureHeroServer({ laure }: Props) {
           </p>
           <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <Link
-              href={`#${laure.slug}`}
+              href={formateurPublicProfileHref(laure)}
               className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-5 py-2.5 text-sm font-semibold`}
-              aria-label={`Voir le profil de ${fullName}`}
+              aria-label={`Découvrir le profil de ${fullName}`}
             >
-              Voir le profil
+              Découvrir son profil
             </Link>
             <Link
-              href={laure.profileHref ?? '/a-propos'}
+              href={LINKS.aPropos}
               className={`${OFC_LINK} inline-flex min-h-11 items-center text-sm font-semibold text-ofc-accent`}
             >
-              Parcours détaillé
+              L&apos;organisme OFC
             </Link>
           </div>
         </div>

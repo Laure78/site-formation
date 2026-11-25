@@ -23,6 +23,7 @@ import { FinancementOpcoEtenduSection } from '@/components/financement/Financeme
 import { FinancementConstructysFaqSection } from '@/components/financement/constructys/FinancementConstructysFaqSection';
 import { FinancementSourcesSection } from '@/components/financement/constructys/FinancementSourcesSection';
 import { getFaqFinancementConstructysPage } from '@/lib/faq';
+import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
 import { AllerPlusLoin } from '@/components/AllerPlusLoin';
 import { LINKS } from '@/lib/internal-links';
 import Link from 'next/link';
@@ -86,7 +87,7 @@ export default function FinancementConstructysPage() {
           </Link>
           <div className="mt-8">
             <AllerPlusLoin
-              links={[
+              links={filterLinksWhenParcoursMetiersHidden([
                 { href: LINKS.formations, label: 'Catalogue des formations IA pour le BTP' },
                 { href: LINKS.parcoursMetiers, label: 'Parcours métiers — formation IA BTP' },
                 {
@@ -96,7 +97,7 @@ export default function FinancementConstructysPage() {
                 { href: LINKS.formationIleDeFrance, label: 'Formation IA BTP en Île-de-France' },
                 { href: LINKS.prendreRdv, label: 'Prendre RDV' },
                 { href: LINKS.contact, label: 'Demander un devis' },
-              ]}
+              ])}
             />
           </div>
         </div>

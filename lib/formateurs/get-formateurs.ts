@@ -20,6 +20,7 @@ import type {
 import { catalogueDemandeHref } from '@/lib/training-page-helpers';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import {
   isFormateurPublie,
   isFormateurVisibleOnHubProduction,
@@ -74,12 +75,10 @@ export function getHubFormateurProfileBySlug(slug: string): FormateurProfile | u
   return getFormateursHubProfiles().find((f) => f.slug === slug);
 }
 
-/** Slugs des fiches dédiées `/formateurs/[slug]` (hors Laure → `/a-propos`). */
+/** Slugs des fiches dédiées `/formateurs/[slug]`. */
 export function getFormateurProfileStaticSlugs(): readonly string[] {
   return getFormateursHubProfiles()
-    .filter(
-      (f) => f.id !== FORMATEUR_LAURE_OLIVIE.id && f.profilePage !== false && !f.profileHref,
-    )
+    .filter((f) => f.profilePage !== false && !f.profileHref)
     .map((f) => f.slug);
 }
 
@@ -197,6 +196,7 @@ export function getFormateurModuleLinks(
   for (const code of codes) {
     const mod = getModuleByCode(code);
     if (!mod) continue;
+    if (!isParcoursMetiers2027Visible() && mod.disponibilite === 'ouverture-2027') continue;
     const formationHint = `${mod.code} — ${mod.titre}`;
     const ouverture2027 = mod.disponibilite === 'ouverture-2027';
     const href = ouverture2027

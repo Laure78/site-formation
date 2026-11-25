@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { ParcoursMetiersPage as ParcoursMetiersPageContent } from '@/components/formations/ParcoursMetiersPage';
@@ -11,6 +12,7 @@ import {
 } from '@/lib/catalogue-2027/parcours-seo-metadata';
 import { getParcoursMetiersPublicsOrdered } from '@/lib/parcours-metiers-public';
 import { buildParcoursMetiersHubItemListJsonLd } from '@/lib/schema-parcours-metiers-jsonld';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 export const revalidate = 3600;
 
 const META_TITLE = parcoursMetiersHubTitle();
@@ -25,6 +27,9 @@ export const metadata: Metadata = createPageMetadata({
   appendAuthorSuffix: false,
   openGraphTitle: META_TITLE,
   openGraphDescription: META_DESCRIPTION,
+  robots: isParcoursMetiers2027Visible()
+    ? { index: true, follow: true }
+    : { index: false, follow: true },
 });
 
 function getParcoursMetiersJsonLd() {
@@ -43,6 +48,10 @@ function getParcoursMetiersJsonLd() {
 }
 
 export default function ParcoursMetiersPage() {
+  if (!isParcoursMetiers2027Visible()) {
+    redirect(LINKS.formations);
+  }
+
   const parcours = getParcoursMetiersPublicsOrdered();
   const itemList = buildParcoursMetiersHubItemListJsonLd(parcours);
   const base = SITE_CONFIG.url.replace(/\/$/, '');

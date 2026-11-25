@@ -18,6 +18,7 @@ import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { PROOF } from '@/lib/proof';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { voirAussiIdfProps } from '@/lib/voir-aussi';
 import { CSFE_NOM_COMPLET } from '@/lib/csfe';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -101,7 +102,9 @@ const FAQ_IDF: FAQItem[] = [
   },
   {
     q: 'Comment choisir une formation selon mon métier (conducteur, chargé d’affaires, MOE) ?',
-    a: `Le <a href="${LINKS.parcoursMetiers}">parcours métiers</a> regroupe les modules par fonction ; le <a href="${LINKS.formations}">catalogue</a> détaille durées et prérequis (4 h ou 14 h sur 2 jours selon la fiche).`,
+    a: isParcoursMetiers2027Visible()
+      ? `Le <a href="${LINKS.parcoursMetiers}">parcours métiers</a> regroupe les modules par fonction ; le <a href="${LINKS.formations}">catalogue</a> détaille durées et prérequis (4 h ou 14 h sur 2 jours selon la fiche).`
+      : `Le <a href="${LINKS.formations}">catalogue des formations IA BTP</a> détaille durées, prérequis et publics cibles (4 h ou 14 h sur 2 jours selon la fiche).`,
   },
 ];
 

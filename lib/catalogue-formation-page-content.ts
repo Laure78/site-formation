@@ -5,6 +5,7 @@
 import type { FormationCatalogueCode } from '@/lib/formation-catalogue-visibility';
 import type { TrainingParcoursKind } from '@/lib/training-page-helpers';
 import { LINKS } from '@/lib/internal-links';
+import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
 import { formatPrixHt, getFormationByCode, libelleDureeFormation } from '@/data/formations';
 import {
   libelleTarifParticipantCatalogue,
@@ -1388,7 +1389,11 @@ export function getCatalogueFormationPageContent(
   if (!content) {
     throw new Error(`Contenu fiche catalogue manquant pour ${ref} — étendre catalogue-formation-page-content.ts`);
   }
-  return content;
+  if (!content.programLinks?.length) return content;
+  return {
+    ...content,
+    programLinks: filterLinksWhenParcoursMetiersHidden([...content.programLinks]),
+  };
 }
 
 export function hasCatalogueFormationPageTemplate(ref: FormationCatalogueCode): boolean {

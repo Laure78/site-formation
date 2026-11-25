@@ -22,6 +22,7 @@ import {
 import { PublicPhoneCta } from '@/components/PublicPhoneCta';
 import { JsonLd } from '@/components/JsonLd';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { LaureOlivieFormationPortrait } from '@/components/laure-olivie/LaureOlivieFormationPortrait';
 import { MetierIdfPresentielLine } from '@/components/formation-ia-metier/MetierIdfPresentielLine';
 import { VousEtesPlutotEncart } from '@/components/landing/VousEtesPlutotEncart';
@@ -206,11 +207,23 @@ export default function FormationIaDirigeantPmeBtpPage() {
           </p>
           <p className="mt-4 text-slate-600 leading-relaxed">
             Pas de compétence informatique requise pour débuter : navigateur, documents métier et français écrit
-            suffisent. Pour choisir selon le poste, consultez les{' '}
-            <Link href={LINKS.parcoursMetiers} className="font-medium text-[var(--accent)] underline hover:no-underline">
-              parcours par métier
-            </Link>{' '}
-            ou le{' '}
+            suffisent.             Pour choisir selon le poste, consultez le{' '}
+            <Link href={LINKS.formations} className="font-medium text-[var(--accent)] underline hover:no-underline">
+              catalogue des formations IA BTP
+            </Link>
+            {isParcoursMetiers2027Visible() ? (
+              <>
+                {' '}
+                ou les{' '}
+                <Link
+                  href={LINKS.parcoursMetiers}
+                  className="font-medium text-[var(--accent)] underline hover:no-underline"
+                >
+                  parcours par métier
+                </Link>
+              </>
+            ) : null}{' '}
+            — ou le{' '}
             <Link href={LINKS.formationIaBtp} className="font-medium text-[var(--accent)] underline hover:no-underline">
               hub formation IA pour le BTP
             </Link>
@@ -273,10 +286,14 @@ export default function FormationIaDirigeantPmeBtpPage() {
             <Link href={LINKS.formationIaAppelsOffresBtp} className="font-medium text-[var(--accent)] underline">
               appels d&apos;offres
             </Link>
-            ,{' '}
-            <Link href={LINKS.parcoursDirigeantPmeBtp} className="font-medium text-[var(--accent)] underline">
-              parcours dirigeant PME BTP
-            </Link>
+            {isParcoursMetiers2027Visible() ? (
+              <>
+                ,{' '}
+                <Link href={LINKS.parcoursDirigeantPmeBtp} className="font-medium text-[var(--accent)] underline">
+                  parcours dirigeant PME BTP
+                </Link>
+              </>
+            ) : null}
             .
           </p>
         </section>

@@ -7,6 +7,7 @@ import {
   type FormateurProfile,
 } from '@/lib/formateurs';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 function DisponibiliteBadge({ kind }: { kind: 'disponible' | 'ouverture-2027' }) {
   if (kind === 'disponible') {
@@ -142,7 +143,7 @@ export function FormateurProfileDetail({
         </section>
       )}
 
-      {modules2027.length > 0 ? (
+      {isParcoursMetiers2027Visible() && modules2027.length > 0 ? (
         <section aria-labelledby={`${formateur.id}-2027-title`}>
           <h2 id={`${formateur.id}-2027-title`} className="text-lg font-semibold text-ofc-ink">
             Ouverture 2027

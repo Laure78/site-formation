@@ -41,6 +41,7 @@ import {
   FORMATEUR_SHOWCASE_PORTRAIT_IMAGE,
 } from '@/lib/formateurs/formateur-showcase-portrait';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { OFC_CTA_PRIMARY, OFC_CTA_SECONDARY, OFC_LINK, OFC_TYPE_BODY, OFC_TYPE_H2 } from '@/lib/ofc-interaction-classes';
 import { OFC_SECTION_INNER, ofcSectionClasses } from '@/lib/ofc-section-classes';
 import { PHOTOS } from '@/lib/photos';
@@ -65,6 +66,7 @@ type Props = {
 
 export function FormateurThomasGarnierPage({ formateur }: Props) {
   const base = SITE_CONFIG.url.replace(/\/$/, '');
+  const parcoursVisible = isParcoursMetiers2027Visible();
   const moduleLinks = getFormateurModuleLinks(formateur);
   const portrait = formateur.portrait;
   const portraitAlt =
@@ -171,9 +173,15 @@ export function FormateurThomasGarnierPage({ formateur }: Props) {
             <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
               12 ans d&apos;expérience en gestion d&apos;affaires BTP
             </li>
-            <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
-              2 formations prévues en 2027
-            </li>
+            {parcoursVisible ? (
+              <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
+                2 formations prévues en 2027
+              </li>
+            ) : (
+              <li className="text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
+                Spécialiste devis et appels d&apos;offres BTP
+              </li>
+            )}
             <li className="flex items-center justify-center gap-2 text-center text-sm font-semibold text-[#101936] sm:text-[15px]">
               <MapPin className="h-4 w-4 shrink-0 text-[#377CF3]" aria-hidden />
               Présentiel en Île-de-France
@@ -235,7 +243,7 @@ export function FormateurThomasGarnierPage({ formateur }: Props) {
         </div>
       </section>
 
-      {/* Formations Thomas */}
+      {parcoursVisible && moduleLinks.length > 0 ? (
       <section
         id={THOMAS_FORMATIONS_SECTION_ID}
         className={ofcSectionClasses({ tone: 'white', size: 'compact', divide: true })}
@@ -313,6 +321,7 @@ export function FormateurThomasGarnierPage({ formateur }: Props) {
           </ul>
         </div>
       </section>
+      ) : null}
 
       {/* Parcours */}
       <section

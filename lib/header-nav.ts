@@ -8,6 +8,7 @@ import {
   buildUnifiedFormationsNavMegaColumns,
 } from '@/lib/header-nav-formations-unified';
 import { buildParcoursNavChildren } from '@/lib/header-nav-parcours';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import {
   UTILITY_ORGANISME_NAV_LINKS,
   utilityOrganismeNavActive,
@@ -66,7 +67,7 @@ function parcoursNavActive(pathname: string): boolean {
 }
 
 function formationsNavActive(pathname: string): boolean {
-  if (parcoursNavActive(pathname)) return true;
+  if (isParcoursMetiers2027Visible() && parcoursNavActive(pathname)) return true;
   if (pathname === LINKS.datesEtLieux) return true;
   if (pathname === LINKS.formations || pathname.startsWith(`${LINKS.formations}/`)) {
     return true;
@@ -129,7 +130,7 @@ const RESSOURCES_NAV_CHILDREN: readonly HeaderNavLink[] = [
 ];
 
 function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
-  return [
+  const items: HeaderNavItem[] = [
     {
       id: 'formations',
       label: 'Formations',
@@ -141,15 +142,19 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       dropdownPanelFormations: true,
       dropdownPanelFormationsDual: true,
     },
-    {
-      id: 'parcours',
-      label: 'Parcours métiers',
-      href: LINKS.parcoursMetiers,
-      isActive: parcoursNavActive,
-      children: buildParcoursNavChildren(),
-      hideDropdownHeading: true,
-      dropdownAlign: 'start',
-    },
+    ...(isParcoursMetiers2027Visible()
+      ? [
+          {
+            id: 'parcours',
+            label: 'Parcours métiers',
+            href: LINKS.parcoursMetiers,
+            isActive: parcoursNavActive,
+            children: buildParcoursNavChildren(),
+            hideDropdownHeading: true,
+            dropdownAlign: 'start',
+          } satisfies HeaderNavItem,
+        ]
+      : []),
     {
       id: 'formateurs',
       label: 'Nos formateurs',
@@ -181,6 +186,7 @@ function buildHeaderNavItems(at: Date = new Date()): readonly HeaderNavItem[] {
       hideDropdownHeading: true,
     },
   ];
+  return items;
 }
 
 export function getHeaderNav(at: Date = new Date()): readonly HeaderNavItem[] {

@@ -19,6 +19,7 @@ import {
   isFormationCatalogueRetired,
 } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 
 export const FORMATION_ORIENTATION_SECTION_ID = 'quelle-formation-choisir' as const;
 
@@ -259,6 +260,8 @@ function buildParcoursComplement(
   metier: OrientationMetier | undefined,
   besoin: OrientationBesoin,
 ): OrientationParcoursRecommendation | undefined {
+  if (!isParcoursMetiers2027Visible()) return undefined;
+
   if (besoin === 'encadrer-ia' && metier === 'dirigeant') {
     return {
       kind: 'parcours',

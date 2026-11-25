@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { TUTOS, TUTO_CATEGORY_META, TUTO_CATEGORY_ORDER } from '@/lib/tutos';
 import { TutosGroupedByCategory } from '@/components/ressources/TutosGroupedByCategory';
 import { RelatedLinks } from '@/components/RelatedLinks';
@@ -137,11 +138,26 @@ export default function RessourcesTutosIndexPage() {
             <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
               formation IA pour les pros du BTP Qualiopi
             </Link>{' '}
-            (présentiel Île-de-France). En amont :{' '}
-            <Link href={LINKS.parcoursMetiers} className="font-medium text-[#377CF3] hover:underline">
-              choisir un parcours métier
-            </Link>
-            . {''}
+            (présentiel Île-de-France).
+            {isParcoursMetiers2027Visible() ? (
+              <>
+                {' '}
+                En amont :{' '}
+                <Link href={LINKS.parcoursMetiers} className="font-medium text-[#377CF3] hover:underline">
+                  choisir un parcours métier
+                </Link>
+                .
+              </>
+            ) : (
+              <>
+                {' '}
+                En amont : parcourir le{' '}
+                <Link href={LINKS.formations} className="font-medium text-[#377CF3] hover:underline">
+                  catalogue des formations
+                </Link>
+                .
+              </>
+            )}{' '}
             <Link href={LINKS.financement} className="font-medium text-[#377CF3] hover:underline">
               Financement OPCO Constructys
             </Link>{' '}

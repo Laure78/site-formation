@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import { EnBref } from '@/app/components/EnBref';
 import { CtaDevis } from '@/components/CtaDevis';
 import { CtaVisio } from '@/components/CtaVisio';
@@ -36,10 +36,16 @@ import {
   MANUEL_GOMEZ_SLUG,
 } from '@/lib/formateurs/manuel-gomez/manuel-gomez-content';
 import { manuelGomezCanonicalUrl } from '@/lib/formateurs/manuel-gomez/manuel-gomez-schema';
+import { FormateurLaureOliviePage } from '@/components/formateurs/laure-olivie/FormateurLaureOliviePage';
+import {
+  LAURE_OLIVIE_METADATA,
+  LAURE_OLIVIE_PATH,
+  LAURE_OLIVIE_SLUG,
+} from '@/lib/formateurs/laure-olivie/laure-olivie-content';
+import { laureOlivieCanonicalUrl } from '@/lib/formateurs/laure-olivie/laure-olivie-schema';
 import {
   formateurPublicProfileAbsoluteUrl,
   formateurPublicProfilePath,
-  isLaureFormateurSlug,
 } from '@/lib/formateurs/formateur-profile-href';
 import { LINKS } from '@/lib/internal-links';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -62,12 +68,55 @@ function pagePath(slug: string): string {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  if (isLaureFormateurSlug(slug)) {
-    return { robots: { index: false, follow: true } };
-  }
   const formateur = getHubFormateurProfileBySlug(slug);
   if (!formateur) {
     return { title: 'Formateur introuvable' };
+  }
+
+  if (slug === LAURE_OLIVIE_SLUG) {
+    const portrait =
+      formateur.portrait.kind === 'photo' ? formateur.portrait : undefined;
+    const canonical = laureOlivieCanonicalUrl();
+    const base = SITE_CONFIG.url.replace(/\/$/, '');
+    return {
+      ...createPageMetadata({
+        title: LAURE_OLIVIE_METADATA.title,
+        titleAbsolute: LAURE_OLIVIE_METADATA.title,
+        description: LAURE_OLIVIE_METADATA.description,
+        descriptionFinal: true,
+        path: LAURE_OLIVIE_PATH,
+        appendAuthorSuffix: false,
+        keywords: [
+          'Laure Olivié formatrice IA BTP',
+          'Formatrice intelligence artificielle BTP',
+          'Formation IA BTP Île-de-France',
+          'OFC Création d’Entreprise',
+          'Qualiopi',
+          'LinkedIn Learning BTP',
+        ],
+      }),
+      title: { absolute: LAURE_OLIVIE_METADATA.title },
+      alternates: { canonical },
+      openGraph: {
+        type: 'profile',
+        locale: 'fr_FR',
+        url: canonical,
+        title: LAURE_OLIVIE_METADATA.title,
+        description: LAURE_OLIVIE_METADATA.description,
+        ...(portrait
+          ? {
+              images: [
+                {
+                  url: `${base}${portrait.src}`,
+                  width: portrait.width,
+                  height: portrait.height,
+                  alt: portrait.alt,
+                },
+              ],
+            }
+          : {}),
+      },
+    };
   }
 
   if (slug === MARC_DELCOURT_SLUG) {
@@ -242,12 +291,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function FormateurProfilPage({ params }: Props) {
   const { slug } = await params;
 
-  if (isLaureFormateurSlug(slug)) {
-    redirect(LINKS.aPropos);
-  }
-
   const formateur = getHubFormateurProfileBySlug(slug);
   if (!formateur) notFound();
+
+  if (slug === LAURE_OLIVIE_SLUG) {
+    return <FormateurLaureOliviePage formateur={formateur} />;
+  }
 
   if (slug === MARC_DELCOURT_SLUG) {
     return <FormateurMarcDelcourtPage formateur={formateur} />;

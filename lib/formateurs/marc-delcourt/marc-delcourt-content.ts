@@ -4,6 +4,10 @@
 import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
+import {
+  filterLinksWhenParcoursMetiersHidden,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
 
 export const MARC_DELCOURT_SLUG = 'marc-delcourt' as const;
 
@@ -46,7 +50,7 @@ export const MARC_PUBLIC_CIBLE = [
   'Collaborateurs amenés à participer au pilotage économique d’une PME du BTP',
 ] as const;
 
-export const MARC_MAILLAGE = [
+const MARC_MAILLAGE_ALL = [
   { href: LINKS.formateurs, label: 'Nos formateurs' },
   { href: LINKS.parcoursDirigeantPmeBtp, label: 'Parcours dirigeant de PME BTP' },
   { href: LINKS.iaDevis, label: 'Formation IA devis et chiffrage' },
@@ -54,6 +58,8 @@ export const MARC_MAILLAGE = [
   { href: LINKS.financement, label: 'Financement Constructys' },
   { href: LINKS.aPropos, label: 'Présentation de l’organisme' },
 ] as const;
+
+export const MARC_MAILLAGE = filterLinksWhenParcoursMetiersHidden(MARC_MAILLAGE_ALL);
 
 export function getMarcDelcourtFaqItems(): readonly FAQItem[] {
   return [
@@ -63,7 +69,9 @@ export function getMarcDelcourtFaqItems(): readonly FAQItem[] {
     },
     {
       q: 'Quelles formations propose Marc Delcourt ?',
-      a: 'Deux formations sont prévues à l’ouverture 2027 : calculer ses prix de revient et fixer ses prix de vente (module DIR-01), ainsi qu’organiser sa trésorerie et anticiper ses besoins (module DIR-03).',
+      a: isParcoursMetiers2027Visible()
+        ? 'Deux formations sont prévues à l’ouverture 2027 : calculer ses prix de revient et fixer ses prix de vente (module DIR-01), ainsi qu’organiser sa trésorerie et anticiper ses besoins (module DIR-03).'
+        : 'Marc Delcourt intervient sur les thématiques de gestion des PME du BTP : prix de revient, marges et trésorerie. Consultez le catalogue des formations ou échangez en visio pour cadrer votre besoin.',
     },
     {
       q: 'Pourquoi se former au calcul des prix de revient dans le BTP ?',

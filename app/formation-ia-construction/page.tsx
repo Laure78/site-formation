@@ -16,6 +16,7 @@ import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD } from '@/lib/tarifs-sessions';
@@ -299,12 +300,20 @@ export default function FormationIaConstructionPage() {
             Comment choisir le programme adapté ?
           </h2>
           <p className="mt-4 leading-relaxed text-slate-600">
-            Chaque fiche précise durée, effectif et prérequis. Le{' '}
-            <Link href={LINKS.parcoursMetiers} className="font-medium text-[#377CF3] hover:underline">
-              parcours métiers
-            </Link>{' '}
-            aide à orienter par fonction ; la visio découverte permet de cadrer une session intra ou une
-            inscription inter.
+            Chaque fiche précise durée, effectif et prérequis.
+            {isParcoursMetiers2027Visible() ? (
+              <>
+                {' '}
+                Le{' '}
+                <Link href={LINKS.parcoursMetiers} className="font-medium text-[#377CF3] hover:underline">
+                  parcours métiers
+                </Link>{' '}
+                aide à orienter par fonction ;
+              </>
+            ) : (
+              <> Le catalogue aide à choisir selon la fonction ;</>
+            )}{' '}
+            la visio découverte permet de cadrer une session intra ou une inscription inter.
           </p>
           <ul className="mt-6 space-y-5">
             {CONSTRUCTION_PROGRAMMES_ORIENTATION.map((item) => (

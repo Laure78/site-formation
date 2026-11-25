@@ -3,6 +3,10 @@
  * Chaque page d’un cluster reçoit 3–5 liens via `getClusterRelatedLinks(path)`.
  */
 import { LINKS } from '@/lib/internal-links';
+import {
+  isParcoursMetiers2027Visible,
+  isParcoursMetiersPublicHref,
+} from '@/lib/parcours-metiers-2027-visibility';
 import { CATALOGUE_DUREE_BASES_IA_ONLY, CATALOGUE_NIV_RANGE, FORMATIONS } from '@/data/formations';
 import { getCatalogueFormationsCount } from '@/lib/formations-catalogue-display';
 import { isFormationCataloguePublished } from '@/lib/formation-catalogue-visibility';
@@ -872,9 +876,12 @@ function buildMoeAmoClusterLinks(path: string): ClusterPageConfig | null {
 }
 
 function dedupeLinks(links: RelatedLinkItem[]): RelatedLinkItem[] {
+  const pool = isParcoursMetiers2027Visible()
+    ? links
+    : links.filter((l) => !isParcoursMetiersPublicHref(l.href));
   const seen = new Set<string>();
   const out: RelatedLinkItem[] = [];
-  for (const l of links) {
+  for (const l of pool) {
     const key = l.href.replace(/\/$/, '') || '/';
     if (seen.has(key)) continue;
     seen.add(key);
@@ -932,11 +939,27 @@ function buildMarchePublicClusterLinks(path: string): RelatedLinkItem[] | null {
   ]).slice(0, 5);
 }
 
+function finalizeClusterForParcoursVisibility(
+  config: ClusterPageConfig | null,
+): ClusterPageConfig | null {
+  if (!config) return null;
+  const links = isParcoursMetiers2027Visible()
+    ? config.links
+    : config.links.filter((l) => !isParcoursMetiersPublicHref(l.href));
+  if (links.length < 3) return null;
+  return { ...config, links };
+}
+
 /**
  * Retourne le bloc de maillage cluster pour une URL, ou `null` si hors cluster.
  */
-export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
+function resolveClusterRelatedLinks(path: string): ClusterPageConfig | null {
   const normalized = path.replace(/\/$/, '') || '/';
+
+  if (!isParcoursMetiers2027Visible()) {
+    if (normalized === LINKS.parcoursMetiers) return null;
+    if (normalized.startsWith(`${LINKS.formations}/parcours/`)) return null;
+  }
 
   // --- Géo ---
   if (normalized === LINKS.formationIleDeFrance) {
@@ -1397,6 +1420,10 @@ function buildUsageTaskPageCluster(path: string): ClusterPageConfig | null {
   const cfg = byPath[path];
   if (!cfg || cfg.links.length < 3) return null;
   return { cluster: 'usage', ...cfg };
+}
+
+export function getClusterRelatedLinks(path: string): ClusterPageConfig | null {
+  return finalizeClusterForParcoursVisibility(resolveClusterRelatedLinks(path));
 }
 
 /** Hrefs déjà utilisés sur la page — à exclure des autres blocs de liens. */

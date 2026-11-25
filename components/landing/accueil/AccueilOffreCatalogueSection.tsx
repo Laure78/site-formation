@@ -11,6 +11,7 @@ import {
   getAccueilParcoursOffre,
 } from '@/lib/accueil-offre-catalogue';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import {
   OFC_CARD,
   OFC_CTA_PRIMARY,
@@ -25,7 +26,8 @@ import { ParcoursFormationModulesList } from '@/components/formations/ParcoursFo
  * Données synchronisées avec `/formations`.
  */
 export function AccueilOffreCatalogueSection() {
-  const parcours = getAccueilParcoursOffre({ featuredOnly: true });
+  const parcoursVisible = isParcoursMetiers2027Visible();
+  const parcours = parcoursVisible ? getAccueilParcoursOffre({ featuredOnly: true }) : [];
   const groupesFormations = getAccueilFormationsParNiveau();
 
   return (
@@ -41,12 +43,20 @@ export function AccueilOffreCatalogueSection() {
       <SectionHeader
         align="center"
         titleId="accueil-offre-catalogue-title"
-        title="Nos formations et parcours pour le BTP"
-        description="Une formation pour répondre à un besoin précis. Un parcours pour progresser étape par étape."
+        title={
+          parcoursVisible && parcours.length > 0
+            ? 'Nos formations et parcours pour le BTP'
+            : 'Nos formations IA pour le BTP'
+        }
+        description={
+          parcoursVisible && parcours.length > 0
+            ? 'Une formation pour répondre à un besoin précis. Un parcours pour progresser étape par étape.'
+            : 'Des programmes Qualiopi en présentiel en Île-de-France — de l’initiation aux usages métier avancés.'
+        }
         className="mx-auto max-w-2xl"
       />
 
-      {/* ——— Parcours ——— */}
+      {parcours.length > 0 ? (
       <div className="mt-14 md:mt-16" id="accueil-parcours">
         <h3 className="font-display text-xl font-bold tracking-tight text-ofc-ink md:text-2xl">
           <Link href={LINKS.parcoursMetiers} className="hover:text-ofc-accent hover:underline">
@@ -114,10 +124,11 @@ export function AccueilOffreCatalogueSection() {
           </Link>
         </p>
       </div>
+      ) : null}
 
       {/* ——— Formations à la carte ——— */}
       <div
-        className="mt-16 border-t border-ofc-border pt-14 md:mt-20 md:pt-16"
+        className={`${parcours.length > 0 ? 'mt-16 border-t border-ofc-border pt-14 md:mt-20 md:pt-16' : 'mt-14 md:mt-16'}`}
         id="accueil-formations"
       >
         <h3 className="font-display text-xl font-bold tracking-tight text-ofc-ink md:text-2xl">

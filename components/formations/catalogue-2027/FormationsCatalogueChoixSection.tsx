@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FormationsOrientationWizard } from '@/components/formations/catalogue-2027/FormationsOrientationWizard';
 import { FORMATION_ORIENTATION_SECTION_ID } from '@/lib/formation-orientation';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { OFC_CTA_SECONDARY } from '@/lib/ofc-interaction-classes';
 
 /** Questionnaire d’orientation — sous le catalogue principal. */
@@ -25,12 +26,14 @@ export function FormationsCatalogueChoixSection() {
         <FormationsOrientationWizard />
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-          <Link
-            href={LINKS.parcoursMetiers}
-            className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
-          >
-            Choisir mon parcours métier
-          </Link>
+          {isParcoursMetiers2027Visible() ? (
+            <Link
+              href={LINKS.parcoursMetiers}
+              className={`${OFC_CTA_SECONDARY} inline-flex min-h-11 items-center justify-center px-6 py-3`}
+            >
+              Choisir mon parcours métier
+            </Link>
+          ) : null}
           <Link
             href={LINKS.diagnostic}
             className="inline-flex min-h-11 items-center justify-center px-4 py-3 text-sm font-semibold text-ofc-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent"

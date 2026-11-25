@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import type { FAQItem } from '@/lib/faq';
 import { formationHref, getFormationByCode } from '@/data/formations';
 import { LINKS } from '@/lib/internal-links';
+import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { createPageMetadata } from '@/lib/seo';
 
 export const FORMATION_IA_PME_BTP_PATH = LINKS.formationIaDirigeantPmeBtp;
@@ -121,7 +122,11 @@ export function getFormationIaPmeBtpFaq(): FAQItem[] {
   return [
     {
       q: 'À qui s’adresse une formation IA pour les PME du BTP ?',
-      a: `Dirigeants et directions de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, métreurs, assistant(e)s travaux et administratifs, responsables appels d’offres et fonctions support. Les parcours s’adaptent au métier — voir aussi les <a href="${LINKS.parcoursMetiers}">parcours par métier</a>.`,
+      a: `Dirigeants et directions de PME du bâtiment et des travaux publics, conducteurs de travaux, chargés d’affaires, métreurs, assistant(e)s travaux et administratifs, responsables appels d’offres et fonctions support.${
+        isParcoursMetiers2027Visible()
+          ? ` Les parcours s’adaptent au métier — voir aussi les <a href="${LINKS.parcoursMetiers}">parcours par métier</a>.`
+          : ' Consultez le catalogue pour choisir un programme par métier.'
+      }`,
     },
     {
       q: 'Faut-il déjà utiliser ChatGPT ou Claude ?',

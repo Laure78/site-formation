@@ -12,7 +12,7 @@ import { CONDUCTEUR_TRAVAUX_HERO_PROOF_ITEMS, ProofStats } from '@/components/Pr
 import { ContentUpdatedLine } from '@/components/seo/ContentUpdatedLine';
 import { getPillarPageContentUpdatedAt } from '@/lib/content-updated-at';
 import {
-  CONDUCTEUR_FORMATION_CHOIX,
+  getConducteurFormationChoix,
   CONDUCTEUR_IA_PHASE_ROWS,
   CONDUCTEUR_LANDING_FAQ,
   CONDUCTEUR_LANDING_MAILLAGE,
@@ -297,7 +297,7 @@ export default function FormationIaConducteurDeTravauxPage() {
               montée en compétences modulaire. Toutes les sessions sont en présentiel en Île-de-France.
             </p>
             <ul className="mt-8 space-y-4">
-              {CONDUCTEUR_FORMATION_CHOIX.map((item) => (
+              {getConducteurFormationChoix().map((item) => (
                 <li
                   key={item.href}
                   className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"

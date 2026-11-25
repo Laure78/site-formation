@@ -852,8 +852,6 @@ const nextConfig: NextConfig = {
       { source: '/formations/ia-pme-btp/:path*', destination: '/formation-ia-dirigeant-pme-btp', permanent: true },
       { source: '/expert-ia-btp', destination: '/a-propos', permanent: true },
       { source: '/expert-ia-btp/', destination: '/a-propos', permanent: true },
-      { source: '/formateurs/laure-olivie', destination: '/a-propos', permanent: true },
-      { source: '/formateurs/laure-olivie/', destination: '/a-propos', permanent: true },
       { source: '/formateurs/nicolas-perrin', destination: '/formateurs', permanent: true },
       { source: '/formateurs/nicolas-perrin/', destination: '/formateurs', permanent: true },
       { source: '/blog/formation-ia-cctp-analyse-dce-btp', destination: '/blog/analyser-cctp-ia-methode-complete-20-minutes', permanent: true },

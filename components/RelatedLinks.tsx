@@ -4,6 +4,7 @@ import {
   getClusterRelatedLinks,
   type RelatedLinkItem,
 } from '@/lib/maillage-clusters';
+import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
 import { OFC_CARD_MUTED } from '@/lib/ofc-interaction-classes';
 import { OFC_SEC, OFC_SECTION_INNER } from '@/lib/ofc-section-classes';
 
@@ -46,7 +47,9 @@ export function RelatedLinks({
   if (!cluster || cluster.links.length === 0) return null;
 
   const exclude = new Set(excludeHrefs.map((h) => h.replace(/\/$/, '') || '/'));
-  const links = cluster.links.filter((l) => !exclude.has(l.href.replace(/\/$/, '') || '/'));
+  const links = filterLinksWhenParcoursMetiersHidden(cluster.links).filter(
+    (l) => !exclude.has(l.href.replace(/\/$/, '') || '/'),
+  );
   if (links.length < 3) return null;
 
   const sectionTone =
