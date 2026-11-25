@@ -13,6 +13,7 @@ import {
 import { JsonLd } from '@/components/JsonLd';
 import { BreadcrumbJsonLd } from '@/components/seo/BreadcrumbJsonLd';
 import { getFormateursHubProfiles } from '@/lib/formateurs';
+import { formateurPublicProfileAbsoluteUrl } from '@/lib/formateurs/formateur-profile-href';
 import { LINKS } from '@/lib/internal-links';
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 
@@ -55,7 +56,7 @@ export default async function FormateursPage() {
       '@type': 'ListItem',
       position: index + 1,
       name: `${f.prenom} ${f.nom}`,
-      url: `${base}${LINKS.formateurs}#${f.slug}`,
+      url: formateurPublicProfileAbsoluteUrl(f, base),
     })),
   };
 
@@ -65,12 +66,12 @@ export default async function FormateursPage() {
     return {
       '@context': 'https://schema.org',
       '@type': 'Person',
-      '@id': `${base}${LINKS.formateurs}#${f.slug}`,
+      '@id': `${formateurPublicProfileAbsoluteUrl(f, base)}#person`,
       name: `${f.prenom} ${f.nom}`,
       jobTitle: f.intitule,
       description: f.parcours,
       ...(image ? { image } : {}),
-      url: `${base}${LINKS.formateurs}#${f.slug}`,
+      url: formateurPublicProfileAbsoluteUrl(f, base),
       worksFor: {
         '@type': 'Organization',
         name: 'OFC Création d’Entreprise',

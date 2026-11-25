@@ -6,6 +6,7 @@ import {
   getFormateurSousDomaineLinks,
   type FormateurProfile,
 } from '@/lib/formateurs';
+import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { LINKS } from '@/lib/internal-links';
 import { cn } from '@/lib/cn';
 import { OFC_CARD, OFC_CTA_SECONDARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
@@ -49,6 +50,7 @@ export function FormateurCard({
   portraitPriority = false,
 }: Props) {
   const fullName = `${formateur.prenom} ${formateur.nom}`;
+  const publicProfilHref = formateurPublicProfileHref(formateur);
   const hubVariant = variant === 'catalogue-hub';
   const moduleLinks =
     showFormations && (formateur.moduleCodes?.length ?? 0) > 0
@@ -97,13 +99,9 @@ export function FormateurCard({
               id={`formateur-${formateur.id}-name`}
               className="font-display text-lg font-bold tracking-tight text-ofc-ink text-pretty"
             >
-              {formateur.profileHref ? (
-                <Link href={formateur.profileHref} className={OFC_LINK}>
-                  {fullName}
-                </Link>
-              ) : (
-                fullName
-              )}
+              <Link href={publicProfilHref} className={OFC_LINK}>
+                {fullName}
+              </Link>
             </h3>
             <p className="mt-1 text-base font-medium leading-snug text-ofc-accent text-pretty">
               {formateur.intitule}
@@ -270,16 +268,16 @@ export function FormateurCard({
               ) : null}
             </div>
           </details>
-        ) : formateur.profileHref ? (
+        ) : (
           <p className="mt-5 border-t border-ofc-border pt-4">
             <Link
-              href={formateur.profileHref}
+              href={publicProfilHref}
               className={`${OFC_LINK} inline-flex min-h-11 items-center text-sm font-semibold text-ofc-accent`}
             >
-              Voir le parcours
+              {formateur.profileHref ? 'Voir le parcours' : 'Voir le profil'}
             </Link>
           </p>
-        ) : null}
+        )}
       </article>
     );
   }
@@ -298,13 +296,9 @@ export function FormateurCard({
             id={`formateur-${formateur.id}-name`}
             className="font-display text-base font-bold tracking-tight text-ofc-ink text-pretty md:text-lg"
           >
-            {formateur.profileHref ? (
-              <Link href={formateur.profileHref} className={OFC_LINK}>
-                {fullName}
-              </Link>
-            ) : (
-              fullName
-            )}
+            <Link href={publicProfilHref} className={OFC_LINK}>
+              {fullName}
+            </Link>
           </h3>
           <p className="mt-1 text-sm font-medium leading-snug text-ofc-accent text-pretty">
             {formateur.intitule}

@@ -8,6 +8,8 @@ import { FORMATION_IA_METIER_DYNAMIC_REGISTRY } from '@/lib/formation-ia-metier-
 import { GSC_EXCLUDED_SITEMAP_PATHS } from '@/lib/gsc-redirects-2026';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
+import { getFormateurProfileStaticSlugs } from '@/lib/formateurs/get-formateurs';
+import { formateurPublicProfilePath } from '@/lib/formateurs/formateur-profile-href';
 import { LINKS } from '@/lib/internal-links';
 import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
 import { getParcoursMetiersPublicsComputed } from '@/lib/parcours-metiers-public';
@@ -70,6 +72,13 @@ export function getSitemapIaTaskPaths(): string[] {
 /** Pages département IDF (`/formation-ia-btp-*`). */
 export function getSitemapDepartementPaths(): string[] {
   return uniqPaths([...DEPARTEMENT_PAGE_PATHS]);
+}
+
+/** Fiches formateurs `/formateurs/[slug]` (hors Laure → `/a-propos`). */
+export function getSitemapFormateurProfilePaths(): string[] {
+  return uniqPaths(
+    getFormateurProfileStaticSlugs().map((slug) => formateurPublicProfilePath(slug)),
+  );
 }
 
 /**

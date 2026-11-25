@@ -59,6 +59,18 @@ export function getFormateursHubProfiles(): readonly FormateurProfile[] {
   return [FORMATEUR_LAURE_OLIVIE, ...equipe];
 }
 
+/** Profil affiché sur le hub `/formateurs` (équipe publique). */
+export function getHubFormateurProfileBySlug(slug: string): FormateurProfile | undefined {
+  return getFormateursHubProfiles().find((f) => f.slug === slug);
+}
+
+/** Slugs des fiches dédiées `/formateurs/[slug]` (hors Laure → `/a-propos`). */
+export function getFormateurProfileStaticSlugs(): readonly string[] {
+  return getFormateursHubProfiles()
+    .filter((f) => f.id !== FORMATEUR_LAURE_OLIVIE.id)
+    .map((f) => f.slug);
+}
+
 /** Intervenants catalogue publiés (hors Laure). */
 export function getPublishedCatalogueFormateurs(): readonly FormateurProfile[] {
   return getCatalogueFormateurs();

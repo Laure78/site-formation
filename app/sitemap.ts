@@ -12,6 +12,7 @@ import {
   getSitemapDepartementPaths,
   getSitemapIaTaskPaths,
   getSitemapMetierLandingPaths,
+  getSitemapFormateurProfilePaths,
   SITEMAP_CORE_STATIC_PATHS,
 } from '@/lib/sitemap-public-routes';
 import {
@@ -251,6 +252,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: resolveSitemapLastModified(path),
   }));
 
+  const formateurProfiles: MetadataRoute.Sitemap = getSitemapFormateurProfilePaths().map(
+    (path) => ({
+      url: `${baseUrl}${path}`,
+      lastModified: resolveSitemapLastModified(path),
+    }),
+  );
+
   const blogEntries = buildBlogSitemapEntries(baseUrl);
   const additional = getAdditionalMarketingRoutes(baseUrl);
   const compliance = getComplianceSitemapRoutes(baseUrl);
@@ -269,6 +277,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...formationCatalog,
     ...iaTaskPages,
     ...metierLandings,
+    ...formateurProfiles,
     ...deptLandings,
     ...blogEntries,
     ...additional,

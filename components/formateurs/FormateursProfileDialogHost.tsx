@@ -1,7 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { usePathname, useSearchParams } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { FormateurDetailDialog } from '@/components/formateurs/FormateurDetailDialog';
 import type { FormateurProfile } from '@/lib/formateurs';
 
@@ -12,6 +13,7 @@ type Props = {
 /** Panneau profil formateur — synchronisé avec l’ancre `#slug`. */
 export function FormateursProfileDialogHost({ formateurs }: Props) {
   const pathname = usePathname();
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
@@ -36,12 +38,18 @@ export function FormateursProfileDialogHost({ formateurs }: Props) {
         return;
       }
       const match = formateurs.find((f) => f.slug === hash);
-      if (match) setSelectedSlug(hash);
+      if (!match) return;
+      const target = formateurPublicProfileHref(match);
+      if (target.startsWith('#')) {
+        setSelectedSlug(hash);
+        return;
+      }
+      router.replace(target);
     };
     syncHash();
     window.addEventListener('hashchange', syncHash);
     return () => window.removeEventListener('hashchange', syncHash);
-  }, [formateurs]);
+  }, [formateurs, router]);
 
   return (
     <FormateurDetailDialog

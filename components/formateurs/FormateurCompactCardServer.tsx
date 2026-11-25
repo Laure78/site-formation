@@ -4,6 +4,7 @@ import {
   getFormateurHubProgrammeLinks,
   type FormateurProfile,
 } from '@/lib/formateurs';
+import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { formateurExperiencePeriode } from '@/lib/formateurs/hub-display';
 import { FormateurPortraitView } from '@/components/formateurs/FormateurPortrait';
 import { OFC_CARD } from '@/lib/ofc-interaction-classes';
@@ -83,7 +84,7 @@ export function FormateurCompactCardServer({
       </div>
       <div className="mt-4 border-t border-ofc-border pt-4">
         <Link
-          href={`#${formateur.slug}`}
+          href={formateurPublicProfileHref(formateur)}
           className="inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-[#377CF3] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-ofc-accent-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ofc-accent motion-reduce:transition-none"
           aria-label={`Voir le profil de ${fullName}`}
         >

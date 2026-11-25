@@ -8,7 +8,7 @@ import {
   getFormateurHubProgrammeLinks,
   type FormateurProfile,
 } from '@/lib/formateurs';
-import { LINKS } from '@/lib/internal-links';
+import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { cn } from '@/lib/cn';
 import { OFC_CARD, OFC_LINK } from '@/lib/ofc-interaction-classes';
 
@@ -23,7 +23,7 @@ function FormateurIntroCard({ formateur, portraitPriority = false }: FormateurIn
   const [expanded, setExpanded] = useState(false);
   const listId = useId();
   const fullName = `${formateur.prenom} ${formateur.nom}`;
-  const profileAnchor = `${LINKS.formateurs}#${formateur.slug}`;
+  const profileAnchor = formateurPublicProfileHref(formateur);
   const programmes = getFormateurHubProgrammeLinks(formateur);
   const hiddenCount = Math.max(0, programmes.length - PROGRAMMES_VISIBLE_INIT);
   const visibleProgrammes = expanded

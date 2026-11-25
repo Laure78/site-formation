@@ -21,7 +21,11 @@ export const PILLAR_PAGE_CONTENT_UPDATED_AT = {
   '/formations/ia-maitrise-oeuvre': '2026-11-12',
   '/formations/ia-assistance-maitrise-ouvrage': '2026-11-12',
   '/formation-ia-conducteur-de-travaux': '2026-11-25',
+  '/formateurs': '2026-11-25',
 } as const satisfies Record<string, ContentUpdatedDate>;
+
+/** Fiches `/formateurs/[slug]` — alignées sur la source profils. */
+export const FORMATEUR_PROFILE_CONTENT_UPDATED_AT: ContentUpdatedDate = '2026-11-25';
 
 export type PillarPagePath = keyof typeof PILLAR_PAGE_CONTENT_UPDATED_AT;
 

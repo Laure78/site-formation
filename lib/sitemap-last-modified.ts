@@ -286,6 +286,11 @@ const ROUTE_SOURCE_FILES: Record<string, readonly string[]> = {
     'public/images/tutoriel-skills-chatgpt-btp-laure-olivie.webp',
   ],
   '/communaute-formateurs': ['app/communaute-formateurs/page.tsx'],
+  '/formateurs': [
+    'app/formateurs/page.tsx',
+    'lib/formateurs/catalogue-formateurs-profiles.ts',
+    'lib/formateurs/confirmed-profiles.ts',
+  ],
   '/formation-ia-travaux-publics': ['app/formation-ia-travaux-publics/page.tsx'],
   '/ressources': ['app/ressources/page.tsx', 'lib/tutos/index.ts'],
   '/ressources/tutos': ['app/ressources/tutos/page.tsx', 'lib/tutos/index.ts'],
@@ -395,6 +400,14 @@ export function resolveSitemapLastModified(
 
   const mapped = ROUTE_SOURCE_FILES[p];
   if (mapped) return fromGitFiles(...mapped);
+
+  if (p.startsWith('/formateurs/')) {
+    return fromGitFiles(
+      'app/formateurs/[slug]/page.tsx',
+      'lib/formateurs/catalogue-formateurs-profiles.ts',
+      'lib/formateurs/confirmed-profiles.ts',
+    );
+  }
 
   if (p.startsWith('/formations/')) {
     const slug = p.slice('/formations/'.length);

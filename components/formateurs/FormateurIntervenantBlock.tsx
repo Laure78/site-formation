@@ -6,7 +6,7 @@ import {
   type FormateurProfile,
 } from '@/lib/formateurs';
 import { TRAINING_ANCHOR } from '@/lib/training-fiche-nav';
-import { LINKS } from '@/lib/internal-links';
+import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { OFC_LINK } from '@/lib/ofc-interaction-classes';
 
 type Props = {
@@ -29,12 +29,7 @@ function IntervenantRow({ formateur }: { formateur: FormateurProfile }) {
           {formateur.parcours}
         </p>
         <p className="mt-4 text-sm">
-          <Link
-            href={
-              formateur.profileHref ?? `${LINKS.formateurs}#${formateur.slug}`
-            }
-            className={OFC_LINK}
-          >
+          <Link href={formateurPublicProfileHref(formateur)} className={OFC_LINK}>
             Voir le profil formateur
           </Link>
         </p>

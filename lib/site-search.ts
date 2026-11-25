@@ -1,6 +1,7 @@
 import { getParcoursMetiersPublicsComputed } from '@/lib/parcours-metiers-public';
 import { getAllArticles } from '@/lib/blog';
 import { getFormateursHubProfiles } from '@/lib/formateurs';
+import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { getFormationsCatalogue } from '@/lib/formations-catalogue-display';
 import { getCatalogueSiteSearchDescription } from '@/lib/formation-catalogue-visibility';
 import { DEV_WEB_IA_FORMATION_TITRE } from '@/lib/formation-developpement-web-ia-content';
@@ -304,7 +305,7 @@ function buildSiteSearchIndex(): SiteSearchEntry[] {
       id: `formateur-${f.slug}`,
       title: `${f.prenom} ${f.nom}`,
       description: f.intitule,
-      href: `${LINKS.formateurs}#${f.slug}`,
+      href: formateurPublicProfileHref(f),
       kind: 'formateur' as const,
       keywords: [f.parcours, ...f.specialites].join(' '),
     }));
