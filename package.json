@@ -12,6 +12,7 @@
     "sitemap:dates": "node scripts/generate-sitemap-dates.mjs",
     "validate:sitemap-dates": "node scripts/generate-sitemap-dates.mjs && node scripts/validate-sitemap-dates.mjs",
     "llms:sync": "node scripts/sync-llms-txt.mjs",
+    "audit:generated-forbidden": "node scripts/audit-generated-forbidden.mjs",
     "test:robots-txt": "npx tsx scripts/assert-robots-txt.ts",
     "test:llms-txt": "node scripts/assert-llms-txt.mjs",
     "audit:cta-labels": "node scripts/audit-cta-labels.mjs",

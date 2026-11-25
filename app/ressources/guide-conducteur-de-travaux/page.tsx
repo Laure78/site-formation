@@ -65,11 +65,7 @@ const learningResourceJsonLd = {
     name: SITE_CONFIG.name,
     url: `${SITE_CONFIG.url.replace(/\/$/, '')}/a-propos`,
   },
-  publisher: {
-    '@type': 'Organization',
-    name: SITE_CONFIG.name,
-    url: SITE_CONFIG.url,
-  },
+  publisher: { '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization` },
 };
 
 const howToSkillJsonLd = {

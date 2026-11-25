@@ -1,11 +1,7 @@
 /**
  * JSON-LD — page /accessibilite-handicap (WebPage + ContactPoint référente handicap).
  */
-import {
-  SCHEMA_GEO,
-  SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PUBLIC_SITE_URL,
-} from '@/lib/schema-constants';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { CONTACT } from '@/lib/constants';
 import { LINKS } from '@/lib/internal-links';
 import { QUALIOPI_REFERENT_HANDICAP } from '@/lib/qualiopi-info';
@@ -53,20 +49,6 @@ export function getAccessibiliteHandicapPageJsonLd(): Record<string, unknown> {
         areaServed: 'FR',
         availableLanguage: ['French'],
         url: PAGE_URL,
-      },
-      {
-        '@type': 'EducationalOrganization',
-        '@id': `${PAGE_URL}#org-handicap`,
-        name: SCHEMA_ORGANIZATION_OFC.name,
-        url: BASE,
-        address: {
-          '@type': 'PostalAddress',
-          streetAddress: SCHEMA_GEO.streetAddress,
-          addressLocality: SCHEMA_GEO.addressLocality,
-          postalCode: SCHEMA_GEO.postalCode,
-          addressRegion: SCHEMA_GEO.addressRegion,
-          addressCountry: SCHEMA_GEO.addressCountry,
-        },
       },
     ],
   };

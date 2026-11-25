@@ -256,10 +256,15 @@ export function assertFormationFicheCourseSchema(
   if (!provider || typeof provider !== 'object') {
     throw new Error(`${label}: provider manquant`);
   }
+  const expectedOrgId = siteSchemaOrganizationId(SCHEMA_PUBLIC_SITE_URL);
+  const providerId =
+    '@id' in provider ? String((provider as { '@id': unknown })['@id']) : '';
   const providerName =
     'name' in provider ? String((provider as { name: unknown }).name) : '';
-  if (providerName !== SITE.raisonSociale) {
-    throw new Error(`${label}: provider.name incorrect (${providerName})`);
+  if (providerId === expectedOrgId) {
+    // Référence layout — provider minimal conforme D1-bis
+  } else if (providerName !== SITE.raisonSociale) {
+    throw new Error(`${label}: provider doit référencer ${expectedOrgId} ou name=${SITE.raisonSociale}`);
   }
 
   const locName = locationCreatedName(course.locationCreated);

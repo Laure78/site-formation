@@ -1,4 +1,3 @@
-import { buildSchemaOrganizationReference } from '@/lib/site-config';
 /**
  * Landing `/formation-ia-construction` — métadonnées, FAQ, prompts, JSON-LD.
  */
@@ -11,7 +10,7 @@ import {
   SCHEMA_PERSON_LAURE,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
-import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 import { buildFormationFicheCourseJsonLd } from '@/lib/schema-formation-course-jsonld';
 import { phraseSessionCataloguePresentielIdf } from '@/lib/catalogue-duree-copy';
 import { MODALITE_FORMATIONS_STANDARD, TARIF_FORFAIT_DEBUTANT_HT } from '@/lib/tarifs-sessions';

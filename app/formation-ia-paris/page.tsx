@@ -88,12 +88,7 @@ const COURSE_JSON_LD = {
   name: 'Formation IA BTP à Paris — bâtiment et construction, en présentiel',
   description: META_DESCRIPTION,
   url: PAGE_URL,
-  provider: {
-    '@type': 'Organization',
-    '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization`,
-    name: SITE_CONFIG.name,
-    url: SITE_CONFIG.url.replace(/\/$/, ''),
-  },
+  provider: { '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization` },
   instructor: {
     '@type': 'Person',
     '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#laure-olivie`,

@@ -72,10 +72,7 @@ export default async function FormateursPage() {
       description: f.parcours,
       ...(image ? { image } : {}),
       url: formateurPublicProfileAbsoluteUrl(f, base),
-      worksFor: {
-        '@type': 'Organization',
-        name: 'OFC Création d’Entreprise',
-      },
+      worksFor: { '@id': `${base}/#organization` },
     };
   });
 

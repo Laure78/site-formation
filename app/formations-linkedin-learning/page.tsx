@@ -180,8 +180,7 @@ function CourseCard({ id, name, publicAudience, learn, url, image }: CourseCardP
 function buildPageJsonLd() {
   const base = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
   const personId = `${base}/#laure-olivie`;
-  const orgId = `${PAGE_URL}#organization`;
-  
+  const ofcOrgId = `${base}/#organization`;
 
   const courses = [COURSE_1, COURSE_2]
     .filter((c) => Boolean(c.url))
@@ -211,7 +210,7 @@ function buildPageJsonLd() {
         jobTitle: 'Formatrice IA spécialisée BTP · Instructrice LinkedIn Learning',
         url: `${base}${LINKS.aPropos}`,
         affiliation: [
-          { '@type': 'Organization', name: SCHEMA_ORGANIZATION_OFC.name, url: base },
+          { '@id': ofcOrgId },
           {
             '@type': 'Organization',
             name: 'FFB Grand Paris',
@@ -226,18 +225,7 @@ function buildPageJsonLd() {
         sameAs: [...SCHEMA_PERSON_SAME_AS],
         description: `Instructrice LinkedIn Learning et formatrice IA spécialisée BTP. ${formatProsFormesEtNoteQualiopi()}`,
       },
-      {
-        '@type': 'Organization',
-        '@id': orgId,
-        name: SCHEMA_ORGANIZATION_OFC.name,
-        url: base,
-        logo: schemaLogoUrl(),
-        sameAs: [
-          SCHEMA_LINKEDIN_PROFILE_URL,
-          SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
-          SCHEMA_YOUTUBE_CHANNEL_URL,
-        ],
-      }, ...courses,
+      ...courses,
       {
         '@type': 'BreadcrumbList',
         '@id': `${PAGE_URL}#breadcrumb`,

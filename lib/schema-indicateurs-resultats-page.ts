@@ -2,10 +2,7 @@
  * JSON-LD — page /indicateurs-resultats (WebPage + AggregateRating aligné sur la source unique).
  * Pas de Dataset artificiel : seule la satisfaction consolidée est publiée.
  */
-import {
-  SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PUBLIC_SITE_URL,
-} from '@/lib/schema-constants';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { LINKS } from '@/lib/internal-links';
 import { indicateursResultats } from '@/lib/data/indicateurs-resultats';
 import { buildSchemaAggregateRating } from '@/lib/schema-aggregate-rating';
@@ -35,10 +32,7 @@ export function getIndicateursResultatsPageJsonLd(): Record<string, unknown> {
         dateModified: indicateursResultats.lastCalculatedAt,
       },
       {
-        '@type': 'EducationalOrganization',
-        '@id': `${PAGE_URL}#org`,
-        name: SCHEMA_ORGANIZATION_OFC.name,
-        url: BASE,
+        '@id': `${BASE}/#organization`,
         aggregateRating: buildSchemaAggregateRating(),
       },
     ],

@@ -62,35 +62,21 @@ function mapVerifiedReviewToSchema(entry: HomeVerifiedReviewForSchema): Record<s
   };
 }
 
-/** Cœur du schéma (sans tableau review par défaut). */
+/** Enrichissement LocalBusiness sur `#organization` (layout = entité légale). */
 function getHomeOrganizationLocalBusinessCore(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
     '@id': ORG_ID,
-    '@type': ['Organization', 'EducationalOrganization', 'LocalBusiness'],
-    name: SCHEMA_ORGANIZATION_OFC.name,
-    legalName: SCHEMA_ORGANIZATION_OFC.legalName,
-    url: BASE,
-    logo: { '@type': 'ImageObject', url: schemaLogoUrl() },
+    '@type': 'LocalBusiness',
+    priceRange: '€€',
+    currenciesAccepted: 'EUR',
+    openingHours: SCHEMA_OPENING_HOURS,
     image: schemaDefaultPersonImageUrl(),
-    description: SCHEMA_ORGANIZATION_OFC.description,
-    email: SCHEMA_CONTACT.email,
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: SCHEMA_GEO.addressCountry,
-      addressRegion: SCHEMA_GEO.addressRegion,
-      addressLocality: SCHEMA_GEO.addressLocality,
-      streetAddress: SCHEMA_GEO.streetAddress,
-      postalCode: SCHEMA_GEO.postalCode,
-    },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: SCHEMA_GEO.latitude,
       longitude: SCHEMA_GEO.longitude,
     },
-    priceRange: '€€',
-    currenciesAccepted: 'EUR',
-    openingHours: SCHEMA_OPENING_HOURS,
   };
 }
 

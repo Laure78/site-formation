@@ -99,11 +99,7 @@ const learningResourceJsonLd = {
     name: SITE_CONFIG.name,
     url: `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.aPropos}`,
   },
-  publisher: {
-    '@type': 'Organization',
-    name: SITE_CONFIG.name,
-    url: SITE_CONFIG.url,
-  },
+  publisher: { '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization` },
   associatedMedia: {
     '@type': 'MediaObject',
     contentUrl: FILE_URL,

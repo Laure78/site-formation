@@ -97,10 +97,7 @@ export default async function FormateurProfilPage({ params }: Props) {
     description: formateur.parcours,
     ...(image ? { image } : {}),
     url: profileUrl,
-    worksFor: {
-      '@type': 'Organization',
-      name: 'OFC Création d’Entreprise',
-    },
+    worksFor: { '@id': `${base}/#organization` },
   };
 
   return (

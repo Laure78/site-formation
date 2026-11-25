@@ -95,11 +95,7 @@ const pageJsonLd = {
         name: SITE_CONFIG.name,
         url: `${BASE}${LINKS.aPropos}`,
       },
-      provider: {
-        '@type': 'Organization',
-        name: "OFC Création d'Entreprise",
-        url: BASE,
-      },
+      provider: { '@id': `${BASE}/#organization` },
     },
   ],
 };

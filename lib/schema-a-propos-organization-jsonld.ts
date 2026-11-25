@@ -3,18 +3,15 @@
  * @deprecated Préférer `getAProposUnifiedJsonLd()` — ne plus injecter en parallèle du unified graph.
  */
 
-import { buildOrganizationOfcSchemaNode } from '@/lib/schema-organization-global';
 import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
+import { buildSchemaOrganizationReference } from '@/lib/site-config';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
-const PAGE_URL = `${BASE}/a-propos`;
 
+/** Référence layout — entité complète dans `GlobalSiteJsonLd` uniquement. */
 export function getAProposOrganizationJsonLd(): Record<string, unknown> {
   return {
     '@context': 'https://schema.org',
-    ...buildOrganizationOfcSchemaNode({
-      organizationId: `${BASE}/#organization`,
-      personId: `${BASE}/#laure-olivie`,
-    }),
+    ...buildSchemaOrganizationReference(BASE),
   };
 }

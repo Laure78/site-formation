@@ -264,7 +264,7 @@ export function buildSkillsClaudeBtpPageJsonLd(input: {
           caption: SKILLS_CLAUDE_BTP_IMAGE.alt,
         },
         author: { '@type': 'Person', '@id': personId, name: SITE.marque },
-        publisher: { '@type': 'Organization', '@id': organizationId, name: SITE.raisonSociale },
+        publisher: { '@id': organizationId },
       },
       {
         '@type': 'LearningResource',
@@ -279,7 +279,7 @@ export function buildSkillsClaudeBtpPageJsonLd(input: {
         educationalLevel: 'beginner',
         license: SKILLS_CLAUDE_BTP_LICENSE_URL,
         author: { '@type': 'Person', '@id': personId, name: SITE.marque },
-        provider: { '@type': 'Organization', '@id': organizationId, name: SITE.raisonSociale },
+        provider: { '@id': organizationId },
         about: [
           { '@type': 'Thing', name: 'Skills Claude BTP' },
           { '@type': 'Thing', name: 'Assistants IA pour le bâtiment' },

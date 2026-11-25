@@ -7,7 +7,11 @@ import type { Metadata } from 'next';
 import { SOCIAL_PROOF, IDF_ZONE_INTERVENTION } from '@/lib/constants';
 import { formatAnneesExperienceBTP, formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { faqAnswerPlainTextForSchema } from '@/lib/faq-plain-text';
-import { siteBlocFooterOrganismeQualiopi, siteIdentifiantsOrganismeLine } from '@/lib/site-config';
+import {
+  buildSchemaOrganizationReference,
+  siteBlocFooterOrganismeQualiopi,
+  siteIdentifiantsOrganismeLine,
+} from '@/lib/site-config';
 
 export { siteBlocFooterOrganismeQualiopi, siteIdentifiantsOrganismeLine };
 import {
@@ -383,46 +387,11 @@ export function getGlobalLayoutPersonJsonLd() {
   };
 }
 
-/** Schéma JSON-LD Organization / EducationalOrganization */
+/** @deprecated Organisation complète = layout `#organization` — référence `@id` uniquement. */
 export function getOrganizationSchema() {
   return {
     '@context': 'https://schema.org',
-    '@type': ['Organization', 'EducationalOrganization'],
-    '@id': `${SITE_CONFIG.url}/#organization`,
-    name: SITE_CONFIG.name,
-    legalName: SITE_CONFIG.legalName,
-    logo: { '@type': 'ImageObject', url: siteOrganizationLogoAbsoluteUrl() },
-    image: `${SITE_CONFIG.url}/images/laure-olivie-formatrice-ia-btp-qualiopi.webp`,
-    alternateName: [SITE_CONFIG.legalName, 'Laure Olivié Formation'],
-    description:
-      "Organisme de formation : intelligence artificielle et ChatGPT pour le BTP, PME bâtiment et professionnels du secteur. Automatisation administrative, IA devis bâtiment, IA gestion chantier. Certifié Qualiopi.",
-    url: SITE_CONFIG.url,
-    email: SITE_CONFIG.email, ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
-    address: {
-      '@type': 'PostalAddress',
-      addressCountry: 'FR',
-      addressRegion: SITE_CONFIG.geo.region,
-      addressLocality: SITE_CONFIG.geo.city,
-      streetAddress: SITE_CONFIG.geo.streetAddress,
-      postalCode: SITE_CONFIG.geo.postalCode,
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: SITE_CONFIG.geo.latitude,
-      longitude: SITE_CONFIG.geo.longitude,
-    },
-    areaServed: buildIdfAreaServedSchemaEntities(),
-    sameAs: SITE_CONFIG.sameAs,
-    taxID: SCHEMA_CONTACT.siretDigits,
-    contactPoint: [
-      {
-        '@type': 'ContactPoint',
-        contactType: 'customer service', ...(siteHasPublicPhone() ? { telephone: SITE_CONFIG.phone } : {}),
-        email: SITE_CONFIG.email,
-        availableLanguage: ['French'],
-        areaServed: 'FR',
-      },
-    ],
+    ...buildSchemaOrganizationReference(SITE_CONFIG.url),
   };
 }
 

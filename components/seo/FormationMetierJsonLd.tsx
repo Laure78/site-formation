@@ -3,9 +3,8 @@
  *
  * Émet un seul script `<script type="application/ld+json">` avec un `@graph`
  * Schema.org regroupant :
- *  - Organization (OFC Création d'Entreprise — données légales + Qualiopi)
  *  - Service (serviceType "Professional Training")
- *  - Course (provider référencé via @id)
+ *  - Course (provider / instructor via `@id` layout `#organization` et `#laure-olivie`)
  *  - FAQPage (optionnel, si la page contient une FAQ)
  *
  * Le fil d'Ariane visuel est dans `GlobalBreadcrumbs` (layout, sans JSON-LD).
@@ -16,16 +15,7 @@
  * pour éviter d'émettre plusieurs blocs JSON-LD séparés.
  */
 
-import {
-  SCHEMA_CONTACT,
-  SCHEMA_GEO,
-  SCHEMA_LINKEDIN_PROFILE_URL,
-  SCHEMA_ORGANIZATION_OFC,
-  SCHEMA_PUBLIC_SITE_URL,
-  schemaLogoUrl,
-} from '@/lib/schema-constants';
-import { siteProviderIdentifierSchema } from '@/lib/site-config';
-import { buildQualiopiCredentialSchema } from '@/lib/qualiopi-info';
+import { SCHEMA_PUBLIC_SITE_URL } from '@/lib/schema-constants';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { QUALIOPI_CERTIFICAT_REALISATION } from '@/config/qualiopi';
 import {
@@ -157,11 +147,7 @@ function buildCourseNode(params: {
     courseMode: FORMATION_COURSE_MODE_ONSITE,
     locationCreated: buildFormationCourseIdfPlace(),
     areaServed: buildFormationCourseAreaServed(),
-    provider: {
-      '@type': 'Organization',
-      '@id': ORGANIZATION_ID,
-      name: SCHEMA_ORGANIZATION_OFC.name,
-    },
+    provider: { '@id': ORGANIZATION_ID },
     instructor: { '@id': PERSON_LAURE_ID },
     educationalLevel: level,
     inLanguage: 'fr-FR',

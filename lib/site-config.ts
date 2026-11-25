@@ -421,11 +421,7 @@ export function buildSiteAProposPersonSchemaNode(siteUrl: string): Record<string
     name: SITE.marque,
     jobTitle: SITE_PERSON_JOB_TITLE,
     url: `${base}/a-propos`,
-    worksFor: {
-      '@type': 'Organization',
-      '@id': siteSchemaOrganizationId(base),
-      name: SITE.raisonSociale,
-    },
+    worksFor: { '@id': siteSchemaOrganizationId(base) },
     sameAs: [...sitePersonSchemaSameAs()],
   };
 }

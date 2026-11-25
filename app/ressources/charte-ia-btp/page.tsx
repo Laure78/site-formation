@@ -83,11 +83,7 @@ const articleJsonLd = {
     name: SITE_CONFIG.name,
     url: `${SITE_CONFIG.url.replace(/\/$/, '')}${LINKS.aPropos}`,
   },
-  publisher: {
-    '@type': 'Organization',
-    name: 'OFC Création d’Entreprise',
-    url: SITE_CONFIG.url,
-  },
+  publisher: { '@id': `${SITE_CONFIG.url.replace(/\/$/, '')}/#organization` },
   image: `${SITE_CONFIG.url}/images/ressources/miniatures/charte-ia-pme-batiment-cover.jpg`,
   isAccessibleForFree: true,
   about: [

@@ -84,22 +84,7 @@ const pageJsonLd = {
       inLanguage: 'fr-FR',
       isPartOf: { '@id': `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}/#website` },
       publisher: { '@id': `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}/#organization` },
-    },
-    {
-      '@type': 'Organization',
-      '@id': `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}/#organization`,
-      name: OFC_IDENTITE.raisonSociale,
-      url: SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, ''),
-      telephone: SCHEMA_CONTACT.telephoneJsonLd,
-      email: SCHEMA_CONTACT.email,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: SCHEMA_GEO.streetAddress,
-        addressLocality: SCHEMA_GEO.addressLocality,
-        postalCode: SCHEMA_GEO.postalCode,
-        addressRegion: SCHEMA_GEO.addressRegion,
-        addressCountry: SCHEMA_GEO.addressCountry,
-      },
+      about: { '@id': `${SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '')}/#organization` },
     },
     buildBreadcrumbListJsonLd([
       { name: 'Accueil', url: siteAbsoluteUrl('/') },
