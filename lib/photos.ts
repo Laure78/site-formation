@@ -360,6 +360,13 @@ export const PHOTOS = {
     height: 1024,
     objectPosition: '50% 18%',
   },
+  formateurChristopheDelgery: {
+    src: '/images/formateurs/christophe-delgery.jpg',
+    alt: 'Christophe Delgery, formateur IA appliquée au BTP',
+    width: 767,
+    height: 1024,
+    objectPosition: '50% 18%',
+  },
   /** Visuels formations 2026 */
   formationIATP2026: {
     src: '/images/formation-ia-tp.png',

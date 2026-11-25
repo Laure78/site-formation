@@ -6,7 +6,8 @@ export type FormateurId =
   | 'julien-morel'
   | 'thomas-garnier'
   | 'marc-delcourt'
-  | 'nicolas-perrin';
+  | 'nicolas-perrin'
+  | 'christophe-delgery';
 
 /**
  * Portrait — photo réelle (confirmé) ou avatar initiales (démo / slot).

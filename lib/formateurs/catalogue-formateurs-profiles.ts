@@ -157,6 +157,56 @@ const NICOLAS_PERRIN: FormateurProfile = {
   publie: true,
 };
 
+const CHRISTOPHE_DELGERY: FormateurProfile = {
+  id: 'christophe-delgery',
+  slug: 'christophe-delgery',
+  prenom: 'Christophe',
+  nom: 'Delgery',
+  intitule: 'Ingénieur BTP — logistique, conformité et intelligence artificielle',
+  parcours:
+    'Ingénieur (Centrale Méditerranée) et titulaire d’un master supply chain et systèmes d’information, il aide les professionnels du BTP à intégrer l’intelligence artificielle de façon concrète et fiable sur le terrain. Coach certifié (RNCP), formé à l’automatisation et à l’IA (Académie Millenium / Theyo), créateur de contenus assistés par IA et concepteur de sites web via l’IA, il partage des méthodes pragmatiques et vérifiables pour gagner en efficacité sur les dossiers BTP (appels d’offres, conformité, CCTP, suivi de chantier).',
+  specialites: [
+    'Appels d’offres et conformité fournisseurs',
+    'Intégration de l’IA sur le terrain BTP',
+    'CCTP et suivi de chantier',
+    'Logistique et supply chain chantier',
+    'Automatisation et méthodes vérifiables',
+  ],
+  domaineIds: ['numerique-ia', 'commercial', 'travaux'],
+  formationCodes: [],
+  formationCodesHub: ['NIV-02', 'NIV-03'],
+  formationsHubLabel: 'Formations associées à ses spécialités',
+  experiences: [
+    {
+      titre: 'Manager logistique — Vinci Construction et Bouygues Bâtiment',
+      detail:
+        'Équipes jusqu’à 80 personnes, budgets jusqu’à 25 M€ au sein de grands projets.',
+    },
+    {
+      titre: 'Product manager et référent appels d’offres complexes — Logisur (Groupe Louange)',
+      detail: 'Accompagnement de l’écosystème BTP sur les dossiers commerciaux complexes.',
+    },
+    {
+      titre: 'Conformité fournisseurs — Attestation Légale (Once For All)',
+      detail: 'Référent sur la conformité et le contrôle des pièces fournisseurs.',
+    },
+    {
+      titre: 'Solutions sécurité, hypervision et automatisation — Neoaxess',
+      detail: 'Product management sur des solutions de sécurité et d’automatisation.',
+    },
+  ] satisfies readonly FormateurExperienceStep[],
+  formationsProfessionnelles: [
+    'Ingénieur — Centrale Méditerranée',
+    'Master supply chain et systèmes d’information',
+    'Coach certifié (RNCP)',
+    'Automatisation et IA — Académie Millenium / Theyo',
+  ],
+  modalite: 'Formations en présentiel en Île-de-France.',
+  portrait: photoPortrait(PHOTOS.formateurChristopheDelgery),
+  status: 'confirmed',
+  publie: true,
+};
+
 /**
  * Hub /formateurs — intervenants catalogue parcours métiers 2027.
  * `publie: false` ou `affichageHub: 'a-confirmer'` masque un profil sur /formateurs en production.
@@ -166,4 +216,5 @@ export const CATALOGUE_FORMATEURS: readonly FormateurProfile[] = [
   THOMAS_GARNIER,
   MARC_DELCOURT,
   NICOLAS_PERRIN,
+  CHRISTOPHE_DELGERY,
 ];
