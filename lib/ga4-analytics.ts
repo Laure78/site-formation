@@ -4,16 +4,17 @@
  * Chargement gtag : `components/analytics/GoogleAnalytics.tsx` (lazyOnload, après consentement).
  *
  * Conversions à activer dans GA4 Admin → Événements → marquer comme conversion :
- * - `clic_visio` (paramètres : src, page_path)
+ * - `clic_visio` (paramètres : src, metier, page_path)
  * - `cta_rdv_click` (paramètres : origin, page_path) — conservé pour rétrocompat GTM
  * - `download_guide` (paramètres : guide_type, file_name, page_path)
  * - `blog_read_complete` (paramètres : article_slug, page_path)
  * - `eventbrite_click` (paramètres : origin, page_path, event_slug) — clic billetterie ≠ inscription confirmée
- * - `generate_lead` (paramètres : origin, page_path, ai_source?) — CTA RDV / arrivée /prendre-rdv
+ * - `generate_lead` (paramètres : origin, page_path, src, metier, ai_source?) — CTA RDV / arrivée /prendre-rdv
  *
  * Enregistrer les paramètres personnalisés comme dimensions (Admin → Définitions personnalisées).
  */
 
+import { deduceRdvMetierFromSrc } from '@/lib/rdv-src-metier';
 import {
   detectAiTrafficSource,
   persistAiTrafficSource,
@@ -102,8 +103,10 @@ export function trackPrendreRdvPageLead(src: string, metier: string, pagePath?: 
 
 /** Clic CTA visio découverte — paramètre `src` (query `?src=` sur `/prendre-rdv`). */
 export function trackClicVisio(src: string, pagePath?: string): void {
+  const metier = deduceRdvMetierFromSrc(src);
   sendGa4Event('clic_visio', {
     src,
+    metier,
     page_path: pagePath ?? getPagePath(),
     ...aiSourceEventParams(),
   });
@@ -111,9 +114,15 @@ export function trackClicVisio(src: string, pagePath?: string): void {
 
 /** Conversion — clic CTA prise de RDV (vers `/prendre-rdv`). */
 export function trackCtaRdvClick(origin: string, pagePath: string): void {
+  const metier = deduceRdvMetierFromSrc(origin);
   trackClicVisio(origin, pagePath);
-  sendGa4Event('cta_rdv_click', { origin, page_path: pagePath, ...aiSourceEventParams() });
-  trackGenerateLead(origin, pagePath);
+  sendGa4Event('cta_rdv_click', {
+    origin,
+    metier,
+    page_path: pagePath,
+    ...aiSourceEventParams(),
+  });
+  trackGenerateLead(origin, pagePath, { src: origin, metier });
 }
 
 /** Conversion — téléchargement PDF guide / programme / checklist. */

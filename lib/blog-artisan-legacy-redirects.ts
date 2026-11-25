@@ -5,7 +5,7 @@
 type RedirectEntry = {
   source: string;
   destination: string;
-  permanent: boolean;
+  permanent: true;
 };
 
 /** Ancien slug → slug canonique (sans « artisan »). */

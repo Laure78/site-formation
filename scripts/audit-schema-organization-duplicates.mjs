@@ -47,5 +47,5 @@ if (suspects.length === 0) {
 }
 console.log('\nPages avec Person enrichi (référence `@id` org — OK) : `/a-propos` uniquement.');
 console.log('Phase 2 (25/11/2026) : landings + guides + indicateurs/accessibilité + LinkedIn Learning alignés sur `@id` seul.');
-console.log('Reste legacy non injecté : `lib/schema-a-propos.ts` (getAProposLocalBusinessJsonLd — mort si non importé).');
+console.log('Graph unifié /a-propos : `lib/schema-a-propos-unified-graph.ts` (seule source injectée).');
 console.log('Layout canonique : `lib/site-config.ts` → `buildSiteLayoutEducationalOrganizationNode`.');

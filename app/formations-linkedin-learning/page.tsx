@@ -11,6 +11,7 @@ import { LINKS } from '@/lib/internal-links';
 import { OFC_CTA_PRIMARY, OFC_LINK } from '@/lib/ofc-interaction-classes';
 import { PHOTOS } from '@/lib/photos';
 import {
+  SCHEMA_LINKEDIN_LEARNING_INSTRUCTOR_URL,
   SCHEMA_PERSON_SAME_AS,
   SCHEMA_PUBLIC_SITE_URL,
 } from '@/lib/schema-constants';
