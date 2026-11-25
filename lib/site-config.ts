@@ -383,7 +383,6 @@ export function buildSiteLayoutEducationalOrganizationNode(
   logoAbsoluteUrl: string,
 ): Record<string, unknown> {
   const base = siteUrl.replace(/\/$/, '');
-  const { buildIdfAreaServedSchemaEntities } = require('@/lib/schema-constants') as typeof import('@/lib/schema-constants');
   return {
     '@type': ['Organization', 'EducationalOrganization'],
     '@id': siteSchemaOrganizationId(base),
@@ -402,7 +401,10 @@ export function buildSiteLayoutEducationalOrganizationNode(
       addressLocality: siteSiegeParis12(),
       addressCountry: 'FR',
     },
-    areaServed: buildIdfAreaServedSchemaEntities(),
+    areaServed: {
+      '@type': 'AdministrativeArea',
+      name: SITE_AREA_SERVED_LABEL,
+    },
     hasCredential: siteQualiopiHasCredentialSchema(),
     knowsAbout: [...SITE_EDUCATIONAL_ORGANIZATION_KNOWS_ABOUT],
     sameAs: [...SITE.sameAs],
