@@ -2,6 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { formateurPrimarySpecialty, type FormateurProfile } from '@/lib/formateurs';
+import {
+  FORMATEUR_SHOWCASE_PORTRAIT_FRAME,
+  FORMATEUR_SHOWCASE_PORTRAIT_IMAGE,
+} from '@/lib/formateurs/formateur-showcase-portrait';
 import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
 import { FormateurPortraitView } from '@/components/formateurs/FormateurPortrait';
 import { cn } from '@/lib/cn';
@@ -35,19 +39,14 @@ export function FormateurShowcaseCard({ formateur, portraitPriority = false }: P
       )}
       aria-labelledby={`showcase-${formateur.id}-name`}
     >
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#EAF3FF]">
+      <div className={FORMATEUR_SHOWCASE_PORTRAIT_FRAME}>
         {formateur.portrait.kind === 'photo' ? (
           <Image
             src={formateur.portrait.src}
             alt={portraitAlt}
             width={formateur.portrait.width}
             height={formateur.portrait.height}
-            className="h-full w-full object-cover object-top motion-safe:transition-transform motion-safe:duration-300 motion-safe:group-hover:scale-[1.03]"
-            style={
-              formateur.portrait.objectPosition
-                ? { objectPosition: formateur.portrait.objectPosition }
-                : undefined
-            }
+            className={FORMATEUR_SHOWCASE_PORTRAIT_IMAGE}
             sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw"
             priority={portraitPriority}
           />

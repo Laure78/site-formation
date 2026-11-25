@@ -5,7 +5,7 @@ import { LINKS } from '@/lib/internal-links';
 import { PHOTOS } from '@/lib/photos';
 import type { FormateurProfile } from '@/lib/formateurs/types';
 
-const LAURE_PORTRAIT = PHOTOS.aProposHero2026;
+const LAURE_PORTRAIT = PHOTOS.formateurLaureOlivieHub;
 
 /** Codes catalogue IA reliés aux spécialités affichées sur /formateurs. */
 const LAURE_HUB_FORMATION_CODES = [
@@ -45,7 +45,7 @@ export const FORMATEUR_LAURE_OLIVIE: FormateurProfile = {
     alt: 'Laure Olivié, formatrice en intelligence artificielle appliquée au BTP',
     width: LAURE_PORTRAIT.width,
     height: LAURE_PORTRAIT.height,
-    objectPosition: '50% 18%',
+    objectPosition: LAURE_PORTRAIT.objectPosition,
   },
   status: 'confirmed',
   publie: true,

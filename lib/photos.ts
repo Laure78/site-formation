@@ -331,6 +331,14 @@ export const PHOTOS = {
     height: 74,
   },
 
+  /** Hub /formateurs — Laure (même cadrage 7:9 que les autres intervenants, fond gris appliqué en CSS). */
+  formateurLaureOlivieHub: {
+    src: '/images/laure-olivie-linkedin-graz.png',
+    alt: 'Laure Olivié, formatrice en intelligence artificielle appliquée au BTP',
+    width: 682,
+    height: 1024,
+    objectPosition: '50% 12%',
+  },
   /** Portraits intervenants catalogue — page /formateurs (visuels fournis, usage interne OFC). */
   formateurThomasGarnier: {
     src: '/images/formateurs/thomas-garnier.jpg',
