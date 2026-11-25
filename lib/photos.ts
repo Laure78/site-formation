@@ -360,6 +360,13 @@ export const PHOTOS = {
     height: 1024,
     objectPosition: '50% 18%',
   },
+  formateurManuelGomez: {
+    src: '/images/formateurs/manuel-gomez.png',
+    alt: 'Manuel Gomez – Formateur BTP',
+    width: 286,
+    height: 272,
+    objectPosition: '50% 35%',
+  },
   /** Visuels formations 2026 */
   formationIATP2026: {
     src: '/images/formation-ia-tp.png',

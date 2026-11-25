@@ -42,11 +42,7 @@ const MANUEL_GOMEZ: FormateurProfile = {
   formationCodes: [],
   hubOnly: true,
   profilePage: false,
-  portrait: {
-    kind: 'initials',
-    initials: 'MG',
-    label: 'Manuel Gomez – Formateur BTP',
-  },
+  portrait: photoPortrait(PHOTOS.formateurManuelGomez),
   status: 'confirmed',
   publie: true,
 };
