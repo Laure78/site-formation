@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { FormateurPortraitView } from '@/components/formateurs/FormateurPortrait';
 import {
   getFormateurFormationLinks,
+  getFormateurFormationsSectionAnchor,
   getFormateurModuleLinks,
   getFormateurSousDomaineLinks,
   type FormateurProfile,
@@ -39,13 +40,19 @@ export function FormateurProfileDetail({
 }: Props) {
   const fullName = `${formateur.prenom} ${formateur.nom}`;
   const moduleLinks = getFormateurModuleLinks(formateur);
-  const nivLinks = getFormateurFormationLinks(formateur, new Date(), { hub: true });
+  const nivLinks = getFormateurFormationLinks(
+    formateur,
+    new Date(),
+    includeIntro ? { hub: true } : undefined,
+  );
+  const formationsSectionAnchor = getFormateurFormationsSectionAnchor(formateur.id);
   const sousDomaines = getFormateurSousDomaineLinks(formateur);
   const modulesDispo = moduleLinks.filter((m) => m.disponibilite === 'disponible');
   const modules2027 = moduleLinks.filter((m) => m.disponibilite === 'ouverture-2027');
   const parcoursAccordionId = `detail-${formateur.id}-parcours`;
-  const formationsSectionTitle =
-    formateur.formationsHubLabel ?? 'Formations associées à ses spécialités';
+  const formationsSectionTitle = formateur.animatesAllPublished
+    ? 'Formations animées'
+    : (formateur.formationsHubLabel ?? 'Formations animées');
 
   const hasProgrammes =
     modulesDispo.length > 0 || nivLinks.length > 0 || modules2027.length > 0;
@@ -97,7 +104,15 @@ export function FormateurProfileDetail({
       ) : null}
 
       {(modulesDispo.length > 0 || nivLinks.length > 0) && (
-        <section aria-labelledby={`${formateur.id}-dispo-title`}>
+        <section
+          id={formationsSectionAnchor}
+          className={
+            formationsSectionAnchor
+              ? 'scroll-mt-[calc(var(--site-header-height,4rem)+0.5rem)]'
+              : undefined
+          }
+          aria-labelledby={`${formateur.id}-dispo-title`}
+        >
           <h2 id={`${formateur.id}-dispo-title`} className="text-lg font-semibold text-ofc-ink">
             {formationsSectionTitle}
           </h2>

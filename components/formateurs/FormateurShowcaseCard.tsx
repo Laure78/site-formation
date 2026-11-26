@@ -7,6 +7,7 @@ import {
   FORMATEUR_SHOWCASE_PORTRAIT_IMAGE,
 } from '@/lib/formateurs/formateur-showcase-portrait';
 import { formateurPublicProfileHref } from '@/lib/formateurs/formateur-profile-href';
+import { FormateurShowcaseAnimatedFormations } from '@/components/formateurs/FormateurShowcaseAnimatedFormations';
 import { FormateurPortraitView } from '@/components/formateurs/FormateurPortrait';
 import { cn } from '@/lib/cn';
 
@@ -85,6 +86,7 @@ export function FormateurShowcaseCard({ formateur, portraitPriority = false }: P
             {formateur.parcours}
           </p>
         ) : null}
+        <FormateurShowcaseAnimatedFormations formateur={formateur} />
         <div className="mt-auto pt-5">
           <Link
             href={href}

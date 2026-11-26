@@ -187,16 +187,28 @@ export function getFormateurFormationLinks(
   return links;
 }
 
+type FormateurModuleLinksOptions = {
+  /** Inclure les modules « ouverture 2027 » — ex. affectations hub /formateurs. */
+  includeOuverture2027?: boolean;
+};
+
 /** Liens modules catalogue 2027 — titres et statuts depuis `data/catalogue-2027`. */
 export function getFormateurModuleLinks(
   formateur: FormateurProfile,
+  opts?: FormateurModuleLinksOptions,
 ): readonly FormateurModuleLink[] {
   const codes = formateur.moduleCodes ?? [];
   const links: FormateurModuleLink[] = [];
   for (const code of codes) {
     const mod = getModuleByCode(code);
     if (!mod) continue;
-    if (!isParcoursMetiers2027Visible() && mod.disponibilite === 'ouverture-2027') continue;
+    if (
+      !opts?.includeOuverture2027 &&
+      !isParcoursMetiers2027Visible() &&
+      mod.disponibilite === 'ouverture-2027'
+    ) {
+      continue;
+    }
     const formationHint = `${mod.code} — ${mod.titre}`;
     const ouverture2027 = mod.disponibilite === 'ouverture-2027';
     const href = ouverture2027

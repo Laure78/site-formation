@@ -5,6 +5,8 @@ import type { FAQItem } from '@/lib/faq';
 import { FINANCEMENT_FORMULATION_PRUDENTE } from '@/lib/financement-copy';
 import { LINKS } from '@/lib/internal-links';
 import { filterLinksWhenParcoursMetiersHidden } from '@/lib/parcours-metiers-2027-visibility';
+import { PHOTOS } from '@/lib/photos';
+import type { FormateurProfileModuleCardContent } from '@/lib/formateurs/profile-module-card-content';
 
 export const THOMAS_GARNIER_SLUG = 'thomas-garnier' as const;
 
@@ -136,6 +138,31 @@ export const FORMATION_THEMES: Record<string, readonly string[]> = {
     'Valorisation des moyens humains et matériels',
     'Personnalisation de la réponse technique',
   ],
+};
+
+/** Cartes modules — affectations `COM-*` (parcours 2027). */
+export const THOMAS_MODULE_FORMATION_CARDS: Record<
+  string,
+  FormateurProfileModuleCardContent
+> = {
+  'COM-01': {
+    photo: PHOTOS.accueilIaChantierLaptopPlansBtp2026,
+    imageAlt:
+      'Chargé d’affaires travaillant sur un devis, des plans et un tableau de chiffrage',
+    category: 'Devis et chiffrage BTP',
+    showCode: false,
+    accroche: FORMATION_ACCROCHES['COM-01'],
+    themes: FORMATION_THEMES['COM-01'],
+  },
+  'COM-04': {
+    photo: PHOTOS.formationsCatalogueCarteAppelsOffres2026,
+    imageAlt:
+      'Chargé d’affaires analysant un dossier d’appel d’offres dans un bureau d’entreprise du bâtiment',
+    category: 'Appels d’offres BTP',
+    showCode: false,
+    accroche: FORMATION_ACCROCHES['COM-04'],
+    themes: FORMATION_THEMES['COM-04'],
+  },
 };
 
 export function getThomasGarnierFaqItems(): readonly FAQItem[] {

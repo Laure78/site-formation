@@ -22,6 +22,15 @@ export {
 } from '@/lib/formateurs/formateur-profile-href';
 export { formateurProfileEnBref } from '@/lib/formateurs/formateur-page-copy';
 export {
+  getFormateurExplicitModuleLinks,
+  getFormateurAnimatedFormationLinks,
+  getFormateurFormationsSectionAnchor,
+  getFormateurShowcaseFormationsTeaser,
+  SHOWCASE_TEASER_MAX_ALL_CATALOGUE,
+  type FormateurAnimatedFormationLink,
+  type FormateurShowcaseFormationsTeaser,
+} from '@/lib/formateurs/formateur-animated-formations';
+export {
   getCatalogueFormateurs,
   getPublishedCatalogueFormateurs,
   getFormateursHubProfiles,

@@ -8,6 +8,8 @@ import {
   filterLinksWhenParcoursMetiersHidden,
   isParcoursMetiers2027Visible,
 } from '@/lib/parcours-metiers-2027-visibility';
+import { PHOTOS } from '@/lib/photos';
+import type { FormateurProfileModuleCardContent } from '@/lib/formateurs/profile-module-card-content';
 
 export const MARC_DELCOURT_SLUG = 'marc-delcourt' as const;
 
@@ -23,6 +25,35 @@ export const MARC_DELCOURT_EN_BREF =
   'Marc Delcourt est formateur pour OFC Création d’Entreprise (marque commerciale Laure Olivié), organisme certifié Qualiopi. Ancien dirigeant de travaux publics (15 ans), il accompagne les PME du bâtiment sur le prix de revient, les marges et la trésorerie — présentiel en Île-de-France.';
 
 export const MARC_FORMATIONS_SECTION_ID = 'marc-formations' as const;
+
+/** Contenus cartes modules — affectations `DIR-*` (parcours 2027). */
+export const MARC_MODULE_FORMATION_CARDS: Record<
+  string,
+  FormateurProfileModuleCardContent
+> = {
+  'DIR-01': {
+    photo: PHOTOS.accueilIaChantierLaptopPlansBtp2026,
+    accroche:
+      'Mieux connaître ses coûts pour construire des offres commercialement et économiquement cohérentes.',
+    themes: [
+      'Coûts directs et indirects',
+      'Prix de revient',
+      'Construction du prix de vente',
+      'Marge et rentabilité',
+    ],
+  },
+  'DIR-03': {
+    photo: PHOTOS.accueilReferencePartenairesLaureOFC2026,
+    accroche:
+      'Mieux anticiper les besoins financiers de son entreprise et les décalages de paiement.',
+    themes: [
+      'Prévisions d’encaissement',
+      'Décaissements de l’entreprise',
+      'Besoins de trésorerie',
+      'Anticipation des tensions financières',
+    ],
+  },
+};
 
 export const MARC_EXPERTISE_CARDS = [
   {
