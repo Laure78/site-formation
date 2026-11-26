@@ -236,7 +236,7 @@ function buildStaticPages(): SiteSearchEntry[] {
     },
     {
       id: 'guide-cdt',
-      title: 'Guide conducteur de travaux — 6 tutos Claude',
+      title: 'Guide conducteur de travaux — édition 2 (7 tutos)',
       description: 'PDF gratuit DCE, PPSPS, CR, DOE — skills chantier.',
       href: LINKS.guideConducteurTravauxIaBtp,
       kind: 'guide',

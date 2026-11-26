@@ -73,7 +73,7 @@ const FORMATION_PRACTICE_RESOURCES: Partial<
     {
       href: LINKS.guideConducteurTravauxIaBtp,
       title: 'Guide PDF conducteur de travaux',
-      description: '6 tutos Claude AI — ressource gratuite.',
+      description: 'Guide PDF édition 2 — 7 tutos Claude, ressource gratuite.',
     },
   ],
   'NIV-04': [

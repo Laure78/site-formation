@@ -92,7 +92,7 @@ export const RESSOURCES_THEMATIC_BLOCKS: readonly RessourceThematicBlock[] = [
       { label: "Guide Maître d'Œuvre × IA (12 missions)", href: LINKS.guideMaitriseOeuvreIa },
       { label: 'Bibliothèque skills — CR, DOE, réserves (.skill / .md)', href: LINKS.bibliothequeSkills },
       { label: '10 cas d’usage IA BTP (ressource synthèse)', href: LINKS.casUsage },
-      { label: 'PDF gratuit — guide conducteur de travaux (6 tutos)', href: LINKS.pdfPackConducteurTravauxOfc },
+      { label: 'PDF gratuit — guide conducteur de travaux (édition 2)', href: LINKS.pdfPackConducteurTravauxOfc },
     ],
     articles: [
       { label: 'Mémoire de réclamation BTP — délais et méthode IA', href: LINKS.blogMemoireReclamationBtpIa },

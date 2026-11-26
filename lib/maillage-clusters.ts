@@ -1375,7 +1375,7 @@ function buildUsageTaskPageCluster(path: string): ClusterPageConfig | null {
         {
           href: LINKS.guideConducteurTravauxIaBtp,
           label: 'Guide PDF conducteur de travaux',
-          description: '6 tutos Claude AI — ressource gratuite.',
+          description: 'Guide PDF édition 2 — 7 tutos Claude, ressource gratuite.',
         },
         {
           href: LINKS.financement,

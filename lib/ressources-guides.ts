@@ -226,12 +226,13 @@ export const RESSOURCES_GUIDES: readonly RessourceGuideEntry[] = [
     title: 'Guide conducteur de travaux',
     promise:
       'Méthodes et prompts pour DCE, PPSPS, comptes rendus et DOE — à adapter à vos chantiers.',
-    description: '6 tutos Claude : DCE, PPSPS, CR chantier, DOE — prompts inclus.',
+    description:
+      'Édition 2 — 7 tutos Claude (6 skills chantier + connecteurs) : DCE, PPSPS, CR, DOE — 62 pages.',
     audience: 'Conducteurs de travaux · Chefs de chantier',
     fonctionId: 'conducteur-travaux',
     categories: ['conduite-travaux', 'chantier'],
     categoryLabel: 'Conduite de travaux',
-    highlights: ['Pack CDT', 'DCE · PPSPS · CR · DOE', 'Prompts inclus'],
+    highlights: ['Édition 2 · 62 p.', '6 skills + connecteurs', 'Prompts inclus'],
     fileKind: 'pdf',
     downloadLabel: 'Télécharger le PDF',
     primaryActionLabel: 'Consulter le guide',

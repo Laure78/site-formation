@@ -593,14 +593,14 @@ export const PHOTOS = {
     height: 1024,
   },
 
-  /** Guide PDF conducteur de travaux — 6 tutos Claude (lead magnet /ressources) */
+  /** Guide PDF conducteur de travaux — édition 2 (couverture PDF, lead magnet /ressources) */
   guideConducteurTravauxHero2026: {
     src: '/images/guide-conducteur-travaux-hero.png',
-    alt: 'Guide conducteur de travaux BTP — 6 skills Claude pour piloter le chantier, PDF gratuit',
+    alt: 'Couverture du Pack du conducteur de travaux, édition 2 de novembre 2026',
     title:
-      'Guide PDF gratuit : 6 skills Claude pour conducteurs de travaux — DCE, PPSPS, CR, DOE — OFC / Laure Olivié',
-    width: 1024,
-    height: 1024,
+      'Pack conducteur de travaux — édition 2 — 6 skills Claude et tutoriel connecteurs — OFC / Laure Olivié',
+    width: 1190,
+    height: 1684,
   },
 
   /** Page catalogue /formations — hero affiche catalogue (IA BTP, présentiel IDF) */

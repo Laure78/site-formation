@@ -17,8 +17,8 @@ const LIVRABLES = [
 ] as const;
 
 const STATS = [
-  { value: '52 p.', label: 'guide PDF' },
-  { value: '6', label: 'skills Claude' },
+  { value: '62 p.', label: 'édition 2' },
+  { value: '7', label: 'tutoriels' },
   { value: '0 €', label: 'sans inscription' },
 ] as const;
 
@@ -53,11 +53,11 @@ export function HomeGuideConducteurTravauxSection() {
                   id="home-guide-cdt-title"
                   className="mt-5 font-display text-2xl font-bold leading-tight tracking-tight text-slate-900 md:text-2xl"
                 >
-                  Guide conducteur de travaux — 6 skills Claude pour piloter le chantier
+                  Guide conducteur de travaux — 6 skills Claude et tutoriel connecteurs
                 </h2>
                 <p className="mt-3 max-w-xl text-base leading-relaxed text-slate-600">
-                  DCE, PPSPS, CR, constats, PV réserves et DOE : méthodes, prompts à copier-coller et repères
-                  métier terrain — un seul PDF à garder sous la main.
+                  DCE, PPSPS, CR, constats, PV réserves, DOE et connexion à vos outils : édition 2, prompts à
+                  copier-coller et relecture métier — un seul PDF à garder sous la main.
                 </p>
 
                 <ul className="mt-5 flex flex-wrap gap-2" aria-label="Chiffres clés du guide">
@@ -123,7 +123,7 @@ export function HomeGuideConducteurTravauxSection() {
                     quality={70}/>
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 via-transparent to-transparent lg:bg-gradient-to-l lg:from-slate-900/40 lg:via-transparent lg:to-transparent" />
                   <p className="absolute bottom-4 left-4 right-4 text-sm font-semibold text-white drop-shadow-sm">
-                    Conducteur de travaux — prompts inclus · ~400 Ko
+                    Conducteur de travaux — édition 2 · 2,28 Mo
                   </p>
                 </div>
               </div>

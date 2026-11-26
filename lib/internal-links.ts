@@ -466,7 +466,7 @@ export const LINKS = {
   skillIaConducteurTravaux: '/ressources/guide-conducteur-de-travaux',
   /** Guide conducteur de travaux — maître (l'ancien `/ressources/guide-conducteur-travaux-ia-btp` redirige en 308) */
   guideConducteurTravauxIaBtp: '/ressources/guide-conducteur-de-travaux',
-  /** PDF gratuit — Guide conducteur de travaux OFC (6 tutos Claude, ~52 p.) */
+  /** PDF gratuit — Guide conducteur de travaux OFC édition 2 (62 p., Pack_CDT_OFC_V2) */
   pdfPackConducteurTravauxOfc: '/ressources/pdf/pack-conducteur-de-travaux-ofc.pdf',
   /** 20 prompts IA copiables — conducteur de travaux */
   promptsIaConducteurTravaux: '/prompts-ia-conducteur-travaux',

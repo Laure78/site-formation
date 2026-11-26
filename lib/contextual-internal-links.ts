@@ -218,7 +218,7 @@ export const CONDUCTEUR_TRAVAUX_RELATED: ContextualLinkCard[] = [
   {
     href: LINKS.guideConducteurTravauxIaBtp,
     title: 'Guide PDF conducteur de travaux',
-    description: '6 tutos Claude AI — ressource gratuite OFC.',
+    description: '7 tutos Claude — guide PDF édition 2, ressource gratuite OFC.',
   },
   {
     href: LINKS.blogCommentIaGagne5hConducteursTravaux,

@@ -14,9 +14,7 @@ export function SkillIaLeadMagnetForm() {
       <p className="font-display text-lg font-bold" style={{ color: '#1A1A1A' }}>
         Télécharger le guide PDF
       </p>
-      <p className="mt-1 text-sm text-slate-600">
-        Conducteur de travaux — environ 52 pages · ~400&nbsp;Ko · sans inscription
-      </p>
+      <p className="mt-1 text-sm text-slate-600">{SKILL_IA_LEAD_MAGNET.downloadInfoLine}</p>
 
       <a
         href={SKILL_IA_LEAD_MAGNET.pdfPublicPath}
@@ -24,7 +22,7 @@ export function SkillIaLeadMagnetForm() {
         className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl border-2 border-[#377CF3] bg-[#377CF3] px-5 py-3.5 text-base font-semibold text-white shadow-sm transition hover:bg-[#2d66d6] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#377CF3]"
       >
         <Download className="h-5 w-5 shrink-0" strokeWidth={2} aria-hidden />
-        Obtenir le fichier PDF
+        {SKILL_IA_LEAD_MAGNET.downloadButtonLabel}
       </a>
 
       <p className="mt-6 border-t border-slate-100 pt-4 text-xs font-semibold uppercase tracking-[0.12em] text-slate-500">

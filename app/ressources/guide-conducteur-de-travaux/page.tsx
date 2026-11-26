@@ -4,7 +4,6 @@ import { Check, Users, HardHat, Building2 } from 'lucide-react';
 import { JsonLd } from '@/components/JsonLd';
 import { SkillIaLeadMagnetForm } from '@/components/ressources/SkillIaLeadMagnetForm';
 import { createPageMetadata, getFAQSchema, SITE_CONFIG } from '@/lib/seo';
-import { SOCIAL_PROOF } from '@/lib/constants';
 import { buildSiteCalendlyCtaUrl } from '@/lib/calendly';
 import { LINKS } from '@/lib/internal-links';
 import { RdvLink } from '@/components/RdvLink';
@@ -12,16 +11,83 @@ import { PHOTOS } from '@/lib/photos';
 import { SCHEMA_LINKEDIN_PROFILE_URL } from '@/lib/schema-constants';
 import { MaillageRessourceFromConfig } from '@/app/components/MaillageRessource';
 import { getMaillageRessourceConfig } from '@/lib/maillage-ressources';
-import { formatNoteSatisfactionSur5 , formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats'
+import { formatNoteSatisfactionAffichageComplet } from '@/lib/data/indicateurs-resultats';
 import { buildGuideConducteurTravauxImageObjectJsonLd } from '@/lib/schema-image-objects';
+import { SKILL_IA_LEAD_MAGNET } from '@/lib/lead-magnet-skill-ia';
 
 const PATH = '/ressources/guide-conducteur-de-travaux';
 const CANONICAL = `${SITE_CONFIG.url.replace(/\/$/, '')}${PATH}`;
 
+const SOMMAIRE = [
+  {
+    rubrique: 'Préparation du chantier',
+    items: [
+      {
+        tuto: 1,
+        page: 8,
+        title: 'Analyser le DCE et préparer la décision Go / No Go.',
+        href: LINKS.tutoAnalyseDce,
+      },
+      {
+        tuto: 2,
+        page: 15,
+        title: 'Préparer le PPSPS à partir des données du chantier.',
+        href: LINKS.tutoPpsps,
+      },
+    ],
+  },
+  {
+    rubrique: 'Exécution des travaux',
+    items: [
+      {
+        tuto: 3,
+        page: 22,
+        title: 'Rédiger un compte rendu de chantier à partir de ses notes.',
+        href: LINKS.tutoCrChantier,
+      },
+      {
+        tuto: 4,
+        page: 29,
+        title: 'Préparer un constat de retard à partir de faits datés.',
+        href: LINKS.tutoConstatRetard,
+      },
+    ],
+  },
+  {
+    rubrique: 'Livraison du chantier',
+    items: [
+      {
+        tuto: 5,
+        page: 36,
+        title: 'Préparer le PV de levée des réserves.',
+        href: LINKS.tutoPvLeveeReserves,
+      },
+      {
+        tuto: 6,
+        page: 43,
+        title: 'Constituer le dossier des ouvrages exécutés (DOE).',
+        href: LINKS.tutoDoeDossierOuvragesExecutes,
+      },
+    ],
+  },
+  {
+    rubrique: 'Outils pour toutes les phases',
+    items: [
+      {
+        tuto: 7,
+        page: 50,
+        title:
+          'Connecter Claude à sa messagerie, à son agenda et à ses fichiers — exemples : retrouver les échanges avec la maîtrise d’œuvre sur une réserve et préparer un brouillon pour transmettre le compte rendu.',
+        href: null as string | null,
+      },
+    ],
+  },
+] as const;
+
 export const metadata = createPageMetadata({
-  title: 'Guide IA conducteur de travaux : prompts',
+  title: 'Guide IA conducteur de travaux : 7 tutos Claude',
   description:
-    'Guide IA conducteur de travaux : 6 tutos Claude, prompts pour DCE, PPSPS, CR et DOE. PDF gratuit à télécharger — méthode terrain BTP, sans inscription payante.',
+    'Guide IA conducteur de travaux : 6 skills Claude, tuto connecteurs, DCE à DOE. PDF édition 2, 62 pages — gratuit, sans inscription. Méthode terrain BTP.',
   descriptionFinal: true,
   path: PATH,
   keywords: [
@@ -33,8 +99,9 @@ export const metadata = createPageMetadata({
     'formation IA pour le BTP',
   ],
   openGraphType: 'article',
-  openGraphTitle: 'Guide CDT — 6 tutos Claude pour piloter le chantier (PDF gratuit)',
-  openGraphDescription: 'DCE, PPSPS, CR, constat retard, PV réserves, DOE — méthodes et prompts inclus.',
+  openGraphTitle: 'Guide CDT édition 2 — skills et connecteurs',
+  openGraphDescription:
+    'DCE, PPSPS, CR, constat, PV réserves, DOE et connexion messagerie — 62 pages, prompts et relecture humaine.',
   image: {
     url: PHOTOS.guideConducteurTravauxHero2026.src,
     width: PHOTOS.guideConducteurTravauxHero2026.width,
@@ -48,9 +115,9 @@ const learningResourceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'LearningResource',
   '@id': `${CANONICAL}#resource`,
-  name: 'Guide conducteur de travaux — 6 tutos Claude BTP (PDF gratuit)',
+  name: 'Guide conducteur de travaux — 6 skills Claude et 7 tutos (PDF édition 2)',
   description:
-    'Guide PDF gratuit OFC / Laure Olivié : analyse de DCE, PPSPS, compte rendu chantier, constat de retard, PV levée des réserves, DOE livraison — méthode Claude, prompts à copier-coller. Conducteurs et directions exploitation BTP.',
+    'Guide PDF gratuit OFC / Laure Olivié (édition 2, 62 pages) : six skills métier (DCE, PPSPS, CR, constat, PV réserves, DOE) et un tutoriel connecteurs — méthode Claude, relecture humaine. Conducteurs et directions exploitation BTP.',
   url: CANONICAL,
   inLanguage: 'fr-FR',
   educationalLevel: 'intermediate',
@@ -90,11 +157,11 @@ const howToSkillJsonLd = {
 const FAQ_ITEMS = [
   {
     q: 'Quel fichier est téléchargeable depuis cette page ?',
-    a: 'Le guide PDF téléchargeable (« Pack_CDT_OFC.pdf », ~400 Ko, environ 52 pages) rassemble les 6 tutos : analyse DCE, PPSPS, compte rendu de chantier, constat de retard, PV levée des réserves, DOE livraison. Aucune inscription obligatoire pour le téléchargement depuis cette page.',
+    a: `Le guide PDF « ${SKILL_IA_LEAD_MAGNET.fileName} » (${SKILL_IA_LEAD_MAGNET.fileSizeLabel}, ${SKILL_IA_LEAD_MAGNET.pageCount} pages, ${SKILL_IA_LEAD_MAGNET.editionLabel}) rassemble six skills métier chantier et sept tutoriels (dont les connecteurs messagerie, agenda et fichiers). Aucune inscription obligatoire pour le téléchargement depuis cette page.`,
   },
   {
-    q: 'Faut-il un abonnement Claude pour appliquer ce guide ?',
-    a: 'Pour utiliser les skills personnalisés Claude, un abonnement Pro est nécessaire. Le fichier explique également comment activer les capacités « Skills », « Code execution » et création de fichiers — indispensable pour exporter des livrables (Word par exemple).',
+    q: 'Comment préparer Claude avant le premier tutoriel ?',
+    a: 'À partir de la page 5, le guide montre les réglages à vérifier pour activer les skills et protéger vos données avant de travailler sur un dossier de chantier.',
   },
   {
     q: 'Ce guide remplace une formation présentielle ?',
@@ -102,8 +169,7 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Où trouver d’autres tutos BTP en pages web ?',
-    a:
-      'Consultez « Ressources » sur laureolivie.fr puis l’index listant tous les tutos PDF : chaque fiche décrit un livrable et propose aussi un téléchargement PDF dédié.',
+    a: 'Consultez « Ressources » sur laureolivie.fr puis l’index listant tous les tutos PDF : chaque fiche décrit un livrable et propose aussi un téléchargement PDF dédié.',
   },
 ];
 
@@ -123,25 +189,27 @@ export default function SkillIaConducteurTravauxPage() {
         <div className="ofc-section-inner grid gap-10 py-10 md:items-start md:gap-12 md:py-12 lg:grid-cols-2">
           <div className="min-w-0">
             <h1 id="hero-skill-ia" className="font-display text-2xl font-bold leading-tight md:text-2xl lg:text-2xl">
-              Guide IA conducteur de travaux : prompts et skills Claude pour le chantier
+              Guide IA du conducteur de travaux — 6 skills Claude et un tutoriel sur les connecteurs
             </h1>
             <p className="mt-5 max-w-none text-lg leading-relaxed text-white/95 lg:max-w-[42rem] xl:max-w-none">
-              Ce guide PDF gratuit regroupe préparation (DCE, sécurité), exécution (CR chantier, constats) et livraison
-              (PV de levée des réserves, DOE). Pour chaque livrable : méthode de skill, prompts à copier-coller et
-              repères métier terrain.
+              De l’analyse du DCE à la constitution du DOE, ce guide vous accompagne dans la préparation de six livrables
+              de chantier avec Claude. Le septième tutoriel montre comment retrouver un échange avec la maîtrise d’œuvre,
+              consulter le dernier compte rendu ou proposer un créneau de levée de réserves à partir de vos outils.
             </p>
             <ul className="mt-8 space-y-3 text-base">
               <li className="flex gap-3">
                 <Check className="mt-0.5 h-6 w-6 shrink-0 text-white" strokeWidth={2} aria-hidden />
-                <span>Phase préparation · analyse Go / No Go du DCE + PPSPS structuré conforme Codex</span>
+                <span>
+                  Préparation du chantier · analyse Go / No Go du DCE + trame PPSPS à adapter et faire valider
+                </span>
               </li>
               <li className="flex gap-3">
                 <Check className="mt-0.5 h-6 w-6 shrink-0 text-white" strokeWidth={2} aria-hidden />
-                <span>Phase chantier · comptes rendus et constats de retard prêts à envoyer</span>
+                <span>Exécution des travaux · comptes rendus et constats de retard prêts à relire</span>
               </li>
               <li className="flex gap-3">
                 <Check className="mt-0.5 h-6 w-6 shrink-0 text-white" strokeWidth={2} aria-hidden />
-                <span>Livraison · PV réserves traçables + dossier ouvrages exécutés (DOE)</span>
+                <span>Livraison du chantier · PV réserves traçables + dossier des ouvrages exécutés (DOE)</span>
               </li>
             </ul>
           </div>
@@ -157,8 +225,8 @@ export default function SkillIaConducteurTravauxPage() {
                   className="h-auto w-full object-contain"
                   sizes="(max-width: 1024px) 280px, 320px"
                   priority
-                
-                  quality={75}/>
+                  quality={75}
+                />
               </div>
             </figure>
             <SkillIaLeadMagnetForm />
@@ -174,22 +242,22 @@ export default function SkillIaConducteurTravauxPage() {
           <div className="mt-6 xl:grid xl:grid-cols-2 xl:gap-x-12 xl:gap-y-6">
             <div className="space-y-4">
               <p className="leading-relaxed text-slate-700">
-                Ce guide est destiné aux conducteurs de travaux qui enchaînent les livrables écrits : appels d&apos;offres,
-                sécurité, suivi chantier et clôtures contractuelles. L&apos;enjeu n&apos;est pas de « remplacer » le métier —
-                c&apos;est de gagner les heures de préparation où l&apos;on reformate toujours les mêmes structures (grilles
+                Ce guide est destiné aux conducteurs de travaux qui enchaînent les livrables écrits : appels
+                d&apos;offres, sécurité, suivi chantier et clôtures contractuelles. L&apos;enjeu n&apos;est pas de
+                « remplacer » le métier — c&apos;est de structurer la préparation des documents récurrents (grilles
                 CCAP/CCTP, trames PV, dossiers livraison) pendant que les imprévus restent votre priorité chantier.
               </p>
               <p className="leading-relaxed text-slate-700">
-                Chaque bloc du fichier reprend une chronologie de chantier : tu peux suivre le guide une première fois
-                linéairement, puis repasser directement au chapitre du livrable urgent du jour — analyse DCE, PPSPS, CR,
-                constat, PV réserves ou DOE. Les prompts inclus sont formulés pour être collés tel quel après avoir chargé vos
-                contraintes d&apos;entreprise (métiers traités, typologie d&apos;AO, exemples anonymisés).
+                L&apos;édition 2 distingue six skills métier (un par livrable) et sept tutoriels pas à pas : vous pouvez
+                suivre le PDF linéairement, ou ouvrir directement la page du tuto urgent — chaque skill précise les
+                informations à fournir, le résultat attendu et un exemple, avec des prompts qui demandent de citer les
+                sources et de signaler les informations manquantes.
               </p>
             </div>
             <div className="mt-4 space-y-4 xl:mt-0">
               <p className="leading-relaxed text-slate-700">
-                Le téléchargement est gratuit et immédiat via l&apos;encart bleu ci-dessus. Besoin du même niveau de détail
-                en fiches web séparées&nbsp;? Consultez l&apos;{' '}
+                Le téléchargement est gratuit et immédiat via l&apos;encart ci-dessus ({SKILL_IA_LEAD_MAGNET.editionLabel}
+                ). Besoin du même niveau de détail en fiches web séparées&nbsp;? Consultez l&apos;{' '}
                 <Link href={LINKS.ressourcesTutos} className="font-semibold text-[#377CF3] hover:underline">
                   index de tous les tutos PDF
                 </Link>
@@ -207,15 +275,12 @@ export default function SkillIaConducteurTravauxPage() {
           </h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { k: '30–50 h', v: 'de bureau récupérables sur un chantier moyen (ordre de grandeur guide)' },
+              { k: `${SKILL_IA_LEAD_MAGNET.pageCount} p.`, v: 'édition 2 — mode d’emploi terrain structuré par phases' },
               { k: '0 €', v: 'guide PDF complet — pas d’inscription sur cette page' },
-              { k: '52 p.', v: 'fichier structuré comme un mode d’emploi terrain' },
-              { k: '6', v: 'livrables critiques couverts (prép. / exécution / livraison)' },
+              { k: String(SKILL_IA_LEAD_MAGNET.tutorialCount), v: 'tutoriels (dont connecteurs pour toutes les phases)' },
+              { k: String(SKILL_IA_LEAD_MAGNET.skillCount), v: 'skills métier chantier (DCE à DOE)' },
             ].map((c) => (
-              <div
-                key={c.k}
-                className="rounded-2xl border-2 border-[#377CF3] bg-white p-5 shadow-sm"
-              >
+              <div key={c.k} className="rounded-2xl border-2 border-[#377CF3] bg-white p-5 shadow-sm">
                 <p className="font-display text-2xl font-bold text-[#377CF3]">{c.k}</p>
                 <p className="mt-2 text-sm text-slate-700">{c.v}</p>
               </div>
@@ -224,23 +289,25 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="ofc-band" aria-labelledby="learn">
+      <section className="ofc-band" aria-labelledby="edition-2">
         <div className="ofc-section-inner">
-          <h2 id="learn" className="font-display text-2xl font-bold md:text-2xl">
-            Ce que vous allez apprendre
+          <h2 id="edition-2" className="font-display text-2xl font-bold md:text-2xl">
+            Nouveautés de l&apos;édition 2
           </h2>
+          <p className="mt-3 max-w-3xl text-slate-600">
+            Le PDF {SKILL_IA_LEAD_MAGNET.editionLabel} est pensé pour être utilisé à l&apos;écran, à côté de Claude en
+            français.
+          </p>
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {[
-              'Structurer chaque skill autour d’un livrable précis (DCE, PPSPS, CR…)',
-              'Paramétrer Claude Pro : skills activés, fichiers et exécution de code',
-              'Industrialiser les prompts et grilles de votre entreprise',
-              'Accélérer Go / No Go, constats, PV et DOE tout en gardant la traçabilité',
+              'Captures d’écran Claude en français pour suivre les réglages (à partir de la page 5).',
+              'Une fiche par skill : informations à fournir, résultat attendu et exemple métier.',
+              'Prompts qui demandent de citer les sources et de signaler les informations manquantes.',
+              'Tutoriel 7 : six usages chantier des connecteurs (messagerie, agenda, fichiers).',
+              'Bonus dès la page 56 : enchaîner plusieurs skills, méthode en sept étapes, adapter un squelette de skill.',
+              'Checklist « Es-tu sûr ? » pour relire chaque livrable avant envoi ou diffusion.',
             ].map((t) => (
-              <div
-                key={t}
-                className="rounded-2xl p-6"
-                style={{ backgroundColor: '#D4E3FC' }}
-              >
+              <div key={t} className="rounded-2xl p-6" style={{ backgroundColor: '#D4E3FC' }}>
                 <p className="font-medium text-slate-900">{t}</p>
               </div>
             ))}
@@ -254,8 +321,8 @@ export default function SkillIaConducteurTravauxPage() {
             Schéma générique — construire un skill (rappel hors PDF)
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Le guide détaille ses propres prompts par livrable&nbsp;; ce rappel résume la logique qui se répète avant
-            d&apos;adapter chaque cas à votre entreprise.
+            Le guide détaille ses propres prompts par livrable&nbsp;; ce rappel résume la logique qui se répète. La
+            version PDF reprend la même méthode en sept étapes à partir de la page 56.
           </p>
           <ol className="mt-8 grid gap-4 md:grid-cols-2">
             {[
@@ -263,7 +330,7 @@ export default function SkillIaConducteurTravauxPage() {
               'Listez les informations à fournir à chaque lancement.',
               'Décrivez le rôle métier de l’IA en 2 lignes.',
               'Écrivez les instructions pas à pas (numérotées).',
-              'Précisez le format final (mail.docx, tableau).',
+              'Précisez le format final (mail, .docx, tableau).',
               'Testez sur 3 cas réels puis corrigez.',
               'Documentez le déclencheur et partagez-le à l’équipe.',
             ].map((step, idx) => (
@@ -276,63 +343,42 @@ export default function SkillIaConducteurTravauxPage() {
         </div>
       </section>
 
-      <section className="ofc-band" aria-labelledby="six-livrables-guide">
+      <section className="ofc-band" aria-labelledby="sommaire-guide">
         <div className="ofc-section-inner">
-          <h2 id="six-livrables-guide" className="font-display text-2xl font-bold md:text-2xl">
-            Les 6 livrables couverts dans le fichier PDF
+          <h2 id="sommaire-guide" className="font-display text-2xl font-bold md:text-2xl">
+            Sommaire du guide PDF
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Chaque ligne renvoie vers la fiche web détaillée du même thème (version longue, FAQ, étapes) — le guide PDF
-            reste le document unique à conserver hors-ligne.
+            Les numéros correspondent aux pages de début dans « {SKILL_IA_LEAD_MAGNET.fileName} ». Les six premiers
+            tutoriels couvrent un skill métier&nbsp;; le septième est transversal (connecteurs).
           </p>
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {[
-              {
-                phase: 'Phase 1 — Préparation',
-                title: 'Analyse de DCE',
-                href: LINKS.tutoAnalyseDce,
-                hint: 'Fiche standardisée Go / No Go en quelques minutes',
-              },
-              {
-                phase: 'Phase 1 — Préparation',
-                title: 'PPSPS',
-                href: LINKS.tutoPpsps,
-                hint: 'Plan de sécurité structuré selon la chronologie réglementaire',
-              },
-              {
-                phase: 'Phase 2 — Exécution',
-                title: 'Compte rendu de chantier',
-                href: LINKS.tutoCrChantier,
-                hint: 'Voix ou notes brutes vers CR prêt à relire',
-              },
-              {
-                phase: 'Phase 2 — Exécution',
-                title: 'Constat de retard',
-                href: LINKS.tutoConstatRetard,
-                hint: 'Courrier argumenté, fondé sur vos contrats',
-              },
-              {
-                phase: 'Phase 3 — Livraison',
-                title: 'PV de levée de réserves',
-                href: LINKS.tutoPvLeveeReserves,
-                hint: 'Traçabilité juridique et suivi des réserves',
-              },
-              {
-                phase: 'Phase 3 — Livraison',
-                title: 'DOE (dossier des ouvrages exécutés)',
-                href: LINKS.tutoDoeDossierOuvragesExecutes,
-                hint: 'Compilation des pièces et repérage des manques',
-              },
-            ].map((item) => (
-              <article key={item.href} className="rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5">
-                <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#377CF3]">{item.phase}</p>
-                <h3 className="mt-2 font-display text-lg font-bold text-slate-900">
-                  <Link href={item.href} className="text-[#377CF3] hover:underline">
-                    {item.title}
-                  </Link>
-                </h3>
-                <p className="mt-2 text-sm text-slate-700">{item.hint}</p>
-              </article>
+          <div className="mt-10 space-y-10">
+            {SOMMAIRE.map((bloc) => (
+              <div key={bloc.rubrique}>
+                <h3 className="font-display text-lg font-bold text-slate-900">{bloc.rubrique}</h3>
+                <ul className="mt-4 space-y-3">
+                  {bloc.items.map((item) => (
+                    <li
+                      key={item.tuto}
+                      className="rounded-2xl border border-slate-200 bg-[#F2F2F2] p-5 text-sm text-slate-700"
+                    >
+                      <span className="font-semibold text-[#377CF3]">
+                        Tuto {item.tuto}, p. {item.page}
+                      </span>
+                      {' — '}
+                      {item.href ? (
+                        <Link href={item.href} className="font-medium text-[#377CF3] hover:underline">
+                          {item.title}
+                        </Link>
+                      ) : (
+                        <span>
+                          {item.title} <span className="text-slate-500">(détail : page {item.page} du guide)</span>
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
           </div>
         </div>
@@ -344,8 +390,9 @@ export default function SkillIaConducteurTravauxPage() {
             Squelette de skill (bonus rapide hors PDF détaillé)
           </h2>
           <p className="mt-3 max-w-3xl text-slate-600">
-            Le fichier téléchargeable « Pack_CDT_OFC.pdf » (contenu du guide) inclut prompts et consignes spécifiques par livrable. Ce cadre générique aide
-            quand vous devez improviser une nouvelle automatisation chantier avant de la figer dans un skill définitif.
+            Le fichier « {SKILL_IA_LEAD_MAGNET.fileName} » inclut prompts et consignes spécifiques par livrable. Ce cadre
+            générique aide quand vous devez improviser une nouvelle automatisation chantier avant de la figer dans un skill
+            définitif (voir aussi page 56 du guide).
           </p>
           <pre className="mt-6 overflow-x-auto rounded-2xl border border-slate-200 bg-[#0F172A] p-5 text-xs leading-relaxed text-slate-100 md:text-sm">{`# SKILL : [NOM DU SKILL]
 ## ROLE
@@ -398,7 +445,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               <Building2 className="h-10 w-10 shrink-0 text-[#377CF3]" strokeWidth={1.5} aria-hidden />
               <div>
                 <p className="font-semibold text-slate-900">Chefs d&apos;entreprise BTP</p>
-                <p className="mt-1 text-sm text-slate-600">Gains de temps mesurables sur l&apos;administratif.</p>
+                <p className="mt-1 text-sm text-slate-600">Gains de temps sur la préparation documentaire.</p>
               </div>
             </div>
           </div>
@@ -424,16 +471,13 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               Qui est Laure Olivié ?
             </h2>
             <p className="mt-4 text-slate-700 leading-relaxed">
-              Formatrice IA spécialisée BTP — Laure Olivié, organisme certifié Qualiopi. Sessions avec
-              la FFB, le CNAM et de nombreuses PME du bâtiment en Île-de-France.
+              Formatrice IA spécialisée BTP — Laure Olivié, organisme certifié Qualiopi. Sessions avec la FFB, le CNAM et
+              de nombreuses PME du bâtiment en Île-de-France.
             </p>
             <p className="mt-3 font-semibold text-slate-900">
-              {formatNoteSatisfactionAffichageComplet()} · Qualiopi ·
-              Constructys
+              {formatNoteSatisfactionAffichageComplet()} · Qualiopi · Constructys
             </p>
-            <p className="mt-4 text-sm font-medium text-slate-600">
-              Références : FFB · CNAM
-            </p>
+            <p className="mt-4 text-sm font-medium text-slate-600">Références : FFB · CNAM</p>
           </div>
         </div>
       </section>
@@ -462,9 +506,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
 
       <section className="border-t border-slate-200 bg-[#377CF3] py-12 text-center text-white">
         <div className="mx-auto max-w-2xl px-4">
-          <h2 className="font-display text-xl font-bold md:text-2xl">
-            Pas le temps de lire tout de suite ?
-          </h2>
+          <h2 className="font-display text-xl font-bold md:text-2xl">Pas le temps de lire tout de suite ?</h2>
           <p className="mt-3 text-white/95">
             Réservez 20 minutes d&apos;échange pour cadrer votre besoin formation IA pour le BTP.
           </p>
@@ -473,7 +515,7 @@ Signature : [NOM] — [TITRE] — [ENTREPRISE]
               origin="ressources-guide-conducteur-de-travaux-contact-rdv-page-calendly"
               variant="unstyled"
               className="inline-flex rounded-xl bg-white px-6 py-3 font-semibold text-[#377CF3] shadow-sm hover:bg-[#F2F2F2]"
-             />
+            />
           </div>
         </div>
       </section>

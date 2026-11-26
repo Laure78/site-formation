@@ -155,7 +155,7 @@ export function buildGuideConducteurTravauxImageObjectJsonLd() {
     name: p.alt,
     caption:
       p.title ??
-      'Guide PDF gratuit OFC : 6 skills Claude pour conducteurs de travaux (DCE, PPSPS, CR, DOE).',
+      'Pack conducteur de travaux édition 2 : 6 skills Claude et tutoriel connecteurs — PDF gratuit OFC.',
     description: p.alt,
     creditText: HOME_HERO_IMAGE_CREDIT,
     license: `${base}/mentions-legales`,

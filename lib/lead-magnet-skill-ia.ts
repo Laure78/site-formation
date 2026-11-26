@@ -3,10 +3,18 @@ import { LINKS } from '@/lib/internal-links';
 /** Lead magnet PDF — Guide conducteur de travaux OFC (URL publique + tag analytics) */
 export const SKILL_IA_LEAD_MAGNET = {
   pdfPublicPath: LINKS.pdfPackConducteurTravauxOfc,
-  fileName: 'Pack_CDT_OFC.pdf',
+  fileName: 'Pack_CDT_OFC_V2.pdf',
   tag: 'leadmagnet-skill-ia-conducteur-travaux',
   landingPath: '/ressources/guide-conducteur-de-travaux',
   merciPath: '/ressources/guide-conducteur-de-travaux/merci',
+  editionLabel: 'Édition 2 · Novembre 2026',
+  pageCount: 62,
+  fileSizeLabel: '2,28 Mo',
+  skillCount: 6,
+  tutorialCount: 7,
+  downloadInfoLine:
+    'Édition 2 · Novembre 2026 · 62 pages · PDF de 2,28 Mo · Gratuit, sans inscription',
+  downloadButtonLabel: 'Télécharger le guide PDF – version 2',
 } as const;
 
 /** Articles MDX où afficher l’encart CTA (SEO / GEO). */

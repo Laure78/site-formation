@@ -412,7 +412,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
     soeurs: [
       {
         href: LINKS.guideConducteurTravauxIaBtp,
-        label: 'Guide conducteur de travaux — 6 tutos Claude',
+        label: 'Guide conducteur de travaux — édition 2',
       },
       TUTO_CR,
     ],
@@ -446,7 +446,7 @@ export const MAILLAGE_RESSOURCES_BY_PATH: Readonly<Record<string, MaillageRessou
       },
       {
         href: LINKS.guideConducteurTravauxIaBtp,
-        label: 'Guide conducteur de travaux — 6 tutos Claude',
+        label: 'Guide conducteur de travaux — édition 2',
       },
     ],
   },

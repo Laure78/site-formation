@@ -217,7 +217,7 @@ const GUIDE_HUB_DESCRIPTIONS: Partial<Record<string, string>> = {
   'guide-maitrise-oeuvre-ia':
     'Missions MOE classées IA, mixte ou humain — méthode skills Claude pour le pilotage de projet.',
   'guide-conducteur-de-travaux':
-    'Pack conducteur de travaux : DCE, PPSPS, CR chantier, DOE — méthodes et prompts à adapter.',
+    'Pack conducteur de travaux édition 2 : 6 skills, 7 tutos (connecteurs), DCE à DOE — méthodes et prompts.',
 };
 
 const TUTO_STATUS: Partial<Record<string, RessourceStatus>> = {
