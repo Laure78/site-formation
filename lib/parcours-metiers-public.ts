@@ -8,6 +8,10 @@ import {
   type ParcoursComputed,
   type ParcoursId,
 } from '@/data/catalogue-2027';
+import {
+  isParcoursMetierPublished,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
 
 /** Ordre maquette page /parcours-metiers (7 parcours). */
 export const PARCOURS_METIERS_PAGE_ORDER: readonly ParcoursId[] = [
@@ -30,7 +34,8 @@ export const ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER: readonly ParcoursId[] = [
 ] as const;
 
 export function getParcoursMetiersPublicsComputed(): ParcoursComputed[] {
-  return getAllParcoursComputed();
+  if (!isParcoursMetiers2027Visible()) return [];
+  return getAllParcoursComputed().filter((p) => isParcoursMetierPublished(p.id));
 }
 
 export function getParcoursMetiersPublicsOrdered(

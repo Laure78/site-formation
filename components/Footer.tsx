@@ -19,7 +19,10 @@ import {
   siteSirenDisplay,
 } from '@/lib/site-config';
 import { LINKS } from '@/lib/internal-links';
-import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import {
+  filterLinksWhenParcoursMetiersHidden,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
 import {
   PHOTOS,
   SITE_BRAND_LOGO_FOOTER_IMAGE_CLASS,
@@ -73,8 +76,8 @@ const FOOTER_PARCOURS_METIERS_2027: readonly NavItem[] = [
   },
   {
     href: LINKS.parcoursAssistantDeGestionBtp,
-    label: 'Parcours assistant de gestion BTP',
-    title: 'Parcours métier IA — assistant de gestion BTP',
+    label: 'Parcours assistante travaux',
+    title: 'Parcours métier IA — assistante travaux et gestion chantier',
   },
   {
     href: LINKS.parcoursDirigeantPmeBtp,
@@ -241,7 +244,7 @@ export function Footer() {
             <FooterNavColumn
               ariaLabel="Parcours métiers 2027"
               heading="Parcours métiers · 2027"
-              items={FOOTER_PARCOURS_METIERS_2027}
+              items={filterLinksWhenParcoursMetiersHidden(FOOTER_PARCOURS_METIERS_2027)}
             />
           ) : null}
           <FooterNavColumn

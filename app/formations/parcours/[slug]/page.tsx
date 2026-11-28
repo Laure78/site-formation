@@ -11,7 +11,10 @@ import {
 import { createPageMetadata, SITE_CONFIG } from '@/lib/seo';
 import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { LINKS } from '@/lib/internal-links';
-import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import {
+  isParcoursMetierSlugPublished,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
 import { redirect } from 'next/navigation';
 import {
   parcoursMetierPageDescription,
@@ -32,10 +35,10 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  if (!isParcoursMetiers2027Visible()) {
+  const { slug } = await params;
+  if (!isParcoursMetiers2027Visible() || !isParcoursMetierSlugPublished(slug)) {
     return { robots: { index: false, follow: true } };
   }
-  const { slug } = await params;
   if (PARCOURS_SLUGS_RETIRES.has(slug)) return {};
   const parcours = getParcoursBySlug(slug);
   if (!parcours) return {};
@@ -61,11 +64,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function ParcoursPage({ params }: Props) {
-  if (!isParcoursMetiers2027Visible()) {
+  const { slug } = await params;
+  if (!isParcoursMetiers2027Visible() || !isParcoursMetierSlugPublished(slug)) {
     redirect(LINKS.formations);
   }
-
-  const { slug } = await params;
   if (PARCOURS_SLUGS_RETIRES.has(slug)) {
     redirect(isParcoursMetiers2027Visible() ? LINKS.parcoursMetiers : LINKS.formations);
   }

@@ -13,7 +13,10 @@ import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
 import { libelleDisponibiliteParcoursMetier } from '@/lib/catalogue-2027/parcours-commercial-copy';
 import { getPublishedFormations } from '@/lib/formation-catalogue-visibility';
 import { LINKS } from '@/lib/internal-links';
-import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import {
+  isParcoursMetierPublished,
+  isParcoursMetiers2027Visible,
+} from '@/lib/parcours-metiers-2027-visibility';
 import { ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER } from '@/lib/parcours-metiers-public';
 import {
   FORMATIONS_NIVEAUX_IA,
@@ -135,6 +138,7 @@ export function getAccueilParcoursOffre(
 ): readonly AccueilParcoursOffreCard[] {
   if (!opts?.preview && !isParcoursMetiers2027Visible()) return [];
   const list = getAllParcoursComputed().filter((p) => {
+    if (!opts?.preview && !isParcoursMetierPublished(p.id)) return false;
     if (opts?.featuredOnly) return ACCUEIL_PARCOURS_FEATURED_IDS.includes(p.id);
     return true;
   });
@@ -171,10 +175,12 @@ export function getAccueilParcoursOffre(
 
 /** Grille parcours métiers accueil — 5 cartes (aperçu 2027, sans Chef d’équipe ni Chef de chantier). */
 export function getAccueilParcoursMetiersMaquette(): readonly AccueilParcoursOffreCard[] {
-  const byId = new Map(getAccueilParcoursOffre({ preview: true }).map((p) => [p.id, p]));
-  return ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER.map((id) => byId.get(id)).filter(
-    (p): p is AccueilParcoursOffreCard => p != null,
+  const preview = !isParcoursMetiers2027Visible();
+  const byId = new Map(getAccueilParcoursOffre({ preview }).map((p) => [p.id, p]));
+  const order = ACCUEIL_PARCOURS_METIERS_PUBLIC_ORDER.filter((id) =>
+    preview ? true : isParcoursMetierPublished(id),
   );
+  return order.map((id) => byId.get(id)).filter((p): p is AccueilParcoursOffreCard => p != null);
 }
 
 /** Lien carte parcours accueil — fiche parcours ou ancre orientation si catalogue 2027 non publié. */

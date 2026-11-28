@@ -14,21 +14,34 @@ import {
   SITE,
 } from '@/lib/site-config';
 import { OFC_IDENTITE } from '@/lib/ofc-identite';
-import { isParcoursMetiers2027Visible } from '@/lib/parcours-metiers-2027-visibility';
+import { computeParcours, getParcoursById } from '@/data/catalogue-2027';
+import { parcoursHref } from '@/lib/catalogue-2027/parcours-href';
+import {
+  isParcoursMetiers2027Visible,
+  PARCOURS_METIERS_PUBLISHED_IDS,
+} from '@/lib/parcours-metiers-2027-visibility';
 
 const BASE = SCHEMA_PUBLIC_SITE_URL.replace(/\/$/, '');
 
 /** Date ISO (YYYY-MM-DD) — mettre à jour à chaque modification de ce fichier. */
-export const LLMS_TXT_LAST_UPDATED = '2026-11-25';
+export const LLMS_TXT_LAST_UPDATED = '2026-11-28';
 
 export function buildLlmsTxtContent(): string {
   const refs = formatReferencesLlmsLine();
   const parcoursVisible = isParcoursMetiers2027Visible();
+  const publishedParcoursLines = PARCOURS_METIERS_PUBLISHED_IDS.flatMap((id) => {
+    const raw = getParcoursById(id);
+    if (!raw) return [];
+    const p = computeParcours(raw);
+    return [
+      `- [Parcours IA ${p.titre}](${BASE}${parcoursHref(id)}) : ${p.dureeHeures} h, ${p.moduleCount} modules — présentiel Île-de-France.\n`,
+    ];
+  }).join('');
   const parcoursGeoLine = parcoursVisible
-    ? `- Parcours métiers BTP modulaires ? Formation IA BTP à la carte ou parcours complet : cinq parcours par métier (dirigeant de PME BTP, chargé d'affaires, conducteur de travaux, assistant de gestion, référent IA) — modules de formation IA pour les professionnels du BTP suivis ensemble ou séparément selon les besoins et les prérequis pédagogiques. Page : ${BASE}/parcours-metiers\n`
+    ? `- Parcours métiers BTP modulaires ? Formation IA à la carte ou parcours complet — conducteur de travaux et assistante travaux en ligne ; autres parcours publiés progressivement. Hub : ${BASE}/parcours-metiers\n`
     : '';
   const parcoursPagesLines = parcoursVisible
-    ? `- Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : ${BASE}/parcours-metiers\n- [Parcours IA maître d'œuvre · MOEX](${BASE}/formations/parcours/maitre-oeuvre) : 16 h, quatre modules — initiation, MOE, Claude, assistants (présentiel Île-de-France).\n- [Parcours IA AMO BTP](${BASE}/formations/parcours/amo-btp) : 12 h — initiation, mission AMO et appels d'offres (présentiel Île-de-France).\n`
+    ? `- Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : ${BASE}/parcours-metiers\n${publishedParcoursLines}`
     : '';
   return `# laureolivie.fr — Laure Olivié, formation IA pour le BTP (OFC Création d'Entreprise)
 

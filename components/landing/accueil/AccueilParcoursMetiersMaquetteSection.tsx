@@ -42,7 +42,9 @@ export function AccueilParcoursMetiersMaquetteSection() {
       <RevealGroupShell
         as="ul"
         itemAs="li"
-        className="accueil-maquette__grid grid list-none gap-2.5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5"
+        className={`accueil-maquette__grid grid list-none gap-2.5 sm:grid-cols-2 ${
+          parcours.length <= 2 ? 'md:max-w-2xl md:mx-auto' : 'md:grid-cols-3 lg:grid-cols-5'
+        }`}
         staggerMs={ACCUEIL_MOTION_REVEAL.staggerMs}
         distance={ACCUEIL_MOTION_REVEAL.distance}
       >
