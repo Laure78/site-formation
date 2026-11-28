@@ -137,7 +137,8 @@ export const LINKS = {
   parcoursChefDeChantier: '/parcours-metiers',
   /** @deprecated Parcours retiré — 301 vers `parcoursMetiers`. Ne pas lier en dur. */
   parcoursChefDequipe: '/formations/parcours/chef-dequipe',
-  parcoursAssistantDeGestionBtp: '/formations/parcours/assistant-de-gestion-btp',
+  /** Parcours assistante travaux (slug public `assistant-travaux`) */
+  parcoursAssistantDeGestionBtp: '/formations/parcours/assistant-travaux',
   parcoursReferentIaBtp: '/formations/parcours/referent-ia-btp',
   parcoursMaitreOeuvre: '/formations/parcours/maitre-oeuvre',
   parcoursAmoBtp: '/formations/parcours/amo-btp',

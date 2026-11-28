@@ -41,7 +41,7 @@
 ## Pages clés
 - Parcours métiers BTP modulaires (parcours complet ou modules à la carte) : https://www.laureolivie.fr/parcours-metiers
 - [Parcours IA Conducteur de travaux](https://www.laureolivie.fr/formations/parcours/conducteur-de-travaux) : 42 h, 6 modules — présentiel Île-de-France.
-- [Parcours IA Assistant de gestion BTP](https://www.laureolivie.fr/formations/parcours/assistant-de-gestion-btp) : 39 h, 6 modules — présentiel Île-de-France.
+- [Parcours IA Assistant de gestion BTP](https://www.laureolivie.fr/formations/parcours/assistant-travaux) : 39 h, 6 modules — présentiel Île-de-France.
 - Formation IA pour le BTP (pilier) : https://www.laureolivie.fr/formation-ia-btp
 - Formation IA BTP en Île-de-France : https://www.laureolivie.fr/formation-ia-btp-ile-de-france
 - Formation IA BTP à Paris : https://www.laureolivie.fr/formation-ia-paris

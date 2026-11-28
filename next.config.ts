@@ -377,6 +377,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: '/formations/parcours/assistant-de-gestion-btp',
+        destination: '/formations/parcours/assistant-travaux',
+        permanent: true,
+      },
+      {
+        source: '/formations/parcours/assistant-de-gestion-btp/',
+        destination: '/formations/parcours/assistant-travaux',
+        permanent: true,
+      },
+      {
         source: '/parcours/applications-metier-btp',
         destination: '/formations/developpement-web-ia-sans-coder',
         permanent: true,

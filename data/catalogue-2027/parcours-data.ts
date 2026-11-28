@@ -180,7 +180,7 @@ export const PARCOURS_CATALOGUE_2027: readonly CatalogueParcours[] = [
   },
   {
     id: 'assistant-de-gestion-btp',
-    slug: 'assistant-de-gestion-btp',
+    slug: 'assistant-travaux',
     metierId: 'assistant-gestion',
     titre: 'Assistant de gestion BTP',
     benefice: 'Organiser l’administratif, la facturation et les outils de gestion.',
